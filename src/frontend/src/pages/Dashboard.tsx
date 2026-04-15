@@ -7,11 +7,11 @@ import { LiveVitals } from "../components/LiveVitals";
 import { SensorStatusBar } from "../components/SensorStatusBar";
 import { PatientInfoPanel } from "../components/dashboard/PatientInfoPanel";
 import { WaveformPanel } from "../components/dashboard/WaveformPanel";
-import { useStore } from "../store/useStore";
+import { useAppStore } from "../store/appStore";
 
 export default function Dashboard() {
-  const waveformResolution = useStore((s) => s.waveformResolution);
-  const setWaveformResolution = useStore((s) => s.setWaveformResolution);
+  const waveformResolution = useAppStore((s) => s.waveformResolution);
+  const setWaveformResolution = useAppStore((s) => s.setWaveformResolution);
 
   return (
     <div
