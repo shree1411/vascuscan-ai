@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: Figtree, sans-serif;
+    --font-body: Figtree, sans-serif;
+    --font-mono: JetBrainsMono, monospace;
+    --radius: 0.375rem;
+
+    /* Light mode (fallback, not used) */
+    --background: 0.99 0 0;
+    --foreground: 0.15 0 0;
+    --card: 1.0 0 0;
+    --card-foreground: 0.15 0 0;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.15 0 0;
+
+    --primary: 0.35 0 0;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.95 0 0;
+    --secondary-foreground: 0.25 0 0;
+    --muted: 0.95 0 0;
+    --muted-foreground: 0.5 0 0;
+
+    --accent: 0.35 0 0;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.9 0 0;
+    --input: 0.9 0 0;
+    --ring: 0.35 0 0;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.6 0.12 185;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.35 0 0;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.95 0 0;
+    --sidebar-accent-foreground: 0.25 0 0;
+    --sidebar-border: 0.9 0 0;
+    --sidebar-ring: 0.35 0 0;
+
+    /* VASCUSCAN Medical Colors */
+    --medical-green: 0.56 0.19 142;
+    --medical-amber: 0.66 0.19 62;
+    --medical-red: 0.55 0.22 25;
+    --medical-purple: 0.62 0.2 300;
+    --medical-yellow: 0.65 0.18 84;
+    --medical-cyan: 0.68 0.24 198;
+
+    /* Raw hex vars for direct use */
+    --bg-primary: #0a0e1a;
+    --bg-card: #0d1426;
+    --bg-card-hover: #111d35;
+    --border-raw: #1a2744;
+    --cyan: #00d4ff;
+  }
+
+  .dark {
+    --background: 0.09 0 0;
+    --foreground: 0.96 0 0;
+    --card: 0.13 0 0;
+    --card-foreground: 0.96 0 0;
+    --popover: 0.18 0 0;
+    --popover-foreground: 0.96 0 0;
+
+    --primary: 0.68 0.24 198;
+    --primary-foreground: 0.09 0 0;
+
+    --secondary: 0.18 0 0;
+    --secondary-foreground: 0.85 0 0;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.5 0 0;
+
+    --accent: 0.68 0.24 198;
+    --accent-foreground: 0.09 0 0;
+
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 0.96 0 0;
+
+    --border: 0.2 0 0;
+    --input: 0.2 0 0;
+    --ring: 0.68 0.24 198;
+
+    --chart-1: 0.56 0.19 142;
+    --chart-2: 0.6 0.22 25;
+    --chart-3: 0.68 0.24 198;
+    --chart-4: 0.66 0.19 62;
+    --chart-5: 0.65 0.18 84;
+
+    --sidebar: 0.13 0 0;
+    --sidebar-foreground: 0.96 0 0;
+    --sidebar-primary: 0.68 0.24 198;
+    --sidebar-primary-foreground: 0.09 0 0;
+    --sidebar-accent: 0.18 0 0;
+    --sidebar-accent-foreground: 0.85 0 0;
+    --sidebar-border: 0.2 0 0;
+    --sidebar-ring: 0.68 0.24 198;
+
+    /* VASCUSCAN Medical Colors */
+    --medical-green: 0.65 0.22 138;
+    --medical-amber: 0.68 0.2 62;
+    --medical-red: 0.6 0.22 25;
+    --medical-purple: 0.68 0.22 300;
+    --medical-yellow: 0.72 0.2 84;
+    --medical-cyan: 0.68 0.24 198;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background: #0a0e1a;
+    color: #fff;
+    font-family: "Inter", system-ui, sans-serif;
+    margin: 0;
+  }
+}
+
+@font-face {
+  font-family: Figtree;
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: JetBrainsMono;
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0e1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a2744;
+  border-radius: 3px;
+}
+
+/* ── Thin noise sliders ─────────────────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  border-radius: 1px;
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 2px;
+  border-radius: 1px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: -4px;
+  cursor: pointer;
+  border: none;
+}
+input[type="range"]::-moz-range-track {
+  height: 2px;
+  border-radius: 1px;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Medical color utilities */
+  .badge-normal {
+    @apply px-2 py-1 rounded text-xs font-semibold;
+    background-color: oklch(var(--medical-green) / 0.15);
+    color: oklch(var(--medical-green));
+  }
+
+  .badge-warning {
+    @apply px-2 py-1 rounded text-xs font-semibold;
+    background-color: oklch(var(--medical-amber) / 0.15);
+    color: oklch(var(--medical-amber));
+  }
+
+  .badge-critical {
+    @apply px-2 py-1 rounded text-xs font-semibold;
+    background-color: oklch(var(--medical-red) / 0.15);
+    color: oklch(var(--medical-red));
+  }
+
+  .waveform-grid {
+    background-image: linear-gradient(
+        oklch(var(--border) / 0.3) 1px,
+        transparent 1px
+      ), linear-gradient(90deg, oklch(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .vitals-accent-red {
+    color: oklch(var(--medical-red));
+  }
+
+  .vitals-accent-cyan {
+    color: oklch(var(--medical-cyan));
+  }
+
+  .vitals-accent-purple {
+    color: oklch(var(--medical-purple));
+  }
+
+  .vitals-accent-yellow {
+    color: oklch(var(--medical-yellow));
+  }
+
+  .vitals-accent-green {
+    color: oklch(var(--medical-green));
+  }
+
+  /* Dark medical panel backgrounds */
+  .bg-medical-primary {
+    background: #0a0e1a;
+  }
+  .bg-medical-card {
+    background: #0d1426;
+  }
+  .bg-medical-card-hover {
+    background: #111d35;
+  }
+  .border-medical {
+    border-color: #1a2744;
+  }
+  .text-cyan-medical {
+    color: #00d4ff;
+  }
+}

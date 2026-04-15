@@ -1,0 +1,2001 @@
+age,gender,diabetes_status,hypertension_status,cholesterol_level,ldl,hdl,smoking_status,family_history,activity_level,stress_level,risk_label
+56,Male,No,No,123.8,75.2,70.3,Never,0,Sedentary,High,Low
+35,Male,No,No,199.9,172.2,49.6,Former,0,Sedentary,Moderate,Low
+64,Female,No,No,218.5,124.4,62.6,Current,0,Light,Moderate,Moderate
+67,Male,No,No,213.5,115.9,38.9,Never,1,Moderate,High,High
+20,Male,Prediabetes,No,220.3,99.5,35.3,Former,0,Vigorous,Moderate,Low
+31,Female,Type 2,No,194.5,140.6,56.5,Never,0,Sedentary,Low,Low
+54,Male,No,No,183.5,75.4,59.3,Former,0,Sedentary,Moderate,Low
+46,Male,No,Treated,149.9,91.8,49.1,Current,0,Sedentary,High,Moderate
+51,Female,No,No,176.5,86.7,71.6,Former,0,Moderate,Moderate,Low
+38,Male,Prediabetes,No,139.5,72.6,84.2,Current,0,Sedentary,Low,Moderate
+66,Male,Type 1,No,159.5,56.4,50.5,Former,0,Sedentary,High,High
+64,Female,No,No,198.7,138.8,70.0,Former,0,Moderate,Moderate,Moderate
+53,Male,Type 2,No,190.1,98.4,24.9,Never,0,Moderate,Moderate,Moderate
+70,Male,No,Treated,323.7,151.3,46.4,Former,0,Moderate,High,High
+59,Male,Prediabetes,Untreated,138.5,103.7,50.9,Current,0,Sedentary,Moderate,High
+38,Female,Type 2,Treated,189.7,93.2,65.3,Former,0,Light,High,Moderate
+57,Male,Prediabetes,No,135.2,81.7,50.2,Never,0,Sedentary,High,Moderate
+36,Female,No,No,178.7,116.8,54.4,Never,0,Moderate,Low,Low
+66,Male,No,No,180.4,109.6,45.2,Former,0,Moderate,Moderate,Moderate
+51,Male,No,No,230.5,78.4,44.9,Current,0,Sedentary,Moderate,Low
+49,Female,Prediabetes,Untreated,176.1,112.2,77.5,Never,1,Moderate,High,High
+41,Female,No,No,187.0,100.6,52.7,Never,0,Light,High,Low
+71,Female,Prediabetes,No,176.9,90.1,80.8,Never,0,Moderate,High,High
+49,Male,Type 2,No,136.2,72.5,56.9,Never,1,Sedentary,Moderate,Moderate
+45,Female,No,No,167.6,56.8,74.8,Current,1,Light,Moderate,Low
+46,Female,No,Untreated,179.0,102.7,35.6,Never,0,Sedentary,Low,Moderate
+60,Male,No,No,198.1,78.9,48.8,Never,1,Moderate,Moderate,Low
+57,Male,No,No,218.5,113.9,42.8,Never,0,Sedentary,Low,Low
+58,Female,No,No,185.1,105.2,72.7,Never,1,Light,High,Low
+58,Male,No,Treated,184.4,125.0,56.6,Current,0,Moderate,Moderate,Low
+85,Female,No,No,122.7,50.0,38.5,Never,0,Moderate,Moderate,Moderate
+45,Female,No,Treated,217.7,151.7,33.6,Never,1,Moderate,Low,Moderate
+43,Male,No,No,165.8,112.0,45.0,Never,0,Moderate,Moderate,Low
+38,Male,No,No,226.4,115.1,59.2,Current,1,Moderate,Moderate,Low
+61,Male,No,Untreated,250.3,113.3,54.1,Current,0,Moderate,High,High
+70,Male,No,No,187.1,71.1,50.3,Never,0,Light,High,Moderate
+50,Male,No,No,152.0,89.6,52.6,Former,1,Sedentary,Moderate,Low
+38,Female,Prediabetes,No,194.3,90.6,61.5,Never,0,Light,High,Low
+38,Male,No,No,209.6,141.7,37.0,Former,1,Sedentary,Low,Moderate
+62,Female,No,No,181.7,85.0,60.2,Never,1,Light,Low,Moderate
+63,Male,Type 2,Treated,171.3,74.4,60.8,Current,0,Light,Moderate,High
+60,Male,No,No,218.7,125.4,45.9,Current,0,Sedentary,Moderate,Low
+41,Male,No,No,215.9,103.7,54.4,Never,0,Moderate,Low,Low
+55,Female,No,No,180.5,99.5,56.2,Never,0,Moderate,Low,Low
+53,Male,No,Treated,125.5,90.7,69.1,Never,0,Moderate,Moderate,Low
+55,Male,No,No,214.2,120.4,33.9,Never,0,Vigorous,Low,Low
+65,Female,Prediabetes,No,162.8,92.2,65.0,Never,1,Light,Moderate,High
+55,Female,Type 1,Treated,204.0,116.7,63.7,Never,0,Light,Moderate,Moderate
+62,Male,No,Treated,201.3,73.5,55.7,Current,0,Sedentary,High,High
+53,Female,No,Untreated,115.7,72.3,71.9,Never,0,Light,Low,Low
+56,Male,No,No,198.4,112.6,50.9,Current,0,Sedentary,Low,Low
+62,Male,No,No,216.6,138.8,60.2,Never,0,Moderate,Low,Low
+28,Male,No,No,221.8,135.3,49.5,Never,0,Light,Low,Low
+46,Male,Prediabetes,Treated,199.9,105.5,38.2,Never,0,Light,Moderate,Moderate
+44,Male,Type 2,No,112.0,84.3,75.0,Current,0,Light,Moderate,Moderate
+41,Female,No,No,248.6,130.3,25.1,Never,1,Light,Low,Moderate
+47,Male,No,No,212.3,122.2,53.5,Never,1,Moderate,High,Moderate
+75,Female,No,Treated,144.5,72.6,55.7,Former,0,Moderate,Moderate,Moderate
+38,Female,No,Treated,161.9,99.2,52.3,Former,1,Moderate,Low,Low
+67,Female,Type 2,No,204.7,104.3,53.4,Former,1,Moderate,Low,High
+25,Female,No,Untreated,223.6,159.2,39.9,Never,0,Light,High,Moderate
+46,Female,Prediabetes,Untreated,174.5,140.4,62.0,Never,1,Light,Moderate,Moderate
+54,Female,Prediabetes,No,229.7,145.6,48.2,Current,0,Moderate,High,Moderate
+61,Male,Type 2,No,119.7,99.7,56.6,Former,0,Light,Low,Moderate
+63,Male,No,Treated,151.2,50.0,75.4,Former,0,Light,Moderate,Moderate
+64,Female,No,No,108.3,50.0,68.2,Never,1,Sedentary,Low,Moderate
+46,Female,Prediabetes,No,157.3,79.4,66.0,Never,1,Moderate,Low,Moderate
+44,Male,Prediabetes,No,258.3,143.0,60.3,Current,1,Sedentary,Moderate,High
+65,Female,No,Untreated,281.4,150.4,56.6,Former,1,Vigorous,Moderate,High
+48,Male,Prediabetes,No,204.9,76.6,58.2,Never,0,Sedentary,Low,Moderate
+31,Female,No,Treated,168.2,117.8,53.1,Current,0,Light,Low,Low
+33,Male,No,No,185.7,149.5,37.0,Former,0,Sedentary,Moderate,Low
+37,Male,Type 1,No,214.9,146.4,52.2,Never,0,Light,Low,Low
+59,Male,No,Untreated,129.4,95.1,75.7,Never,0,Light,Low,Low
+54,Male,No,No,171.0,99.0,60.6,Former,1,Moderate,Low,Low
+63,Male,Type 2,No,255.3,121.9,20.0,Never,0,Sedentary,Low,High
+45,Male,Prediabetes,No,151.1,84.7,69.8,Former,0,Light,High,Low
+54,Male,Type 2,Treated,163.5,136.2,68.7,Former,1,Sedentary,Low,High
+62,Male,No,No,195.6,99.8,49.0,Never,1,Light,Moderate,Moderate
+47,Male,Type 2,No,206.9,103.8,62.8,Current,0,Vigorous,Moderate,Moderate
+59,Male,No,No,168.7,117.1,64.2,Never,0,Light,Low,Low
+41,Male,No,No,198.2,134.8,44.0,Never,0,Moderate,Moderate,Low
+46,Male,No,No,220.5,102.6,64.2,Former,0,Light,Low,Low
+45,Male,Prediabetes,No,277.4,146.8,25.2,Former,0,Light,High,Moderate
+32,Male,Type 2,No,189.7,93.3,52.9,Never,0,Moderate,Moderate,Low
+59,Male,Prediabetes,No,193.3,107.8,51.1,Former,0,Sedentary,Moderate,Low
+44,Female,No,Treated,259.2,166.8,33.2,Current,0,Moderate,Moderate,High
+52,Female,No,Treated,171.9,76.9,59.9,Current,0,Light,High,Moderate
+59,Female,No,No,139.4,100.6,76.8,Current,0,Light,Moderate,Low
+59,Female,No,No,205.5,115.3,66.1,Never,0,Vigorous,Moderate,Low
+62,Female,No,No,240.2,183.3,54.7,Never,0,Light,Low,High
+50,Male,No,Untreated,210.2,122.6,30.1,Former,0,Vigorous,Low,Moderate
+45,Female,Type 1,No,190.9,102.9,37.3,Never,0,Vigorous,Low,Low
+50,Female,Prediabetes,No,134.2,86.5,63.9,Former,0,Light,Low,Low
+25,Female,Prediabetes,No,192.5,98.5,52.7,Never,1,Light,High,Low
+28,Female,No,No,246.8,96.2,39.0,Never,0,Moderate,High,Low
+30,Male,No,No,143.2,73.5,83.4,Never,0,Sedentary,Low,Low
+36,Female,No,No,184.7,95.9,55.6,Never,0,Moderate,High,Low
+58,Female,No,Treated,178.7,63.3,61.7,Never,0,Sedentary,Moderate,Moderate
+37,Male,No,Treated,165.7,89.5,69.0,Former,0,Sedentary,Moderate,Low
+45,Female,No,Treated,205.4,67.5,51.8,Former,0,Light,High,Low
+72,Male,No,Treated,213.6,109.8,81.1,Never,1,Moderate,Moderate,High
+46,Female,Prediabetes,No,213.2,122.6,38.7,Never,1,Moderate,Moderate,Moderate
+63,Female,No,Untreated,154.0,86.8,51.6,Current,0,Moderate,Low,High
+37,Male,No,Treated,125.9,60.2,51.8,Never,0,Light,Low,Low
+48,Female,No,Treated,206.0,111.4,69.9,Never,1,Light,High,Moderate
+36,Male,No,Treated,173.8,78.3,65.6,Never,1,Sedentary,Low,Moderate
+46,Female,No,No,272.2,149.9,34.6,Former,0,Light,Low,Moderate
+65,Female,No,No,274.1,152.0,30.5,Current,1,Light,Low,High
+24,Female,No,No,278.6,133.4,56.8,Former,1,Moderate,Moderate,Low
+58,Female,No,No,155.5,91.4,63.0,Current,1,Sedentary,Moderate,Low
+55,Male,Type 2,No,218.9,126.1,66.1,Current,0,Sedentary,High,Moderate
+42,Male,No,No,231.6,123.7,46.5,Never,1,Moderate,Moderate,Low
+28,Male,No,No,226.9,178.1,54.1,Never,0,Sedentary,High,Low
+53,Male,No,Untreated,180.1,96.0,58.6,Never,0,Vigorous,Moderate,Low
+43,Male,No,Treated,248.7,130.6,37.2,Never,0,Light,Moderate,Low
+55,Male,No,No,195.0,98.0,51.0,Former,0,Sedentary,Low,Low
+52,Male,Type 1,No,200.4,88.9,37.7,Never,1,Moderate,Low,Moderate
+77,Male,No,No,130.4,86.8,68.4,Never,0,Moderate,High,Moderate
+48,Female,No,Untreated,222.1,107.1,57.8,Never,0,Moderate,Moderate,Moderate
+35,Male,No,Treated,184.1,88.8,66.3,Former,0,Light,Moderate,Low
+54,Female,No,Treated,214.5,106.1,57.8,Former,0,Light,High,Low
+55,Male,No,No,204.9,91.0,49.7,Current,0,Moderate,High,Low
+73,Male,No,No,202.6,72.9,70.2,Never,0,Light,Low,Moderate
+65,Female,No,Treated,193.1,96.0,63.7,Never,0,Moderate,Moderate,Moderate
+57,Male,Type 2,Untreated,228.0,144.6,64.5,Current,0,Light,Moderate,High
+75,Male,Prediabetes,No,186.6,107.0,71.4,Former,0,Light,High,Moderate
+32,Female,Type 2,No,133.9,108.0,60.4,Former,0,Sedentary,Low,Low
+41,Male,No,No,218.9,136.9,53.8,Never,0,Moderate,Low,Low
+37,Male,Prediabetes,No,161.0,100.1,67.1,Never,1,Light,Moderate,Low
+45,Female,No,Untreated,139.4,118.1,47.3,Current,1,Vigorous,Low,Moderate
+29,Male,No,Treated,152.1,81.5,45.7,Former,0,Light,Low,Low
+62,Female,Type 2,No,206.9,115.2,35.4,Former,0,Light,Moderate,Moderate
+48,Male,No,No,190.9,104.7,52.1,Never,0,Light,Moderate,Low
+28,Female,Type 2,No,105.4,91.9,62.2,Never,1,Moderate,Low,Moderate
+35,Female,Prediabetes,No,178.9,98.5,37.9,Never,0,Moderate,Moderate,Moderate
+57,Female,No,No,244.1,120.0,47.2,Former,0,Light,Low,Low
+65,Female,Prediabetes,Treated,176.0,109.7,54.5,Never,0,Light,Moderate,High
+83,Male,No,Treated,188.0,85.4,68.0,Never,0,Moderate,Moderate,Moderate
+85,Female,Type 2,No,238.8,143.1,70.3,Never,0,Sedentary,High,High
+58,Male,Prediabetes,Treated,228.4,134.7,53.2,Current,0,Moderate,Low,High
+36,Female,No,Treated,237.9,126.7,38.0,Never,0,Moderate,High,Moderate
+18,Female,No,No,100.0,67.4,74.8,Never,0,Light,High,Low
+56,Male,No,Treated,267.8,114.6,41.9,Former,0,Moderate,Moderate,Moderate
+38,Female,No,Treated,221.7,125.5,45.9,Current,1,Moderate,High,Moderate
+45,Male,No,Treated,298.4,153.9,26.9,Former,1,Sedentary,Low,High
+42,Female,Prediabetes,No,162.1,152.1,52.1,Current,0,Light,Low,Moderate
+49,Female,No,No,120.9,69.9,61.7,Never,0,Light,High,Low
+69,Male,Type 1,No,195.3,94.3,62.4,Current,0,Moderate,Moderate,High
+54,Female,No,No,183.4,70.5,60.6,Current,0,Moderate,Low,Low
+49,Female,No,No,222.5,151.1,70.5,Never,1,Light,Low,Low
+35,Male,No,Treated,240.1,124.4,54.1,Former,0,Light,Low,Low
+25,Female,Type 2,No,191.3,87.8,58.4,Never,0,Sedentary,Low,Low
+44,Male,No,No,184.9,109.1,50.6,Never,1,Sedentary,Low,Low
+51,Female,No,Untreated,217.0,133.6,37.0,Never,0,Sedentary,High,High
+80,Male,No,No,184.2,115.3,47.5,Never,0,Sedentary,Low,Moderate
+54,Female,Prediabetes,No,180.7,99.8,46.5,Current,1,Sedentary,High,High
+67,Female,No,No,238.6,134.7,20.0,Never,0,Moderate,Low,Moderate
+44,Male,No,No,247.9,141.4,32.7,Former,0,Moderate,Low,Low
+33,Male,Prediabetes,No,240.5,139.7,65.2,Never,1,Sedentary,High,High
+36,Female,Prediabetes,Treated,187.9,112.7,58.2,Never,0,Moderate,Low,Moderate
+40,Female,No,No,105.1,81.9,61.7,Never,0,Sedentary,Low,Low
+85,Male,No,No,188.8,105.1,58.5,Never,0,Light,High,Moderate
+38,Male,No,No,163.2,71.8,34.1,Former,0,Vigorous,Low,Low
+65,Male,No,Treated,189.6,101.1,56.9,Current,0,Light,Low,High
+37,Female,Prediabetes,No,166.8,108.3,72.3,Never,0,Sedentary,High,Low
+66,Male,No,Treated,194.1,67.5,51.4,Current,0,Light,Moderate,High
+58,Female,No,No,151.4,50.0,38.0,Former,0,Moderate,Moderate,Low
+49,Male,No,No,141.2,97.9,55.9,Former,0,Sedentary,Low,Low
+51,Female,No,No,246.4,169.0,60.4,Never,1,Vigorous,Low,Moderate
+41,Male,No,No,154.3,57.0,62.0,Never,0,Light,Moderate,Low
+59,Male,No,No,195.0,109.5,35.7,Current,0,Sedentary,Moderate,Moderate
+44,Female,No,Treated,235.1,120.5,75.1,Former,1,Light,Low,Low
+32,Female,Type 2,No,233.4,122.6,31.9,Never,0,Moderate,High,Moderate
+31,Male,Prediabetes,No,228.4,132.3,44.8,Current,0,Light,Moderate,Low
+54,Male,No,No,207.7,85.8,38.4,Never,0,Vigorous,Moderate,Low
+77,Male,No,No,225.4,99.6,35.8,Former,0,Vigorous,Moderate,Moderate
+54,Male,No,No,252.7,132.4,38.7,Never,1,Sedentary,Moderate,Moderate
+50,Male,No,No,212.9,113.9,57.7,Current,0,Sedentary,Moderate,Moderate
+56,Female,No,No,117.8,50.0,79.8,Never,1,Light,Low,Low
+72,Male,Type 1,No,172.8,112.4,51.4,Never,0,Moderate,High,Moderate
+55,Female,No,No,224.2,114.1,36.2,Former,0,Moderate,Moderate,Low
+45,Male,No,No,168.7,83.5,62.4,Never,0,Light,High,Low
+69,Male,No,No,263.0,150.9,48.6,Current,0,Vigorous,High,High
+58,Female,No,No,192.3,102.9,56.0,Former,0,Light,Low,Low
+76,Male,Type 2,Untreated,198.6,127.7,55.5,Never,0,Moderate,Moderate,High
+54,Female,No,No,242.2,112.7,44.3,Never,0,Moderate,Moderate,Low
+32,Male,Prediabetes,Treated,187.3,72.3,55.1,Current,1,Sedentary,Moderate,High
+30,Female,Prediabetes,No,202.4,104.5,49.5,Former,1,Sedentary,High,Moderate
+78,Female,No,No,232.8,129.4,59.9,Current,0,Sedentary,Low,High
+79,Female,No,No,133.2,50.0,88.8,Never,1,Vigorous,Moderate,Moderate
+49,Male,No,No,183.0,70.1,56.7,Current,0,Light,High,Low
+45,Male,Type 1,Treated,229.8,130.4,47.5,Never,0,Moderate,High,Moderate
+75,Male,No,Treated,197.8,92.1,55.4,Former,0,Light,Low,Moderate
+34,Female,No,No,256.6,109.2,35.6,Never,0,Light,High,Low
+37,Male,Prediabetes,Treated,128.8,92.1,71.9,Never,0,Vigorous,Low,Low
+62,Male,Prediabetes,No,124.0,54.3,68.7,Current,0,Light,Moderate,High
+45,Male,No,No,227.3,150.3,42.9,Current,1,Moderate,Low,Low
+51,Male,No,Treated,231.4,127.9,58.1,Never,0,Light,Moderate,Moderate
+49,Male,Prediabetes,No,186.9,109.3,54.2,Current,1,Sedentary,Low,Moderate
+57,Male,No,No,211.8,111.8,38.6,Never,0,Sedentary,Low,Moderate
+74,Male,Type 1,Untreated,226.3,66.1,52.3,Never,0,Sedentary,Low,High
+53,Female,No,Untreated,160.8,63.4,60.7,Never,0,Moderate,High,Low
+62,Male,No,Treated,165.3,88.1,68.7,Never,0,Light,Moderate,Moderate
+19,Male,Prediabetes,No,203.0,119.7,61.5,Never,0,Light,Moderate,Low
+51,Female,No,Treated,233.0,88.8,45.7,Never,1,Sedentary,Moderate,Moderate
+38,Female,No,No,146.0,79.1,54.4,Never,0,Moderate,Moderate,Low
+32,Male,No,No,186.7,78.0,54.0,Former,0,Moderate,Low,Low
+37,Female,No,No,184.7,106.7,58.7,Current,1,Moderate,Low,Low
+46,Female,Type 1,Untreated,212.6,116.5,55.9,Former,0,Vigorous,Moderate,Moderate
+66,Female,No,Untreated,194.6,123.4,56.4,Never,1,Sedentary,High,High
+30,Female,No,Treated,172.1,118.1,55.1,Former,0,Sedentary,Low,Low
+52,Female,No,No,247.4,146.2,56.9,Never,0,Light,Moderate,Low
+44,Male,Type 2,No,172.4,113.7,48.0,Former,0,Light,High,Low
+46,Male,No,No,182.7,92.8,84.3,Former,0,Moderate,High,Low
+68,Female,Type 2,Untreated,128.2,132.6,71.9,Never,0,Moderate,Low,High
+60,Female,Type 2,No,165.0,63.9,43.7,Never,0,Sedentary,High,Moderate
+73,Male,No,No,216.7,107.6,51.7,Current,1,Vigorous,Moderate,High
+49,Male,Prediabetes,Treated,208.5,134.5,60.0,Current,0,Sedentary,Moderate,High
+40,Female,Prediabetes,No,220.2,137.7,44.8,Former,0,Moderate,Moderate,Low
+48,Male,No,Treated,218.1,130.7,31.3,Current,0,Light,Low,Moderate
+55,Female,No,No,282.7,170.3,27.1,Current,0,Moderate,High,High
+54,Female,Prediabetes,Treated,163.6,50.0,64.0,Never,0,Sedentary,Moderate,High
+34,Female,Prediabetes,No,127.0,104.8,41.9,Former,0,Vigorous,Moderate,Low
+53,Female,Prediabetes,No,150.9,78.5,42.0,Never,0,Vigorous,High,Low
+55,Female,Type 2,No,165.4,118.4,63.6,Never,0,Light,Moderate,Low
+85,Female,No,No,154.1,50.0,56.2,Never,0,Light,Low,Low
+82,Female,Prediabetes,No,198.9,115.0,43.8,Current,1,Moderate,Low,High
+38,Female,Type 1,No,247.6,123.8,38.9,Former,0,Moderate,High,Moderate
+47,Female,No,No,259.7,155.4,25.4,Never,1,Light,Moderate,Moderate
+28,Male,No,Treated,216.2,125.9,55.4,Never,1,Moderate,High,Moderate
+42,Female,No,No,284.9,164.7,29.6,Never,0,Moderate,Moderate,Moderate
+57,Male,Type 1,Treated,180.0,75.7,48.6,Former,0,Moderate,Moderate,Moderate
+71,Female,No,Treated,126.4,68.3,67.2,Current,0,Sedentary,High,High
+40,Female,Prediabetes,No,239.2,127.6,43.0,Never,1,Vigorous,Moderate,Low
+41,Male,No,Treated,117.8,75.7,55.9,Never,0,Sedentary,Moderate,Low
+18,Male,No,No,163.3,111.6,33.6,Former,0,Sedentary,Low,Low
+49,Male,No,No,216.8,122.6,53.9,Never,0,Vigorous,High,Low
+35,Female,No,No,190.7,76.8,54.3,Never,1,Sedentary,Moderate,Low
+43,Male,Type 2,Treated,187.0,105.2,47.7,Never,0,Sedentary,Moderate,Moderate
+37,Male,No,No,145.4,137.4,47.7,Never,1,Moderate,Moderate,Low
+50,Female,Type 2,No,194.5,143.2,53.0,Never,0,Moderate,Low,Moderate
+23,Female,No,Untreated,237.2,65.0,52.2,Current,0,Sedentary,Moderate,Moderate
+28,Male,Type 2,No,195.8,109.1,53.8,Never,0,Light,Low,Low
+85,Male,No,Untreated,160.1,108.6,77.6,Never,0,Sedentary,Low,High
+31,Female,No,Treated,142.6,74.4,69.1,Former,0,Light,High,Low
+34,Female,No,Untreated,161.0,78.4,56.6,Current,0,Light,Moderate,Low
+81,Female,No,Untreated,211.5,110.5,59.1,Never,1,Sedentary,High,High
+85,Male,No,Untreated,209.4,127.3,51.2,Never,0,Vigorous,Moderate,Moderate
+33,Male,Prediabetes,No,161.4,63.5,58.3,Former,0,Moderate,Low,Low
+46,Male,No,Treated,102.1,82.3,82.2,Never,0,Moderate,Moderate,Low
+57,Female,No,Treated,212.6,115.7,39.3,Former,0,Vigorous,Low,Moderate
+79,Male,No,Treated,157.3,65.9,58.7,Never,0,Vigorous,Moderate,High
+36,Male,No,No,223.9,147.9,62.7,Never,1,Moderate,High,Low
+48,Female,Prediabetes,Untreated,163.2,55.8,61.2,Never,1,Light,Moderate,High
+64,Female,No,No,153.5,72.2,54.5,Former,1,Moderate,Moderate,Moderate
+58,Female,Prediabetes,No,201.4,98.2,31.3,Never,0,Light,High,Moderate
+45,Male,Type 2,No,294.0,208.9,20.0,Never,0,Light,Moderate,High
+49,Male,No,No,226.5,109.5,72.9,Never,1,Light,Moderate,Low
+30,Male,No,Treated,200.7,63.0,55.6,Former,0,Light,Moderate,Low
+48,Male,No,No,210.1,102.8,43.5,Never,0,Light,Moderate,Low
+47,Female,No,Treated,121.5,76.8,68.0,Former,0,Moderate,Low,Low
+55,Male,No,Treated,147.9,98.6,48.4,Former,1,Light,Moderate,Moderate
+43,Female,Type 2,No,100.0,105.1,63.0,Never,0,Light,Moderate,Low
+59,Female,No,Treated,267.7,178.2,30.6,Current,1,Sedentary,Low,High
+68,Female,No,No,259.2,146.7,26.2,Current,0,Moderate,High,High
+54,Male,Prediabetes,Treated,211.5,96.7,25.0,Never,0,Light,Low,High
+57,Male,No,Untreated,200.7,146.1,32.7,Never,0,Light,Moderate,Moderate
+52,Male,Prediabetes,No,129.8,63.3,74.8,Never,1,Moderate,High,Moderate
+52,Male,No,Treated,185.8,87.7,42.3,Never,0,Moderate,Low,Low
+40,Male,No,No,270.3,139.5,47.9,Never,1,Light,High,Moderate
+57,Male,Type 2,No,200.5,82.7,63.4,Current,0,Moderate,High,High
+50,Female,Prediabetes,Treated,171.3,84.0,56.5,Current,1,Sedentary,Moderate,High
+85,Male,Type 1,No,121.2,61.5,60.2,Never,1,Vigorous,High,High
+77,Female,No,Treated,253.0,155.2,45.6,Never,0,Moderate,Moderate,High
+58,Male,Prediabetes,No,192.1,97.1,48.2,Never,0,Moderate,Moderate,Moderate
+39,Male,No,No,121.2,50.0,78.3,Never,0,Sedentary,Moderate,Low
+34,Male,No,Untreated,156.2,50.6,81.1,Never,1,Moderate,Moderate,Low
+71,Male,No,No,141.3,82.3,78.2,Current,1,Light,Low,Moderate
+56,Male,No,No,189.5,105.8,27.8,Current,0,Light,Low,Low
+59,Female,No,No,203.7,99.8,46.2,Never,0,Moderate,Moderate,Low
+24,Male,No,Treated,173.9,85.4,56.0,Former,1,Moderate,High,Moderate
+66,Male,Prediabetes,No,227.6,133.7,53.4,Former,1,Light,High,High
+59,Female,Type 1,No,198.3,139.7,31.5,Current,0,Moderate,High,Moderate
+34,Male,Type 2,No,239.6,114.6,25.1,Never,1,Sedentary,Low,Moderate
+44,Female,No,No,180.0,101.0,70.7,Never,0,Moderate,Moderate,Low
+56,Male,Type 2,Untreated,322.9,198.7,26.9,Former,0,Sedentary,Moderate,High
+52,Female,No,No,171.3,77.1,38.5,Never,0,Light,Low,Low
+47,Male,No,No,157.1,86.1,45.2,Former,0,Moderate,Moderate,Low
+50,Male,Type 1,Treated,151.9,82.7,63.9,Never,0,Sedentary,Moderate,Moderate
+47,Female,No,No,186.1,73.5,44.2,Former,0,Vigorous,High,Low
+54,Female,No,No,122.8,71.2,66.5,Current,0,Light,Low,Low
+75,Male,No,No,207.4,114.8,39.1,Never,0,Moderate,High,Moderate
+18,Female,No,No,115.0,75.5,43.8,Never,0,Sedentary,High,Low
+48,Male,Prediabetes,Treated,201.8,84.9,68.8,Former,1,Moderate,Moderate,High
+54,Male,No,Untreated,138.2,76.2,66.0,Never,1,Vigorous,Low,Moderate
+56,Male,No,Untreated,179.0,128.8,51.1,Former,0,Moderate,Low,Moderate
+46,Female,No,Untreated,220.4,166.9,42.7,Former,1,Light,High,High
+23,Male,No,No,291.8,188.7,55.8,Never,0,Moderate,Low,Low
+57,Female,Prediabetes,No,149.7,56.4,66.6,Current,0,Moderate,Low,Moderate
+79,Male,Type 2,Treated,188.7,113.7,67.5,Never,0,Sedentary,High,High
+27,Female,Prediabetes,Untreated,164.6,79.9,50.3,Former,0,Moderate,Moderate,Moderate
+65,Female,Type 1,Treated,158.5,93.4,58.8,Never,1,Moderate,Moderate,High
+46,Male,No,No,165.0,73.8,62.1,Never,0,Moderate,Low,Low
+51,Male,Type 1,Treated,229.6,88.6,41.0,Never,0,Light,Moderate,Moderate
+35,Male,No,Treated,174.5,88.4,54.7,Current,0,Light,High,Moderate
+46,Female,No,Untreated,289.5,175.1,31.6,Current,0,Vigorous,Low,High
+72,Male,No,Treated,212.5,123.2,54.9,Current,0,Moderate,Low,High
+61,Female,No,No,152.6,92.8,43.3,Never,0,Light,Low,Moderate
+79,Male,Type 2,No,179.6,103.5,61.9,Never,0,Vigorous,Moderate,Moderate
+70,Female,Prediabetes,No,161.3,97.6,61.5,Former,1,Sedentary,Low,High
+59,Male,Type 2,No,228.6,137.4,45.3,Former,0,Light,High,Moderate
+79,Female,No,Untreated,126.2,63.4,68.5,Never,0,Moderate,Low,Moderate
+59,Female,No,No,138.7,78.1,56.8,Current,0,Moderate,Low,Low
+65,Male,Prediabetes,No,170.2,132.0,48.4,Never,0,Vigorous,High,High
+47,Female,No,No,223.7,126.2,55.0,Never,0,Moderate,High,Low
+53,Male,No,Treated,246.8,136.7,52.0,Current,0,Light,Moderate,High
+40,Male,No,No,253.0,141.4,38.0,Never,1,Light,High,Moderate
+67,Female,Type 2,No,217.3,114.7,42.3,Never,0,Sedentary,Low,High
+33,Female,Prediabetes,Untreated,191.5,95.7,51.1,Former,1,Vigorous,Moderate,Moderate
+64,Female,No,No,228.4,130.2,41.1,Current,0,Sedentary,Low,Moderate
+48,Male,No,No,146.9,69.7,78.3,Never,0,Light,Moderate,Low
+70,Male,No,No,117.5,61.4,68.2,Former,0,Light,Moderate,Low
+64,Male,No,No,213.3,99.9,50.2,Never,0,Sedentary,High,Moderate
+81,Female,No,Treated,152.8,86.4,47.9,Never,0,Light,Low,Moderate
+63,Male,No,Untreated,192.3,118.6,62.0,Never,0,Moderate,Moderate,Moderate
+26,Male,No,No,200.0,105.3,44.7,Never,0,Sedentary,High,Low
+50,Male,No,Untreated,205.4,68.8,43.4,Never,0,Vigorous,Moderate,Low
+33,Male,No,Treated,234.4,141.9,56.1,Never,0,Vigorous,Low,Low
+43,Male,No,No,229.9,129.1,52.2,Former,1,Sedentary,Moderate,Low
+76,Male,No,No,203.2,89.9,21.5,Former,1,Moderate,Low,High
+62,Female,Prediabetes,No,176.4,114.0,53.6,Former,0,Light,Moderate,Moderate
+40,Female,No,Untreated,199.5,79.0,53.6,Current,0,Sedentary,Moderate,Moderate
+35,Male,Type 2,No,170.0,116.5,52.4,Never,0,Light,Moderate,Low
+52,Female,No,No,186.7,101.4,55.9,Never,1,Moderate,Moderate,Low
+32,Female,No,Treated,305.0,117.8,20.0,Never,0,Moderate,Moderate,Moderate
+41,Male,No,Untreated,202.7,115.4,20.0,Former,0,Sedentary,Low,Moderate
+56,Male,No,Treated,213.9,108.7,38.2,Never,1,Moderate,Low,Moderate
+70,Male,No,Treated,165.4,78.7,60.6,Never,0,Moderate,Moderate,Moderate
+61,Male,Type 1,No,237.8,114.6,20.0,Never,0,Moderate,High,High
+18,Female,Type 2,Untreated,226.9,122.0,37.8,Never,1,Light,Moderate,High
+56,Female,No,No,227.2,114.3,24.8,Current,1,Moderate,Low,Moderate
+53,Male,No,No,204.0,71.4,48.5,Former,0,Moderate,Moderate,Low
+58,Female,Prediabetes,Untreated,238.4,159.1,69.7,Never,0,Sedentary,Moderate,Moderate
+77,Male,No,No,248.4,131.2,42.1,Former,0,Moderate,Moderate,Moderate
+18,Female,No,No,206.9,97.7,49.7,Former,0,Light,Moderate,Low
+42,Female,Prediabetes,Treated,190.2,79.8,63.5,Never,0,Moderate,High,Moderate
+61,Male,No,No,232.6,144.9,47.4,Never,0,Moderate,Low,Moderate
+26,Male,No,No,157.0,57.8,55.9,Former,0,Light,Moderate,Low
+75,Female,No,Treated,164.8,93.6,68.4,Never,1,Sedentary,Moderate,High
+57,Female,No,Treated,192.8,93.2,58.7,Never,1,Moderate,Moderate,Moderate
+65,Male,No,Treated,121.9,55.5,67.2,Never,1,Moderate,Low,High
+42,Male,Prediabetes,No,229.8,102.1,45.9,Former,0,Moderate,Moderate,Low
+65,Male,No,No,154.6,71.4,54.7,Current,0,Moderate,Low,Moderate
+69,Female,Prediabetes,Treated,175.2,96.6,66.7,Former,0,Sedentary,Moderate,High
+55,Female,Prediabetes,No,186.0,107.5,50.1,Never,0,Light,Moderate,Moderate
+55,Female,Prediabetes,No,196.7,90.9,67.3,Never,0,Moderate,Low,Low
+56,Female,No,No,180.6,97.3,42.3,Former,1,Light,High,Low
+38,Female,No,No,192.2,125.3,70.4,Current,0,Moderate,High,Low
+49,Female,No,No,192.5,69.3,58.8,Current,0,Light,Moderate,Low
+49,Male,No,Treated,176.2,96.8,43.9,Current,0,Sedentary,High,High
+58,Female,Type 2,Untreated,162.5,68.5,63.7,Never,1,Moderate,High,High
+67,Male,No,No,240.4,109.1,38.1,Former,0,Moderate,Low,High
+35,Male,Type 1,Treated,106.6,64.4,66.4,Current,0,Moderate,Moderate,Moderate
+49,Female,No,No,186.4,90.5,48.2,Former,0,Light,Moderate,Low
+75,Female,No,No,175.3,69.6,54.1,Former,1,Moderate,Moderate,Moderate
+40,Female,No,Treated,212.6,146.1,61.4,Never,0,Light,High,Low
+38,Male,Prediabetes,No,133.9,93.9,68.1,Former,0,Moderate,Moderate,Low
+55,Female,No,Untreated,174.0,53.2,42.4,Never,0,Moderate,Low,Moderate
+65,Male,No,No,190.7,72.4,40.6,Never,0,Light,Moderate,Moderate
+52,Male,Prediabetes,No,239.9,145.0,49.3,Current,0,Moderate,Moderate,Moderate
+73,Male,No,No,209.0,108.7,54.8,Current,1,Moderate,Moderate,Moderate
+65,Female,No,No,145.3,112.9,52.1,Current,0,Light,Low,Moderate
+65,Male,No,Untreated,174.5,109.5,74.9,Never,0,Moderate,Low,Moderate
+60,Female,No,Treated,232.2,134.3,56.9,Never,0,Sedentary,Moderate,Low
+85,Male,No,No,144.6,57.0,52.8,Never,0,Vigorous,Low,Moderate
+48,Male,No,No,191.7,116.2,44.6,Current,0,Light,Moderate,Low
+19,Female,No,Treated,194.6,79.0,50.1,Former,1,Sedentary,Low,Moderate
+77,Male,No,Treated,178.8,127.1,51.2,Current,1,Moderate,Moderate,High
+44,Female,No,No,308.2,178.8,50.8,Never,0,Sedentary,Low,Moderate
+53,Female,No,No,177.7,79.6,67.2,Former,1,Vigorous,Low,Low
+72,Male,No,No,213.9,135.3,50.3,Former,1,Light,Moderate,Moderate
+26,Female,No,No,162.8,138.9,65.7,Never,0,Light,Low,Low
+31,Female,No,No,217.2,114.7,59.3,Current,0,Sedentary,Low,Low
+26,Female,No,No,231.6,139.5,48.0,Former,1,Sedentary,Moderate,Low
+39,Female,No,No,170.3,84.2,61.3,Never,1,Sedentary,Low,Low
+59,Female,Type 2,No,192.7,107.9,60.2,Never,0,Sedentary,Low,Moderate
+60,Female,Type 1,No,157.4,53.4,64.2,Current,1,Light,Moderate,Moderate
+56,Male,No,Untreated,146.9,80.8,50.6,Former,0,Light,Moderate,Low
+29,Female,No,No,238.5,132.1,38.1,Former,0,Light,Moderate,Low
+18,Female,No,No,171.7,134.0,52.8,Former,0,Sedentary,High,Low
+52,Female,Prediabetes,No,100.0,50.0,58.5,Never,0,Sedentary,Moderate,Moderate
+44,Female,No,No,269.1,141.8,24.0,Former,0,Sedentary,Moderate,Low
+59,Male,No,Untreated,161.3,117.1,65.9,Current,0,Sedentary,High,Moderate
+63,Female,No,No,184.7,96.3,58.5,Never,0,Light,Moderate,Low
+54,Female,No,No,263.9,141.4,26.3,Former,1,Sedentary,Moderate,Moderate
+64,Male,No,Untreated,189.0,85.6,50.8,Never,0,Light,Moderate,Moderate
+55,Male,Type 1,Treated,188.1,82.9,51.6,Never,0,Vigorous,Moderate,High
+60,Female,Type 2,Treated,143.4,50.0,62.7,Never,0,Light,High,High
+40,Male,No,No,126.3,55.6,50.1,Current,0,Sedentary,Low,Low
+49,Female,No,No,188.0,81.6,37.6,Never,0,Moderate,High,Low
+55,Male,No,Treated,210.2,118.2,56.7,Never,0,Light,Moderate,Moderate
+65,Male,No,No,207.8,97.0,32.4,Former,0,Sedentary,Moderate,Moderate
+45,Female,No,Treated,174.8,85.6,53.0,Never,1,Moderate,Moderate,Moderate
+60,Female,No,Treated,195.9,97.8,48.7,Former,0,Moderate,Low,Moderate
+47,Female,Type 1,No,117.8,63.7,62.9,Current,0,Vigorous,Low,Moderate
+50,Female,Type 2,No,214.3,106.2,52.9,Never,1,Vigorous,High,Moderate
+65,Female,No,No,201.8,87.6,70.9,Never,0,Moderate,Moderate,Moderate
+20,Female,No,No,277.9,154.7,21.1,Current,0,Moderate,High,Moderate
+31,Female,No,Treated,195.3,130.9,63.2,Never,0,Light,Low,Low
+28,Female,No,Treated,155.4,88.3,28.5,Never,0,Moderate,Low,Low
+18,Female,No,No,192.9,92.7,69.8,Current,0,Moderate,Low,Low
+41,Male,No,Treated,181.2,97.0,30.3,Current,1,Light,Low,Moderate
+63,Male,No,No,213.3,72.2,79.2,Former,0,Sedentary,Moderate,Moderate
+47,Female,Prediabetes,Treated,196.1,104.8,47.9,Former,1,Moderate,High,High
+55,Female,No,No,142.1,69.3,76.2,Current,0,Light,High,Moderate
+69,Female,No,Treated,126.3,50.0,76.1,Former,1,Moderate,Moderate,High
+73,Male,No,Treated,206.0,96.8,45.9,Former,0,Sedentary,Low,High
+50,Female,Type 2,No,253.1,130.2,39.7,Current,0,Moderate,Moderate,High
+73,Male,No,No,198.3,130.9,42.2,Former,0,Sedentary,Moderate,Moderate
+53,Female,No,Untreated,229.2,150.1,57.1,Never,0,Moderate,Moderate,Moderate
+38,Female,No,No,237.5,110.2,41.3,Never,0,Light,Moderate,Low
+42,Female,No,Treated,206.2,102.0,41.2,Never,0,Light,Low,Low
+28,Female,Type 2,Untreated,160.8,77.6,64.3,Never,0,Light,Low,Moderate
+37,Male,No,Untreated,203.2,129.6,40.8,Never,0,Sedentary,High,Low
+46,Male,Type 2,No,245.7,138.3,41.2,Never,0,Sedentary,Moderate,Moderate
+64,Female,No,Treated,217.3,121.6,50.7,Current,0,Moderate,High,High
+79,Female,No,Untreated,226.4,136.3,40.3,Never,0,Sedentary,Low,Moderate
+29,Female,No,No,175.6,83.5,49.8,Never,0,Moderate,Moderate,Low
+58,Male,No,No,186.5,132.6,72.4,Never,0,Moderate,Low,Low
+35,Male,No,No,190.0,104.5,51.0,Never,0,Sedentary,High,Low
+59,Male,No,Treated,192.8,87.2,48.8,Former,0,Moderate,Low,Low
+49,Male,No,No,244.1,129.2,43.3,Never,0,Moderate,Moderate,Low
+22,Male,Prediabetes,No,100.0,82.1,72.5,Never,1,Moderate,Low,Low
+66,Female,Type 2,No,196.3,98.6,40.1,Current,1,Moderate,Low,High
+42,Female,No,Treated,191.7,126.3,58.4,Never,0,Moderate,Low,Low
+43,Male,No,No,137.4,61.8,64.5,Never,0,Vigorous,Moderate,Low
+34,Male,Prediabetes,Untreated,223.2,105.9,27.1,Current,0,Sedentary,High,High
+41,Male,No,Treated,164.6,105.0,78.8,Former,0,Sedentary,High,Low
+58,Female,Type 1,Untreated,180.0,79.8,72.5,Former,0,Moderate,Moderate,Moderate
+48,Male,No,Untreated,272.6,168.0,31.5,Current,0,Light,Moderate,High
+57,Female,Prediabetes,No,237.4,138.3,32.9,Current,0,Moderate,Moderate,Moderate
+57,Female,No,Treated,219.1,101.3,51.9,Never,0,Light,Low,Low
+73,Male,No,No,211.0,114.5,33.2,Former,0,Light,High,High
+46,Female,No,Untreated,188.1,91.4,70.2,Former,0,Moderate,Moderate,Low
+28,Female,No,No,279.0,161.1,34.5,Never,1,Sedentary,Moderate,High
+69,Male,Type 1,Treated,228.7,167.3,67.2,Current,1,Sedentary,Low,High
+46,Male,Type 2,Treated,163.5,81.8,47.6,Never,0,Moderate,Low,Moderate
+69,Female,No,No,136.2,86.7,60.2,Current,1,Moderate,Moderate,High
+58,Female,No,Treated,218.8,120.9,64.4,Former,1,Moderate,High,Moderate
+49,Female,No,No,192.7,106.5,49.2,Never,0,Sedentary,Moderate,Low
+57,Female,No,No,135.0,70.6,65.0,Never,0,Moderate,Moderate,Low
+83,Male,No,No,213.0,98.3,63.2,Current,1,Moderate,Moderate,High
+85,Female,Type 1,No,183.7,108.4,47.8,Former,0,Moderate,Moderate,Moderate
+53,Male,Prediabetes,No,217.3,113.2,34.3,Never,0,Sedentary,Low,Moderate
+54,Male,No,Untreated,213.6,97.6,32.5,Never,0,Light,Low,Moderate
+69,Female,No,No,169.5,115.5,63.6,Former,0,Light,Moderate,Low
+38,Female,No,No,221.6,124.1,53.4,Never,0,Moderate,Low,Low
+57,Female,No,Untreated,174.1,90.7,68.6,Former,1,Sedentary,Low,Moderate
+51,Male,No,Treated,176.8,126.7,52.2,Former,0,Light,Moderate,Low
+57,Male,No,No,172.6,54.5,38.9,Never,0,Moderate,Low,Low
+38,Female,No,Untreated,242.5,161.4,20.0,Former,0,Light,High,High
+26,Female,No,No,183.2,81.4,88.9,Never,0,Light,High,Low
+18,Female,Prediabetes,No,252.6,143.6,50.4,Current,0,Light,High,High
+34,Female,No,No,269.9,135.5,43.2,Current,0,Moderate,High,Moderate
+44,Male,No,Treated,164.0,69.9,60.7,Never,0,Moderate,Low,Low
+47,Male,No,No,100.0,83.9,49.8,Never,0,Moderate,Moderate,Low
+82,Male,Type 1,No,238.9,172.2,36.6,Never,1,Vigorous,Moderate,High
+69,Male,No,Treated,180.6,94.5,75.8,Current,1,Moderate,Low,High
+36,Male,No,No,158.6,94.6,66.1,Never,0,Light,High,Low
+57,Female,No,No,170.3,94.9,47.3,Former,0,Moderate,Low,Low
+45,Male,No,Treated,177.6,135.8,40.6,Current,0,Vigorous,Moderate,Moderate
+47,Male,No,Treated,249.5,90.7,38.4,Never,1,Sedentary,Moderate,High
+54,Female,Prediabetes,No,201.7,119.2,48.0,Former,1,Moderate,High,Moderate
+61,Male,No,No,248.9,120.9,69.3,Never,0,Sedentary,Moderate,High
+46,Male,No,Untreated,215.8,66.9,47.4,Former,1,Moderate,Moderate,Moderate
+69,Female,No,No,182.0,92.2,40.4,Never,0,Moderate,Low,Low
+33,Male,Prediabetes,No,178.6,138.9,54.5,Current,0,Vigorous,Moderate,Low
+52,Female,Type 1,No,218.6,105.8,52.4,Never,0,Moderate,Moderate,Low
+85,Female,Prediabetes,No,229.5,143.6,32.2,Never,0,Sedentary,Moderate,High
+55,Male,No,Untreated,236.9,156.7,51.3,Current,0,Light,Moderate,Moderate
+74,Female,Prediabetes,No,184.0,100.9,68.9,Current,0,Vigorous,Low,High
+53,Female,Prediabetes,No,202.4,114.0,53.3,Former,1,Sedentary,Low,Moderate
+61,Female,No,No,219.5,83.0,39.5,Former,1,Sedentary,High,High
+51,Female,No,No,178.9,82.6,48.8,Never,0,Moderate,Low,Low
+49,Female,Prediabetes,No,147.3,101.0,40.0,Former,0,Light,Moderate,Low
+39,Female,No,Untreated,161.1,89.9,56.2,Never,0,Sedentary,Moderate,Moderate
+58,Female,No,Treated,184.9,109.8,58.0,Never,0,Light,High,Moderate
+38,Male,No,No,222.8,125.5,37.8,Current,1,Light,Low,Moderate
+62,Female,No,No,247.9,184.6,68.1,Former,0,Moderate,Low,High
+69,Female,No,No,138.0,66.4,70.8,Never,0,Light,High,Moderate
+57,Female,No,No,169.9,128.8,35.0,Never,1,Light,Moderate,Low
+47,Male,Type 1,No,180.0,101.9,33.7,Current,0,Moderate,Moderate,High
+59,Male,No,No,228.4,162.9,35.9,Never,0,Light,Moderate,Low
+47,Female,No,Treated,172.8,68.1,75.0,Never,0,Moderate,Moderate,Moderate
+66,Female,No,Untreated,177.0,101.4,66.1,Never,1,Light,High,High
+22,Male,No,No,135.7,66.0,81.1,Never,1,Light,Moderate,Low
+46,Male,Type 2,Untreated,215.3,121.5,49.8,Never,0,Moderate,High,Moderate
+20,Male,No,No,188.2,130.4,51.3,Current,0,Moderate,High,Low
+28,Female,No,No,167.5,100.5,41.9,Never,0,Vigorous,Moderate,Low
+73,Male,No,Treated,184.1,128.1,58.6,Never,0,Light,Moderate,Moderate
+66,Female,Type 2,No,242.3,118.5,43.3,Former,0,Sedentary,Moderate,High
+40,Male,No,No,152.8,65.9,56.3,Former,0,Light,High,Low
+27,Male,Prediabetes,Treated,159.7,88.2,77.5,Former,0,Light,Moderate,Moderate
+18,Male,No,No,247.6,135.3,43.3,Former,0,Sedentary,Low,Low
+43,Female,No,Untreated,198.2,104.9,68.2,Former,0,Moderate,High,Low
+85,Male,Prediabetes,No,223.1,101.6,29.5,Former,0,Moderate,Moderate,Moderate
+58,Female,No,Treated,211.9,142.9,82.5,Former,0,Light,High,Moderate
+43,Female,No,No,193.5,98.4,48.5,Former,0,Light,Moderate,Low
+59,Male,No,No,180.4,130.6,63.4,Former,0,Sedentary,Moderate,Low
+27,Female,Prediabetes,No,229.9,126.7,57.9,Never,0,Light,Moderate,Low
+47,Male,Prediabetes,Untreated,243.8,148.4,39.5,Former,0,Moderate,Moderate,High
+53,Male,Prediabetes,No,240.5,144.5,55.8,Former,0,Moderate,Low,Moderate
+50,Male,No,Untreated,145.2,61.7,70.7,Never,0,Light,Moderate,Low
+64,Male,Prediabetes,No,249.8,145.5,36.0,Current,0,Sedentary,Moderate,High
+57,Female,Type 2,No,180.0,141.4,46.6,Never,0,Sedentary,High,Moderate
+62,Female,No,No,163.3,95.4,58.0,Never,0,Sedentary,Low,Moderate
+40,Female,No,No,187.9,123.2,52.4,Current,0,Vigorous,Low,Low
+66,Female,Prediabetes,Untreated,229.9,141.7,64.2,Never,0,Moderate,Moderate,High
+78,Female,No,No,217.7,126.5,57.8,Never,0,Moderate,Low,Moderate
+36,Male,No,Treated,184.3,105.5,53.5,Never,0,Moderate,Low,Low
+37,Male,Prediabetes,No,230.2,138.7,54.7,Current,1,Sedentary,Moderate,Moderate
+73,Male,No,No,200.9,127.3,27.3,Never,0,Moderate,Moderate,Moderate
+48,Female,No,Treated,170.9,64.2,49.0,Former,1,Moderate,Moderate,Moderate
+74,Female,No,Untreated,165.3,96.4,60.7,Former,0,Sedentary,Moderate,High
+44,Male,No,Treated,212.2,112.7,63.6,Former,1,Light,High,Moderate
+75,Female,Type 1,No,191.5,96.7,55.7,Current,1,Moderate,Moderate,High
+54,Female,No,Treated,137.2,104.0,78.9,Current,0,Moderate,Moderate,Moderate
+56,Female,No,Treated,230.6,110.7,57.8,Never,0,Sedentary,Low,Low
+77,Female,Type 1,No,174.8,65.5,49.9,Current,0,Moderate,High,High
+46,Female,No,Treated,261.9,161.6,41.0,Never,0,Vigorous,High,High
+36,Female,Prediabetes,No,136.1,50.0,66.5,Never,0,Vigorous,Low,Low
+44,Female,No,Treated,187.4,60.7,48.5,Never,1,Sedentary,Moderate,Moderate
+59,Male,No,Untreated,165.6,111.1,75.5,Former,0,Sedentary,Moderate,Moderate
+26,Female,No,Untreated,154.0,88.2,45.6,Never,1,Moderate,Moderate,Low
+62,Male,No,Treated,174.6,106.4,59.6,Former,1,Light,Moderate,High
+43,Female,Prediabetes,Treated,269.4,138.4,50.4,Never,1,Sedentary,Low,High
+70,Male,Type 1,Treated,201.0,80.1,48.1,Never,0,Moderate,Moderate,High
+18,Male,Type 2,No,161.7,62.8,51.3,Never,0,Sedentary,High,Moderate
+39,Male,No,No,118.2,59.0,63.4,Current,1,Light,Low,Low
+25,Male,Prediabetes,No,122.7,50.0,73.3,Never,0,Vigorous,Low,Low
+38,Male,No,No,172.5,101.6,50.1,Never,0,Light,Low,Low
+55,Male,Type 2,Untreated,168.4,82.4,43.9,Never,0,Vigorous,High,Moderate
+49,Male,No,Untreated,185.6,106.2,68.0,Never,0,Light,Low,Low
+47,Male,Type 2,No,100.0,58.4,71.8,Former,1,Light,Low,Moderate
+49,Female,No,No,191.1,113.6,65.4,Never,0,Sedentary,Moderate,Low
+55,Female,No,Treated,238.2,142.0,55.4,Never,0,Light,Moderate,Moderate
+35,Female,Prediabetes,No,263.2,137.2,68.7,Current,0,Light,Moderate,Moderate
+63,Male,No,Treated,115.4,67.5,78.1,Never,0,Moderate,High,High
+62,Male,No,Untreated,161.3,93.9,49.1,Never,0,Vigorous,Low,High
+58,Female,Type 2,No,159.1,50.0,63.8,Former,0,Sedentary,Moderate,Moderate
+60,Male,No,No,201.1,124.8,45.1,Former,0,Sedentary,Moderate,Low
+56,Male,No,No,143.8,82.4,55.0,Former,0,Moderate,Low,Low
+84,Female,No,No,265.7,158.5,25.2,Never,0,Light,High,High
+50,Female,No,No,196.8,79.9,49.0,Never,0,Light,Moderate,Low
+47,Male,No,No,189.8,97.4,60.1,Never,0,Light,Low,Low
+39,Female,Type 2,No,261.9,120.0,41.9,Never,1,Sedentary,Low,Moderate
+35,Male,Type 2,No,194.3,123.2,39.7,Never,1,Light,Low,Moderate
+32,Female,No,No,211.8,85.6,32.0,Current,1,Sedentary,High,Moderate
+37,Male,Prediabetes,Treated,163.5,69.5,82.8,Former,0,Moderate,Low,Moderate
+50,Male,No,No,137.4,87.3,65.3,Never,0,Light,High,Low
+57,Female,Type 1,Untreated,169.4,79.3,46.7,Never,1,Light,Low,Moderate
+52,Male,No,No,286.9,137.4,44.5,Former,1,Light,High,Moderate
+39,Female,No,No,221.6,141.8,75.0,Never,0,Sedentary,High,Low
+66,Male,Type 2,No,206.5,134.4,58.5,Never,0,Moderate,Low,High
+63,Female,Type 1,Treated,154.0,100.6,25.5,Never,0,Moderate,Low,High
+49,Female,No,No,233.3,147.0,78.8,Former,0,Moderate,High,Low
+41,Male,No,No,138.0,70.8,39.1,Former,1,Light,Low,Low
+60,Female,No,No,129.2,66.6,60.1,Never,1,Light,Low,Low
+55,Male,No,Untreated,171.5,80.1,42.7,Never,1,Sedentary,High,Moderate
+28,Male,No,No,277.1,156.1,31.6,Former,0,Light,High,Moderate
+50,Male,No,No,274.7,139.5,44.2,Former,0,Moderate,Moderate,Low
+56,Female,No,Untreated,176.0,87.3,30.7,Former,1,Light,High,High
+37,Female,No,No,166.7,104.9,55.9,Never,0,Sedentary,Moderate,Low
+55,Female,No,No,126.1,95.4,76.9,Former,0,Light,Moderate,Low
+28,Female,No,Treated,198.3,117.8,42.1,Current,0,Sedentary,Low,Moderate
+73,Female,Type 2,No,201.8,150.5,35.0,Former,0,Light,Moderate,High
+71,Male,No,No,228.2,110.0,46.1,Never,0,Moderate,Moderate,Low
+47,Female,Type 2,No,233.2,87.8,43.0,Former,1,Vigorous,Moderate,Low
+57,Female,No,No,186.7,118.4,46.9,Never,0,Sedentary,High,Low
+18,Male,No,Untreated,218.4,103.1,35.0,Never,0,Sedentary,Moderate,Moderate
+33,Female,Type 1,Treated,165.6,85.1,63.4,Never,0,Light,Moderate,Moderate
+47,Male,No,No,217.6,80.7,56.5,Current,0,Sedentary,Moderate,Moderate
+34,Male,No,No,173.7,75.8,43.2,Never,0,Moderate,Low,Low
+63,Male,No,Treated,214.3,84.8,38.7,Current,0,Sedentary,Low,High
+83,Male,No,Treated,210.9,106.4,52.0,Never,0,Vigorous,High,High
+33,Male,No,No,197.9,100.2,40.7,Never,0,Moderate,Moderate,Low
+38,Female,No,Untreated,228.4,127.6,49.9,Never,0,Light,Moderate,Low
+55,Female,No,No,129.0,98.2,80.3,Former,0,Vigorous,Moderate,Low
+77,Female,No,Treated,150.3,97.6,58.7,Never,0,Moderate,High,High
+32,Male,No,No,183.7,65.3,39.9,Never,0,Vigorous,Moderate,Low
+55,Male,No,No,134.4,87.3,66.5,Never,0,Light,Low,Low
+81,Male,Prediabetes,Treated,177.9,100.3,53.2,Never,0,Vigorous,Moderate,High
+25,Female,No,Treated,179.3,96.5,53.3,Never,0,Sedentary,Moderate,Low
+31,Male,No,No,250.0,137.0,50.2,Never,0,Light,Low,Low
+45,Female,No,No,201.0,115.1,60.1,Never,0,Vigorous,Moderate,Low
+43,Female,No,Treated,238.2,115.8,46.7,Current,0,Light,Low,Moderate
+65,Female,No,No,207.7,110.2,50.1,Never,0,Sedentary,Low,Moderate
+55,Female,No,No,172.5,120.9,80.9,Never,0,Sedentary,High,Low
+23,Male,No,Treated,200.6,94.8,66.3,Never,0,Sedentary,High,Moderate
+60,Female,Type 2,No,225.6,101.4,58.2,Never,0,Light,Moderate,Low
+42,Female,Type 2,No,245.1,133.4,46.8,Former,0,Light,Low,Low
+72,Female,No,No,189.4,79.3,41.5,Never,1,Light,High,High
+41,Female,No,Untreated,125.8,50.0,76.7,Never,0,Moderate,Moderate,Low
+41,Female,No,No,122.9,60.0,65.3,Former,0,Sedentary,High,Low
+60,Female,Type 1,Treated,181.3,131.6,47.9,Never,0,Moderate,Low,Moderate
+64,Male,Prediabetes,Untreated,100.0,54.2,64.1,Current,0,Moderate,Low,High
+59,Female,No,Treated,270.4,152.6,29.8,Current,1,Moderate,Moderate,High
+25,Female,No,No,220.1,74.2,61.7,Never,1,Moderate,High,Low
+60,Male,No,No,168.3,102.2,65.0,Never,1,Vigorous,Low,Low
+35,Female,Type 1,No,148.4,83.7,61.9,Never,0,Sedentary,Low,Low
+55,Male,Type 2,No,238.2,116.4,45.8,Never,1,Moderate,Moderate,Moderate
+29,Female,No,Untreated,148.2,85.5,51.6,Never,0,Vigorous,High,Low
+59,Male,No,Treated,152.2,87.5,33.6,Former,1,Moderate,Moderate,Moderate
+39,Male,No,No,162.8,66.2,40.6,Never,0,Sedentary,High,Low
+31,Female,Prediabetes,No,199.8,117.2,43.1,Never,1,Moderate,Moderate,Low
+63,Male,Type 2,Untreated,221.1,147.9,38.1,Never,0,Moderate,High,High
+55,Male,No,No,245.1,129.8,48.7,Current,0,Light,Moderate,Moderate
+42,Male,No,Treated,238.9,112.3,55.9,Current,1,Moderate,Low,Moderate
+75,Male,No,No,195.0,103.3,51.2,Never,0,Moderate,Moderate,Low
+44,Female,No,Treated,237.9,149.6,63.2,Former,1,Light,Moderate,Moderate
+52,Female,Prediabetes,Treated,166.8,64.8,47.6,Never,0,Sedentary,Moderate,High
+56,Male,No,No,118.5,77.9,62.6,Former,0,Light,Low,Low
+42,Female,Type 1,No,166.8,76.8,56.4,Former,0,Moderate,Moderate,Low
+59,Male,No,Treated,161.1,93.9,70.9,Current,0,Light,High,Moderate
+43,Female,No,No,168.5,80.3,58.0,Never,1,Moderate,Moderate,Low
+45,Male,No,No,154.7,72.6,60.4,Never,0,Light,High,Low
+73,Male,No,No,175.6,130.1,35.8,Current,0,Moderate,Moderate,Moderate
+35,Male,No,No,221.0,90.6,38.1,Never,0,Moderate,Low,Low
+18,Female,No,Treated,267.0,157.5,55.1,Never,0,Moderate,Low,Moderate
+77,Female,No,No,122.5,105.5,38.7,Former,1,Light,Moderate,Moderate
+85,Male,No,No,140.9,92.6,77.0,Former,1,Sedentary,Low,Moderate
+45,Female,No,Untreated,161.8,59.7,63.7,Former,0,Moderate,Moderate,Low
+21,Female,No,No,227.2,96.8,38.9,Former,0,Sedentary,Moderate,Low
+47,Male,Type 1,No,186.4,86.0,44.1,Former,0,Light,Moderate,Moderate
+47,Female,Type 2,Treated,164.6,94.0,80.1,Never,0,Sedentary,High,High
+48,Female,No,Untreated,225.1,128.8,65.2,Former,1,Light,High,Moderate
+34,Male,Prediabetes,No,235.2,101.4,45.3,Former,0,Moderate,Moderate,Low
+61,Female,Prediabetes,Treated,194.2,87.6,54.5,Current,0,Light,Low,High
+60,Male,Type 2,No,160.7,70.5,50.1,Never,0,Light,Low,Low
+28,Female,No,No,206.4,109.5,52.7,Never,0,Sedentary,Moderate,Low
+63,Male,No,Untreated,185.2,145.5,46.1,Former,1,Light,Moderate,High
+84,Female,No,Untreated,184.9,81.2,53.3,Never,0,Light,Moderate,Moderate
+54,Male,Type 1,No,173.5,73.9,77.7,Never,0,Moderate,Moderate,Moderate
+46,Female,Prediabetes,No,233.8,103.7,45.8,Current,0,Moderate,Moderate,Moderate
+49,Female,No,No,205.5,127.0,38.6,Never,0,Vigorous,Low,Low
+61,Male,No,No,238.5,130.3,29.8,Never,0,Sedentary,Low,Moderate
+24,Female,Prediabetes,Untreated,251.1,118.4,45.9,Never,1,Light,Moderate,High
+54,Female,Type 1,Treated,214.3,109.9,40.7,Never,0,Light,High,Moderate
+45,Female,No,No,173.7,78.1,58.9,Former,0,Moderate,Moderate,Low
+81,Male,No,No,238.7,137.8,26.8,Never,0,Moderate,Moderate,Moderate
+49,Female,No,No,214.6,177.1,58.1,Never,1,Moderate,Moderate,Low
+78,Male,No,No,304.3,179.5,23.6,Never,0,Light,Moderate,High
+34,Male,No,Treated,208.0,112.4,51.4,Never,0,Moderate,Low,Low
+61,Female,Prediabetes,No,224.3,108.7,44.3,Never,1,Vigorous,Low,High
+57,Female,Type 2,No,207.2,84.4,71.5,Never,0,Sedentary,Low,Low
+38,Female,No,Treated,190.8,121.1,55.4,Never,1,Moderate,Low,Low
+54,Male,No,Untreated,184.1,116.2,77.7,Never,1,Moderate,Low,Moderate
+71,Female,No,No,207.4,103.8,57.6,Never,1,Sedentary,Moderate,High
+46,Female,No,No,216.9,146.0,66.6,Never,0,Vigorous,Low,Low
+24,Male,No,No,243.5,134.4,43.0,Never,0,Moderate,Low,Low
+51,Female,No,No,208.0,131.4,54.9,Never,1,Moderate,Low,Low
+37,Male,No,No,175.6,103.1,70.3,Never,0,Sedentary,Low,Low
+46,Male,No,Treated,181.3,95.8,65.7,Never,0,Sedentary,Low,Moderate
+50,Female,No,No,139.4,55.7,67.5,Never,0,Moderate,Low,Low
+24,Female,Prediabetes,No,264.8,142.4,38.3,Former,0,Sedentary,Low,Moderate
+26,Male,No,Untreated,172.3,113.3,54.2,Never,0,Sedentary,High,Low
+59,Male,No,No,235.6,118.4,60.3,Former,1,Light,Low,Low
+43,Male,Type 2,Treated,206.6,123.3,67.2,Former,0,Sedentary,Low,Moderate
+18,Female,No,Treated,207.8,90.5,43.7,Never,0,Moderate,Moderate,Low
+64,Male,No,Treated,190.1,121.7,44.6,Never,1,Light,Low,High
+56,Female,No,Treated,161.9,95.9,46.9,Never,0,Sedentary,Moderate,Moderate
+40,Female,No,Treated,154.3,58.4,68.8,Never,0,Light,Moderate,Low
+30,Male,No,Treated,267.6,142.3,30.7,Never,0,Sedentary,High,High
+65,Female,No,No,199.8,130.4,61.8,Never,0,Sedentary,High,Moderate
+57,Female,No,No,242.3,105.6,52.2,Current,0,Light,Moderate,Moderate
+85,Female,No,No,253.2,115.7,37.5,Never,0,Light,Low,Moderate
+58,Male,No,No,177.7,96.2,74.1,Former,0,Light,Moderate,Low
+58,Male,No,No,212.8,164.0,32.5,Former,0,Moderate,Low,Moderate
+49,Male,No,No,196.9,93.5,72.4,Never,0,Light,Moderate,Low
+65,Female,No,No,146.4,91.4,63.9,Current,0,Moderate,Low,Moderate
+62,Female,Prediabetes,No,187.2,108.7,29.0,Current,0,Light,Moderate,High
+72,Male,No,No,219.7,107.9,68.1,Never,0,Moderate,Low,Low
+43,Male,No,Treated,174.0,99.2,67.6,Never,0,Moderate,Moderate,Low
+45,Female,No,No,181.4,89.9,49.7,Never,1,Sedentary,Low,Low
+44,Male,No,Treated,187.7,95.4,42.3,Never,0,Moderate,Moderate,Low
+64,Male,Type 2,No,283.7,119.5,20.6,Never,1,Moderate,Moderate,High
+75,Female,No,Untreated,118.0,64.4,93.3,Never,0,Sedentary,Moderate,High
+44,Male,No,Treated,216.1,138.6,38.5,Never,0,Moderate,Low,Low
+45,Male,Type 2,No,184.4,102.7,39.2,Former,0,Moderate,Low,Low
+57,Male,Prediabetes,Untreated,168.1,116.4,60.0,Never,0,Sedentary,High,High
+48,Male,Prediabetes,No,183.3,113.6,34.9,Never,0,Vigorous,Moderate,Low
+67,Female,No,No,223.0,121.3,36.8,Never,1,Light,Moderate,High
+18,Female,No,Treated,225.4,110.2,60.1,Former,1,Moderate,Moderate,Low
+38,Female,No,No,202.8,100.8,57.2,Former,1,Moderate,Moderate,Low
+39,Male,No,No,240.9,100.1,41.2,Never,1,Vigorous,Moderate,Low
+18,Female,No,No,248.3,130.7,45.0,Former,0,Moderate,Low,Low
+36,Male,Prediabetes,No,229.3,129.3,42.3,Never,0,Moderate,Moderate,Low
+37,Female,No,No,172.1,132.4,55.4,Former,0,Light,Moderate,Low
+48,Male,No,No,215.8,130.3,40.5,Former,0,Light,Low,Low
+69,Female,No,No,216.0,99.8,42.6,Never,1,Moderate,Moderate,Moderate
+48,Male,No,Treated,160.7,56.7,50.6,Former,0,Light,Low,Low
+35,Male,No,No,129.1,66.5,53.9,Current,0,Moderate,Low,Low
+51,Male,Type 1,No,110.0,78.4,78.0,Former,0,Sedentary,High,Moderate
+68,Male,No,Treated,197.9,104.0,61.6,Never,1,Sedentary,High,High
+36,Male,No,No,207.5,126.0,39.7,Former,0,Sedentary,Low,Low
+37,Female,No,No,145.4,76.0,45.9,Never,0,Light,Moderate,Low
+60,Female,No,Treated,238.9,147.2,44.3,Former,0,Sedentary,Low,Moderate
+48,Male,No,Untreated,201.4,75.6,77.7,Current,0,Light,Moderate,Moderate
+62,Female,Type 2,No,251.7,173.7,31.9,Never,0,Vigorous,Moderate,High
+51,Female,No,No,210.6,91.4,48.5,Never,1,Moderate,Moderate,Low
+63,Female,No,Treated,150.2,100.1,60.5,Never,1,Moderate,Moderate,High
+35,Female,Type 2,Untreated,214.2,111.8,48.6,Never,0,Sedentary,Moderate,Moderate
+51,Female,No,No,223.1,120.2,43.0,Never,0,Light,High,Low
+48,Female,Type 2,No,172.0,89.3,70.1,Never,0,Moderate,Low,Low
+32,Female,No,No,134.4,79.5,67.3,Former,0,Sedentary,Low,Low
+26,Female,No,No,199.2,119.6,62.3,Never,0,Light,Moderate,Low
+62,Male,Type 2,Untreated,153.0,107.4,66.1,Never,0,Vigorous,Moderate,High
+46,Male,No,Treated,242.1,164.1,56.4,Former,0,Sedentary,Low,High
+35,Male,No,No,177.9,105.1,74.3,Never,1,Vigorous,Moderate,Low
+50,Female,No,Treated,267.4,184.8,57.9,Never,0,Sedentary,Moderate,High
+70,Male,No,Treated,105.8,60.2,94.0,Former,0,Sedentary,Moderate,High
+18,Female,No,No,200.7,134.1,66.5,Current,1,Sedentary,High,Moderate
+28,Female,No,Treated,255.0,149.7,35.7,Former,1,Vigorous,Moderate,Moderate
+37,Female,Prediabetes,No,157.6,74.6,68.5,Never,0,Moderate,Moderate,Low
+75,Male,No,No,188.3,107.6,62.3,Never,0,Moderate,Moderate,Low
+56,Female,No,No,178.1,109.0,78.3,Current,0,Light,Low,Low
+64,Female,No,No,166.3,90.8,45.4,Former,1,Moderate,Moderate,Moderate
+33,Male,No,Untreated,205.3,122.0,57.9,Former,0,Moderate,High,Low
+34,Female,No,No,140.6,96.4,52.7,Former,0,Moderate,High,Low
+59,Male,No,No,190.3,104.2,59.6,Never,0,Moderate,High,Low
+52,Female,No,No,216.7,54.4,46.9,Never,0,Moderate,Moderate,Low
+60,Female,No,No,186.0,139.2,59.9,Former,0,Moderate,Moderate,Low
+48,Male,No,No,153.0,77.6,42.1,Current,1,Sedentary,Low,Moderate
+56,Male,No,Treated,238.3,113.0,55.8,Never,0,Moderate,High,Moderate
+54,Male,No,No,225.7,99.4,50.6,Former,1,Light,Moderate,Low
+64,Male,Type 2,No,151.3,75.8,61.1,Never,0,Vigorous,Low,Moderate
+64,Female,Type 2,Treated,140.6,64.9,84.3,Current,1,Light,High,High
+26,Male,No,No,155.0,69.0,54.2,Never,0,Sedentary,Moderate,Low
+18,Male,Type 2,Treated,217.9,104.8,53.4,Former,0,Light,High,Moderate
+68,Female,Type 1,No,206.6,125.3,52.2,Never,1,Moderate,Moderate,High
+71,Female,No,No,228.2,170.2,50.1,Former,1,Light,High,High
+35,Female,Prediabetes,Treated,181.3,117.8,81.5,Former,1,Moderate,Moderate,Moderate
+22,Female,No,Treated,156.2,110.6,59.3,Never,1,Moderate,Moderate,Low
+53,Male,Prediabetes,Treated,233.6,120.2,40.2,Current,0,Sedentary,Moderate,High
+66,Female,No,No,171.8,96.8,78.7,Current,0,Light,Low,Moderate
+80,Male,No,No,202.8,120.9,47.9,Current,0,Moderate,Low,Moderate
+60,Female,No,Treated,129.9,56.9,43.3,Never,1,Moderate,High,Moderate
+46,Female,Type 2,No,171.1,84.7,47.4,Former,1,Light,High,Moderate
+37,Female,No,Treated,237.4,149.4,31.4,Former,1,Vigorous,High,Moderate
+52,Female,No,No,164.9,114.7,35.7,Former,1,Sedentary,Low,Moderate
+47,Female,No,Treated,229.2,127.5,43.3,Never,0,Moderate,Low,Low
+35,Male,No,No,100.0,50.0,66.2,Former,0,Moderate,High,Low
+84,Female,Type 1,No,171.5,87.8,70.4,Never,0,Light,Low,Moderate
+80,Female,Prediabetes,No,187.8,71.6,61.4,Never,0,Sedentary,Moderate,High
+70,Female,No,No,268.2,149.2,48.8,Never,1,Moderate,Low,Moderate
+37,Male,No,Treated,145.9,85.9,49.4,Never,0,Light,High,Low
+65,Male,No,No,223.2,116.8,59.1,Never,1,Sedentary,Moderate,Moderate
+62,Female,No,No,239.4,137.0,62.8,Never,0,Sedentary,Low,Moderate
+59,Male,Prediabetes,Untreated,164.7,99.8,62.0,Former,0,Moderate,Moderate,Moderate
+71,Male,Prediabetes,Treated,179.3,104.3,60.2,Never,1,Sedentary,Low,High
+62,Male,No,No,200.9,84.1,36.7,Never,0,Light,Moderate,Moderate
+63,Female,No,Untreated,132.8,67.5,74.7,Former,0,Vigorous,Moderate,Moderate
+62,Male,No,No,175.9,105.8,77.0,Current,0,Moderate,Moderate,Moderate
+57,Male,No,Treated,248.6,171.5,48.6,Current,0,Light,Moderate,High
+23,Male,No,No,217.0,113.4,42.3,Current,0,Light,Low,Low
+53,Female,Prediabetes,No,188.4,115.7,51.8,Current,0,Sedentary,Low,Moderate
+43,Female,No,No,199.7,129.2,47.0,Former,1,Light,High,Low
+31,Male,Type 2,No,219.4,116.3,44.8,Current,1,Sedentary,Moderate,Moderate
+78,Male,No,No,227.4,150.3,55.7,Current,1,Sedentary,Moderate,High
+79,Female,No,No,171.6,120.8,59.6,Never,0,Sedentary,Moderate,Moderate
+73,Male,No,Treated,259.5,173.1,55.1,Current,1,Moderate,High,High
+56,Female,No,No,250.3,147.8,48.9,Former,0,Sedentary,Moderate,Low
+73,Male,No,No,223.4,174.8,38.1,Former,0,Sedentary,Low,High
+52,Female,No,Untreated,159.6,74.2,52.1,Current,0,Moderate,Moderate,Moderate
+55,Male,Prediabetes,Treated,152.2,130.4,52.4,Never,1,Sedentary,Moderate,High
+34,Female,No,Untreated,181.3,116.6,52.6,Never,1,Moderate,Moderate,Low
+58,Male,No,No,197.6,138.2,73.9,Former,1,Light,High,Low
+52,Female,Prediabetes,No,120.7,59.3,87.4,Former,0,Moderate,Moderate,Low
+31,Female,No,No,215.8,137.3,59.7,Current,0,Sedentary,High,Low
+51,Female,No,No,249.1,168.4,46.1,Current,0,Sedentary,Moderate,Moderate
+50,Male,No,No,219.2,96.6,32.8,Former,0,Moderate,Moderate,Low
+80,Male,No,Untreated,166.6,88.0,59.7,Current,0,Light,Moderate,High
+66,Female,Prediabetes,Treated,161.6,50.0,48.3,Never,0,Sedentary,Moderate,High
+52,Female,Type 2,Treated,207.6,110.3,70.4,Current,0,Light,Low,High
+55,Male,No,No,188.6,85.8,34.4,Never,0,Light,Moderate,Low
+52,Male,No,Treated,213.6,112.7,54.6,Former,0,Sedentary,Low,Moderate
+48,Male,Prediabetes,No,220.3,185.5,38.5,Never,0,Light,Low,Moderate
+34,Female,Prediabetes,Untreated,240.9,170.3,45.8,Former,0,Light,High,High
+49,Female,No,No,147.5,50.0,67.9,Never,0,Moderate,Low,Low
+40,Female,Prediabetes,No,204.3,124.6,63.6,Never,0,Moderate,High,Low
+31,Female,No,No,179.7,116.4,54.3,Former,0,Light,Moderate,Low
+60,Male,No,Treated,190.9,97.6,62.5,Former,0,Moderate,Moderate,Low
+58,Male,No,Untreated,231.3,131.1,39.4,Never,1,Light,High,Moderate
+23,Male,No,Untreated,235.9,135.8,49.6,Former,1,Light,Moderate,Low
+50,Female,Type 1,Treated,253.7,109.9,56.0,Never,0,Moderate,High,High
+67,Male,No,Untreated,212.9,94.4,54.1,Never,0,Moderate,Low,Moderate
+68,Male,No,Treated,190.4,108.5,47.1,Never,0,Sedentary,Moderate,High
+68,Male,No,No,184.4,103.6,51.0,Former,0,Vigorous,Moderate,Moderate
+52,Male,No,Treated,122.1,51.6,75.9,Former,0,Vigorous,Moderate,Low
+38,Female,No,No,251.3,120.7,31.2,Former,1,Light,Moderate,Low
+34,Male,No,No,181.5,97.8,43.4,Current,0,Moderate,Moderate,Low
+57,Male,No,No,216.2,138.4,56.8,Former,0,Moderate,Low,Low
+58,Female,No,No,223.5,121.2,43.2,Former,1,Vigorous,Low,Low
+72,Male,Prediabetes,Untreated,142.7,114.2,43.2,Current,0,Moderate,High,High
+69,Male,No,Untreated,156.2,70.6,74.8,Never,0,Sedentary,Moderate,High
+49,Male,Prediabetes,No,260.0,147.2,29.8,Never,0,Moderate,Moderate,Moderate
+32,Female,Prediabetes,Treated,207.2,106.2,48.5,Never,0,Sedentary,Moderate,Moderate
+46,Male,No,No,170.6,106.8,49.0,Former,0,Moderate,High,Low
+55,Female,No,No,189.7,87.1,50.0,Never,1,Moderate,High,Low
+48,Female,Type 2,No,240.6,174.7,35.3,Never,0,Moderate,Low,High
+42,Female,No,No,234.2,91.6,55.4,Current,1,Sedentary,High,Moderate
+56,Male,No,No,133.4,111.1,63.3,Current,0,Light,Low,Low
+43,Female,No,No,263.6,147.0,54.3,Never,1,Moderate,Moderate,Low
+41,Male,No,No,235.6,141.7,39.3,Never,0,Light,High,Low
+56,Male,No,No,188.6,133.1,79.3,Never,0,Sedentary,Low,Low
+45,Female,Type 2,Untreated,144.9,98.6,37.4,Never,0,Sedentary,Low,High
+55,Male,No,No,239.3,115.6,27.1,Current,0,Moderate,Moderate,Low
+56,Male,Prediabetes,No,215.0,131.5,70.8,Former,0,Light,High,Moderate
+33,Male,No,No,133.8,114.7,67.6,Never,0,Moderate,Low,Low
+44,Male,No,No,185.3,82.4,58.3,Never,1,Light,Moderate,Low
+75,Male,No,No,326.3,226.1,38.2,Never,0,Moderate,Moderate,High
+33,Female,No,No,195.7,116.1,59.5,Never,0,Light,Moderate,Low
+18,Female,No,Treated,163.8,80.6,61.0,Never,1,Sedentary,Moderate,Moderate
+22,Male,No,No,152.6,64.3,47.5,Former,0,Sedentary,Moderate,Low
+52,Female,No,Treated,269.4,143.3,51.4,Never,0,Sedentary,Moderate,Moderate
+52,Male,No,No,230.6,83.8,55.3,Current,1,Moderate,Moderate,Moderate
+50,Male,Prediabetes,No,254.1,130.6,61.0,Never,0,Moderate,High,Moderate
+71,Male,No,No,205.4,107.2,72.4,Former,0,Moderate,High,Low
+18,Male,No,No,247.7,112.6,48.8,Never,0,Moderate,Low,Low
+58,Male,No,No,159.4,104.1,43.4,Never,0,Moderate,Moderate,Low
+76,Male,No,No,201.8,106.2,73.0,Current,0,Vigorous,Moderate,Moderate
+33,Male,Prediabetes,No,207.1,99.9,38.7,Former,1,Moderate,Low,Moderate
+45,Female,No,Treated,253.1,132.0,48.1,Never,1,Light,Moderate,Moderate
+39,Male,No,No,208.4,122.4,47.7,Never,0,Sedentary,Moderate,Low
+37,Male,No,No,168.7,94.4,51.5,Former,0,Moderate,Low,Low
+46,Male,No,Treated,197.7,93.3,61.5,Current,0,Moderate,Moderate,Moderate
+74,Female,No,No,124.6,71.3,66.2,Former,0,Moderate,Moderate,Moderate
+81,Male,No,Treated,100.0,53.9,73.2,Never,1,Light,Moderate,High
+46,Female,Type 1,Untreated,229.9,101.4,37.7,Never,0,Moderate,High,High
+82,Male,Type 1,Untreated,179.3,92.3,53.0,Never,0,Light,Low,High
+52,Male,No,No,184.0,113.9,45.2,Never,0,Light,Moderate,Low
+80,Female,Prediabetes,No,229.9,139.0,45.1,Former,1,Moderate,Moderate,High
+50,Male,No,Treated,253.7,134.5,42.5,Former,0,Moderate,Moderate,Moderate
+54,Male,Type 2,Treated,217.4,134.5,71.5,Never,1,Light,Moderate,High
+57,Male,No,Treated,276.0,130.2,37.5,Former,0,Light,Low,Moderate
+85,Female,No,No,216.1,98.0,24.1,Former,0,Moderate,Low,Moderate
+65,Female,No,No,207.7,108.7,67.6,Former,0,Light,Moderate,Moderate
+40,Female,No,No,205.1,145.8,56.6,Never,0,Sedentary,Low,Low
+67,Female,Prediabetes,No,141.0,81.1,59.3,Never,0,Moderate,High,Moderate
+46,Male,No,No,235.2,123.3,41.5,Never,0,Moderate,Moderate,Low
+44,Female,No,Untreated,100.0,89.0,55.6,Never,0,Sedentary,Low,Moderate
+66,Male,No,No,170.4,87.4,79.7,Never,0,Light,Moderate,Low
+52,Female,Type 2,Treated,196.0,157.0,53.2,Never,1,Moderate,High,High
+56,Male,Prediabetes,Untreated,161.8,77.7,36.9,Never,1,Light,Low,High
+52,Male,No,No,176.0,74.5,59.5,Never,0,Light,Moderate,Low
+57,Female,No,No,272.3,146.1,55.6,Current,0,Light,Low,Moderate
+58,Male,No,Treated,241.4,127.3,47.7,Former,1,Light,High,High
+21,Female,Type 1,No,166.2,73.6,46.3,Never,0,Moderate,Moderate,Low
+62,Male,Prediabetes,No,175.3,153.7,43.8,Current,1,Light,Moderate,High
+36,Female,No,Treated,141.4,84.8,49.8,Never,0,Vigorous,Moderate,Low
+28,Female,Type 1,Treated,224.6,133.7,66.6,Never,1,Light,Moderate,Moderate
+51,Male,No,Treated,184.5,91.3,53.5,Current,0,Moderate,Moderate,Moderate
+53,Female,Prediabetes,Untreated,112.4,50.0,45.0,Never,0,Light,Low,Moderate
+40,Female,No,No,199.2,132.1,56.7,Never,0,Moderate,Low,Low
+65,Female,No,Treated,213.4,80.5,51.7,Never,0,Moderate,Low,Moderate
+30,Male,No,Treated,235.5,104.4,41.3,Never,0,Light,Moderate,Low
+45,Female,No,Treated,191.9,100.1,41.0,Former,1,Light,High,Moderate
+42,Female,Type 2,Treated,179.3,128.3,42.3,Never,0,Vigorous,Low,Moderate
+51,Male,No,Treated,278.4,144.9,53.3,Never,0,Vigorous,High,High
+56,Male,Prediabetes,Untreated,195.3,116.6,55.7,Never,0,Vigorous,High,High
+35,Male,Prediabetes,No,225.2,124.5,54.0,Never,0,Sedentary,Low,Low
+63,Female,No,Treated,172.3,123.3,59.1,Never,0,Sedentary,Low,Moderate
+53,Male,Type 2,No,224.0,88.3,52.3,Current,0,Light,Moderate,Moderate
+21,Female,No,No,133.9,89.8,56.3,Former,1,Moderate,Low,Low
+20,Female,No,Treated,175.6,92.2,53.2,Never,1,Sedentary,Moderate,Moderate
+51,Male,No,Treated,144.3,99.7,74.3,Former,0,Light,Moderate,Low
+48,Male,No,No,169.6,75.3,73.5,Never,1,Moderate,Moderate,Low
+50,Female,Type 1,No,247.5,136.7,30.2,Never,0,Sedentary,Moderate,High
+51,Male,No,No,169.3,90.9,54.1,Never,0,Moderate,Low,Low
+55,Female,No,No,225.2,101.8,58.3,Never,1,Sedentary,High,Low
+67,Female,No,No,258.7,114.1,65.8,Former,1,Moderate,Moderate,Moderate
+34,Female,No,Untreated,193.8,93.8,74.3,Current,0,Light,Low,Moderate
+33,Male,Prediabetes,No,236.7,133.0,36.9,Never,0,Moderate,Moderate,Low
+34,Female,No,Untreated,217.3,102.9,64.7,Never,0,Light,Low,Low
+56,Female,Prediabetes,No,199.9,102.7,52.7,Former,0,Light,High,Moderate
+71,Male,No,Treated,226.5,83.1,60.6,Never,0,Light,Moderate,Moderate
+45,Female,Prediabetes,No,272.3,141.6,50.6,Never,0,Moderate,High,Moderate
+18,Female,No,Treated,168.2,115.0,41.6,Current,1,Light,High,Moderate
+24,Female,No,Treated,154.7,100.6,65.4,Current,0,Sedentary,Moderate,Moderate
+38,Male,No,Treated,152.2,81.8,71.2,Current,0,Moderate,Moderate,Low
+43,Male,No,Untreated,236.8,135.6,46.2,Never,1,Sedentary,Moderate,Moderate
+45,Male,Prediabetes,No,242.4,115.1,42.7,Never,0,Light,Low,Moderate
+52,Male,No,No,172.4,130.6,37.3,Never,0,Light,High,Low
+47,Male,No,No,105.3,103.4,74.4,Current,0,Light,Moderate,Low
+68,Female,Type 1,Treated,166.7,95.3,59.5,Never,1,Sedentary,High,High
+41,Male,No,No,218.0,176.9,38.2,Never,1,Light,Moderate,Low
+38,Female,No,No,192.2,90.7,49.3,Never,0,Sedentary,Low,Low
+59,Male,Type 2,No,202.6,83.9,53.5,Former,0,Light,Moderate,Low
+27,Male,No,No,173.0,79.5,49.3,Former,1,Moderate,Low,Low
+58,Male,Prediabetes,Treated,237.6,125.9,46.4,Former,1,Moderate,Low,High
+53,Male,No,Treated,209.4,166.0,29.6,Never,0,Sedentary,Moderate,High
+49,Female,Prediabetes,Treated,219.6,114.6,65.3,Former,0,Sedentary,Low,High
+77,Female,No,Treated,201.7,92.0,51.9,Never,1,Moderate,High,High
+42,Female,Prediabetes,Untreated,217.0,99.6,36.3,Never,0,Light,Moderate,Moderate
+84,Male,No,No,214.3,142.9,20.3,Never,0,Moderate,Moderate,Moderate
+48,Female,Prediabetes,Untreated,156.0,107.7,70.9,Never,0,Sedentary,Low,High
+31,Male,No,No,210.7,105.2,57.1,Never,0,Sedentary,Low,Low
+53,Female,Type 2,Treated,228.2,84.2,50.3,Current,0,Light,Moderate,High
+34,Female,No,Treated,243.5,109.1,55.8,Never,0,Moderate,Low,Moderate
+39,Male,No,No,212.5,154.7,60.5,Never,1,Light,Moderate,Low
+58,Male,Type 1,No,154.5,100.1,61.2,Former,0,Sedentary,Moderate,Moderate
+60,Male,No,No,160.9,89.9,54.8,Former,1,Sedentary,Low,Low
+42,Male,No,No,176.7,138.3,50.5,Never,0,Moderate,Moderate,Low
+67,Female,Prediabetes,Untreated,203.0,154.7,56.6,Former,0,Light,Low,High
+70,Female,No,No,189.9,103.7,70.3,Never,1,Moderate,Low,Low
+74,Female,No,No,147.8,80.9,58.6,Never,1,Light,Moderate,Moderate
+60,Male,No,No,147.6,68.4,77.6,Former,0,Light,Low,Low
+73,Female,No,No,106.9,52.5,70.4,Former,0,Sedentary,Low,Moderate
+21,Male,No,No,100.0,50.0,71.6,Never,0,Vigorous,Moderate,Low
+46,Female,No,No,189.5,71.4,82.4,Never,1,Sedentary,Moderate,Low
+38,Male,No,No,292.4,122.9,58.0,Never,0,Sedentary,High,Low
+53,Male,No,No,270.5,172.6,61.6,Never,1,Moderate,High,High
+42,Female,No,No,153.9,50.3,49.3,Current,0,Sedentary,Moderate,Low
+49,Male,No,No,201.3,153.6,78.1,Never,0,Light,Moderate,Low
+82,Male,No,Treated,133.5,57.4,61.0,Current,0,Light,Moderate,High
+49,Female,No,No,139.9,115.2,58.3,Never,0,Moderate,Low,Low
+58,Male,No,No,144.7,71.6,34.4,Current,1,Light,High,Moderate
+48,Female,Type 1,Untreated,185.5,67.6,58.1,Never,0,Moderate,Moderate,Moderate
+53,Female,No,No,187.3,131.3,40.9,Never,1,Moderate,Low,Low
+52,Female,No,No,205.6,143.9,56.1,Never,0,Light,Moderate,Low
+59,Female,No,Treated,222.9,102.7,34.6,Never,0,Sedentary,Moderate,Moderate
+70,Female,No,No,180.9,92.2,76.4,Current,1,Moderate,Moderate,High
+78,Female,Prediabetes,Treated,196.5,88.1,59.1,Former,0,Moderate,Low,High
+56,Female,Type 2,Treated,149.1,79.4,87.0,Former,0,Moderate,High,Moderate
+61,Female,Type 2,Untreated,138.5,78.5,48.9,Never,0,Sedentary,Low,High
+33,Male,No,Untreated,132.0,64.9,80.8,Former,0,Moderate,High,Low
+50,Male,No,No,222.3,82.2,27.0,Former,1,Moderate,Moderate,Low
+67,Female,No,Treated,180.8,86.7,57.4,Current,0,Vigorous,High,High
+65,Male,No,No,116.4,79.5,57.0,Former,0,Light,High,Moderate
+55,Male,No,Treated,192.4,101.2,47.8,Former,0,Moderate,Moderate,Moderate
+66,Male,No,No,142.5,71.2,54.4,Never,0,Moderate,High,Moderate
+59,Female,No,No,264.7,125.1,31.3,Current,1,Moderate,Low,High
+71,Male,Type 2,No,170.7,80.5,41.3,Never,1,Moderate,Low,High
+56,Female,No,No,223.6,154.0,43.2,Never,0,Moderate,Moderate,Low
+46,Female,No,No,240.7,107.3,47.3,Current,0,Light,Moderate,Moderate
+57,Female,Type 1,No,154.9,101.1,72.7,Never,0,Sedentary,Low,Moderate
+18,Male,Prediabetes,Untreated,198.2,110.0,55.8,Never,1,Light,Moderate,High
+58,Female,No,No,218.2,125.4,63.3,Never,0,Moderate,High,Low
+18,Female,No,Treated,199.9,93.8,34.3,Never,0,Sedentary,High,Moderate
+24,Male,No,Treated,210.2,107.9,45.3,Current,0,Moderate,Low,Low
+59,Female,No,Treated,139.2,76.4,69.7,Current,1,Vigorous,Moderate,High
+59,Male,No,No,218.3,108.6,53.4,Never,0,Moderate,Low,Low
+33,Female,No,Untreated,174.6,103.3,45.5,Current,0,Moderate,Low,Low
+40,Male,No,Treated,209.7,125.4,61.8,Former,1,Moderate,High,Moderate
+73,Female,No,Treated,233.6,176.3,40.6,Current,1,Sedentary,High,High
+44,Female,No,Untreated,223.1,128.8,39.2,Never,0,Light,Low,Low
+85,Male,Prediabetes,No,209.6,73.2,56.4,Never,1,Light,Low,High
+51,Female,No,No,222.0,147.7,48.8,Never,0,Moderate,Moderate,Low
+58,Male,No,Untreated,223.9,118.7,42.1,Never,0,Light,Moderate,Moderate
+77,Female,No,No,257.8,186.1,36.6,Former,0,Sedentary,Low,High
+54,Female,Prediabetes,Treated,193.6,138.8,40.1,Never,0,Moderate,Low,High
+35,Male,No,No,201.9,99.9,47.0,Never,0,Light,Moderate,Low
+50,Male,Prediabetes,No,234.1,144.6,60.1,Former,0,Moderate,Low,Moderate
+51,Female,No,No,174.4,82.9,58.8,Never,0,Light,High,Low
+30,Male,No,No,138.9,76.5,72.7,Never,0,Moderate,Moderate,Low
+47,Female,No,Untreated,215.7,133.5,55.8,Former,0,Light,Moderate,Low
+40,Female,No,No,186.3,127.0,46.7,Current,0,Moderate,Moderate,Low
+66,Female,Prediabetes,Treated,144.3,99.1,40.6,Never,0,Moderate,High,High
+52,Male,No,No,216.0,120.4,38.5,Current,0,Light,Low,Moderate
+47,Female,No,Untreated,255.1,194.9,35.7,Current,0,Light,High,High
+50,Female,No,No,126.6,61.6,54.0,Former,0,Moderate,Low,Low
+55,Male,No,No,237.9,95.5,58.1,Never,0,Sedentary,High,Low
+61,Male,No,No,100.0,50.0,78.6,Former,0,Moderate,Low,Low
+36,Male,No,No,178.2,130.4,81.8,Current,0,Sedentary,High,Low
+35,Male,Type 2,Untreated,272.3,148.1,32.0,Never,1,Moderate,Low,High
+69,Female,Type 1,Untreated,181.2,103.2,74.0,Current,0,Sedentary,High,High
+45,Male,Type 1,No,198.8,97.4,71.3,Current,0,Moderate,Moderate,Low
+29,Female,No,No,227.0,114.9,45.2,Never,0,Moderate,Low,Low
+59,Male,No,No,122.9,50.3,69.2,Former,1,Sedentary,Moderate,Low
+59,Male,No,No,198.0,119.3,67.2,Never,0,Light,Low,Low
+27,Male,No,No,197.7,106.6,51.6,Former,0,Moderate,Moderate,Low
+55,Female,No,No,273.2,159.8,39.4,Current,0,Moderate,Low,Moderate
+63,Female,No,Treated,143.1,86.2,53.0,Never,0,Vigorous,Moderate,Moderate
+57,Male,No,Untreated,179.0,89.1,26.8,Never,1,Moderate,High,High
+62,Female,No,No,156.0,53.7,59.4,Never,0,Moderate,Moderate,Moderate
+29,Male,Type 1,No,151.6,50.0,50.7,Current,0,Moderate,Moderate,Moderate
+57,Male,No,No,242.4,199.9,32.7,Never,0,Vigorous,High,Moderate
+47,Male,No,No,196.1,140.4,57.7,Current,0,Light,Moderate,Low
+44,Female,No,No,171.7,123.9,38.8,Never,0,Light,Low,Low
+65,Female,No,Treated,173.3,80.5,65.7,Never,0,Moderate,Moderate,Moderate
+75,Female,Type 2,No,171.3,94.4,62.1,Current,0,Vigorous,Low,High
+80,Male,No,Treated,175.1,78.4,50.9,Former,1,Light,Moderate,High
+73,Male,Type 2,Untreated,141.9,50.0,60.0,Never,0,Sedentary,Low,High
+50,Female,Prediabetes,Untreated,184.1,88.3,40.1,Never,0,Moderate,High,High
+57,Male,No,Treated,179.9,128.1,64.0,Never,0,Moderate,Moderate,Low
+64,Female,No,No,163.2,108.3,59.8,Never,1,Light,Moderate,Moderate
+53,Female,No,No,201.5,89.5,54.9,Never,1,Moderate,Low,Low
+54,Male,No,No,205.1,105.9,57.3,Former,0,Light,Low,Low
+65,Female,No,Untreated,171.6,110.9,48.6,Never,0,Light,Moderate,Moderate
+51,Female,Type 2,Untreated,188.9,91.3,35.4,Never,0,Moderate,Moderate,Moderate
+40,Male,No,No,285.7,158.9,50.6,Never,0,Light,High,Low
+45,Female,Type 1,No,284.1,165.1,47.6,Never,1,Moderate,Moderate,High
+62,Female,No,No,150.7,91.5,53.0,Current,1,Sedentary,Low,High
+52,Male,Type 2,No,156.6,91.7,63.4,Never,0,Moderate,Moderate,Moderate
+57,Female,No,Untreated,150.5,68.4,74.5,Never,1,Light,Moderate,Moderate
+62,Male,No,No,239.4,119.5,59.8,Former,0,Vigorous,Low,Moderate
+46,Female,No,No,178.3,73.1,48.5,Current,1,Moderate,Moderate,Moderate
+64,Female,No,No,205.1,78.5,33.4,Former,1,Sedentary,Low,High
+58,Female,Prediabetes,No,278.9,150.9,24.4,Current,0,Vigorous,Low,High
+32,Male,No,No,194.6,125.0,49.1,Current,1,Light,Low,Low
+75,Female,No,Untreated,224.7,93.2,65.8,Former,0,Light,Moderate,High
+43,Male,No,No,216.9,125.3,40.7,Current,0,Vigorous,Moderate,Low
+25,Male,No,No,170.3,110.9,49.3,Never,0,Vigorous,Low,Low
+35,Male,No,No,239.5,91.3,38.7,Current,1,Moderate,Moderate,Low
+35,Female,No,No,159.3,81.7,51.7,Current,0,Vigorous,Moderate,Low
+52,Male,No,No,251.3,174.4,44.2,Current,0,Light,Moderate,Moderate
+47,Male,No,No,170.3,105.8,41.1,Never,1,Sedentary,Low,Low
+46,Female,No,No,174.9,55.0,68.8,Former,0,Sedentary,Low,Low
+61,Male,Type 2,No,149.3,96.6,57.9,Never,0,Light,Low,High
+57,Male,No,Treated,156.2,69.5,88.3,Former,0,Moderate,High,Moderate
+57,Male,No,Treated,177.1,112.6,41.4,Never,0,Light,High,Low
+58,Male,No,Untreated,100.0,50.0,86.1,Former,0,Moderate,Low,Low
+61,Female,No,No,185.2,100.7,70.9,Former,0,Sedentary,Moderate,Moderate
+18,Male,No,Treated,173.7,83.7,51.0,Never,0,Light,Low,Low
+46,Male,No,Treated,228.2,125.6,43.0,Never,1,Moderate,Low,Moderate
+18,Female,No,No,212.8,104.6,39.0,Never,1,Sedentary,Low,Moderate
+52,Female,No,No,165.3,86.0,46.3,Former,0,Moderate,Low,Low
+51,Female,No,No,175.7,70.8,55.6,Former,1,Moderate,Low,Low
+68,Female,Type 2,Treated,185.1,112.6,54.5,Former,1,Moderate,Low,High
+71,Female,No,No,257.4,145.4,24.2,Never,0,Moderate,Moderate,High
+55,Male,No,No,160.5,52.7,85.4,Current,0,Vigorous,Moderate,Low
+43,Female,No,Untreated,164.8,112.5,54.2,Former,0,Sedentary,Moderate,Low
+59,Female,No,No,147.6,77.3,60.6,Never,0,Moderate,Moderate,Low
+43,Male,Prediabetes,Untreated,132.8,76.6,54.6,Never,0,Sedentary,Moderate,Moderate
+51,Male,No,Treated,207.9,131.2,47.6,Never,0,Light,Moderate,Low
+67,Male,No,Treated,203.5,119.1,47.2,Never,0,Moderate,High,High
+43,Female,No,Treated,248.9,162.5,44.6,Never,0,Moderate,Low,Moderate
+64,Female,No,No,238.7,124.8,46.0,Never,0,Moderate,Moderate,Moderate
+62,Female,Type 2,Treated,295.7,185.4,47.3,Never,0,Moderate,Low,High
+36,Male,No,Treated,191.9,108.2,55.9,Never,0,Moderate,Moderate,Low
+67,Male,Prediabetes,Treated,184.1,112.4,62.8,Never,1,Moderate,Moderate,High
+63,Male,No,No,140.4,86.1,60.8,Current,0,Sedentary,Moderate,High
+53,Female,Type 2,No,224.3,150.7,51.1,Never,0,Sedentary,High,Moderate
+39,Female,No,No,200.0,125.9,49.1,Never,0,Light,Moderate,Low
+38,Female,No,No,222.4,112.6,60.7,Former,0,Moderate,Low,Low
+43,Female,Prediabetes,No,147.2,66.9,63.8,Never,1,Sedentary,Moderate,Low
+60,Female,No,Treated,209.8,114.3,48.6,Never,0,Light,Low,Moderate
+36,Female,No,Treated,203.6,95.3,49.2,Never,1,Light,Moderate,Low
+59,Male,Type 2,Treated,200.8,87.3,50.6,Never,1,Moderate,High,High
+32,Male,No,No,166.3,50.0,57.4,Former,0,Light,Moderate,Low
+48,Male,Prediabetes,No,245.0,100.7,44.6,Never,0,Sedentary,Moderate,Moderate
+53,Male,No,No,281.1,198.3,33.1,Never,0,Sedentary,Low,Moderate
+85,Male,Prediabetes,No,148.4,67.2,68.9,Former,0,Light,Low,Moderate
+29,Male,Type 1,No,225.3,165.8,58.1,Current,0,Light,High,High
+75,Female,No,No,100.0,63.9,88.4,Never,0,Vigorous,Low,Low
+54,Male,No,No,223.1,121.6,41.3,Never,0,Sedentary,Low,Low
+58,Female,No,No,116.5,50.0,72.5,Never,0,Light,Moderate,Low
+53,Female,No,No,173.0,95.3,33.1,Former,0,Moderate,Moderate,Low
+59,Female,Prediabetes,No,139.9,118.6,71.0,Former,0,Moderate,Low,Low
+49,Female,No,No,185.9,136.5,36.6,Former,0,Light,Low,Low
+75,Male,No,Treated,230.2,132.6,35.7,Never,0,Sedentary,Moderate,High
+44,Female,No,No,117.0,50.0,68.4,Never,0,Vigorous,Moderate,Low
+70,Male,No,No,179.9,77.9,47.6,Current,0,Vigorous,Moderate,Moderate
+41,Female,Type 1,No,173.4,76.6,46.9,Never,0,Light,Low,Low
+51,Male,No,Untreated,261.4,171.9,37.0,Current,1,Moderate,High,High
+34,Male,No,No,213.1,153.1,58.8,Never,0,Sedentary,Low,Low
+59,Female,Prediabetes,Treated,145.6,84.4,49.0,Never,0,Sedentary,Low,Moderate
+75,Female,Type 2,No,175.2,89.7,55.1,Never,0,Sedentary,High,High
+50,Male,No,Treated,260.4,177.3,38.4,Never,0,Moderate,High,High
+48,Female,Type 2,Untreated,225.0,102.2,58.1,Current,0,Sedentary,Low,High
+34,Male,No,No,156.4,87.2,68.7,Never,0,Sedentary,Moderate,Low
+48,Female,Prediabetes,Treated,183.8,111.3,32.4,Former,0,Sedentary,High,High
+26,Male,No,No,185.1,82.8,66.8,Former,1,Sedentary,Low,Low
+37,Male,No,Treated,172.4,80.8,48.8,Current,0,Light,Low,Low
+55,Male,No,No,123.2,52.1,66.4,Former,0,Light,Moderate,Low
+73,Male,No,No,166.5,122.7,45.8,Current,0,Moderate,High,Moderate
+85,Male,No,Untreated,253.3,181.4,48.5,Current,0,Light,Moderate,High
+42,Male,No,Untreated,179.0,101.0,85.8,Never,1,Light,Moderate,Low
+74,Male,No,No,190.7,99.0,54.9,Current,1,Moderate,High,High
+55,Male,No,Untreated,200.9,97.3,46.3,Current,0,Light,Low,Moderate
+49,Female,No,No,288.2,158.5,36.0,Never,1,Sedentary,Moderate,Moderate
+58,Male,No,No,195.4,95.4,35.1,Former,0,Moderate,Low,Low
+52,Female,Type 2,Untreated,240.9,130.4,63.3,Never,0,Moderate,Moderate,Moderate
+53,Female,Type 2,No,169.9,102.5,60.3,Former,0,Light,Moderate,Low
+45,Male,No,No,184.1,92.3,41.8,Never,0,Light,Low,Low
+29,Female,No,Treated,195.5,103.4,40.5,Former,0,Sedentary,Moderate,Low
+27,Male,No,No,162.5,85.3,57.8,Never,0,Sedentary,High,Low
+62,Male,No,No,186.4,95.5,65.2,Former,0,Moderate,Moderate,Moderate
+47,Female,Type 1,No,232.3,118.1,33.3,Never,1,Moderate,Low,Moderate
+42,Female,No,Treated,161.4,105.5,71.2,Former,0,Sedentary,Low,Low
+52,Female,No,No,195.0,68.3,51.7,Never,0,Sedentary,Moderate,Low
+64,Male,No,No,224.8,158.3,37.1,Former,1,Light,Moderate,Moderate
+54,Female,No,Treated,160.4,91.2,52.3,Never,0,Light,Moderate,Low
+41,Male,Type 1,No,241.0,146.0,66.8,Never,0,Light,Low,Low
+71,Male,No,No,198.1,124.9,35.6,Never,0,Light,Moderate,Moderate
+77,Male,No,Treated,188.1,87.9,45.0,Current,0,Moderate,Low,High
+59,Female,No,Treated,110.7,50.0,76.8,Never,0,Moderate,Low,Low
+67,Male,Type 2,No,179.3,75.9,57.7,Former,0,Vigorous,Moderate,Moderate
+71,Female,No,Untreated,210.6,110.4,40.9,Never,0,Moderate,Moderate,Moderate
+70,Female,Type 1,Treated,268.3,162.9,53.3,Former,0,Vigorous,High,High
+61,Female,Type 2,No,218.9,107.6,61.3,Never,1,Vigorous,Moderate,High
+61,Female,No,Treated,242.3,146.6,49.6,Never,1,Light,Low,High
+60,Female,Type 2,Treated,144.2,50.0,53.0,Never,0,Sedentary,High,High
+34,Male,No,Treated,189.7,95.9,48.0,Never,1,Sedentary,Low,Low
+63,Male,No,No,246.3,161.1,48.5,Never,1,Moderate,High,High
+30,Female,No,Treated,157.7,83.0,42.6,Never,1,Moderate,Low,Low
+39,Male,No,Untreated,235.5,111.3,62.6,Never,0,Sedentary,High,Moderate
+72,Male,No,No,225.8,109.7,68.5,Current,0,Moderate,High,High
+65,Male,No,Treated,206.5,50.0,48.2,Never,0,Moderate,High,High
+75,Male,No,Treated,181.2,77.4,59.1,Current,1,Moderate,Low,High
+47,Male,No,Untreated,153.6,107.7,73.2,Never,0,Light,High,Low
+33,Male,No,Untreated,269.6,135.5,65.0,Never,1,Sedentary,Moderate,Moderate
+48,Female,No,No,221.5,111.6,67.5,Never,0,Light,Low,Low
+53,Male,No,No,209.3,63.8,29.8,Never,0,Sedentary,Moderate,Low
+53,Female,Type 2,No,177.7,61.9,51.6,Never,0,Moderate,Moderate,Low
+70,Female,Type 2,No,196.6,134.3,58.5,Current,1,Light,High,High
+46,Male,No,No,201.9,124.6,45.8,Former,0,Sedentary,Moderate,Low
+57,Female,No,Treated,211.8,87.9,71.6,Former,0,Light,Moderate,Low
+36,Female,No,Untreated,225.8,110.3,67.7,Never,1,Moderate,Moderate,Low
+59,Female,Prediabetes,No,162.1,88.5,47.9,Never,0,Light,Low,Moderate
+52,Male,No,Treated,133.4,50.0,60.0,Former,0,Vigorous,Moderate,Low
+40,Male,Prediabetes,No,198.5,65.1,43.2,Never,0,Sedentary,Moderate,Moderate
+48,Male,No,No,121.6,63.4,61.4,Never,1,Vigorous,Moderate,Low
+49,Female,No,No,181.4,112.4,52.1,Never,0,Sedentary,Moderate,Low
+47,Female,Prediabetes,No,173.6,108.5,67.4,Never,0,Sedentary,Moderate,Low
+80,Female,No,No,215.7,137.9,39.0,Former,0,Vigorous,Moderate,Moderate
+50,Female,Type 1,Treated,278.3,118.9,20.0,Never,0,Moderate,Moderate,High
+48,Female,No,Treated,113.3,63.6,45.8,Never,0,Moderate,Low,Low
+18,Female,No,No,290.5,153.9,26.1,Current,0,Moderate,High,Moderate
+37,Male,No,No,185.2,99.9,46.4,Current,1,Light,High,Low
+47,Female,No,No,209.6,110.6,52.8,Never,0,Moderate,High,Low
+41,Male,No,Untreated,135.6,60.1,48.7,Never,1,Sedentary,High,Moderate
+74,Male,No,Untreated,236.9,63.9,31.9,Former,1,Moderate,Moderate,High
+49,Female,No,No,196.7,133.7,41.3,Never,0,Vigorous,Moderate,Low
+72,Female,No,No,192.4,113.1,39.8,Never,0,Moderate,High,Moderate
+52,Male,No,No,113.6,50.0,58.3,Never,0,Moderate,Low,Low
+52,Male,No,Treated,198.1,119.4,45.1,Never,0,Moderate,High,Moderate
+50,Male,No,No,230.5,116.9,55.7,Current,0,Light,Low,Low
+52,Male,No,No,185.1,92.6,42.4,Former,0,Light,High,Low
+79,Male,Type 1,No,244.3,117.5,41.1,Current,0,Moderate,Moderate,High
+18,Female,No,No,242.6,145.2,39.1,Former,0,Moderate,High,Moderate
+19,Female,No,No,168.1,74.9,66.5,Former,0,Light,Moderate,Low
+43,Male,Type 2,No,262.0,120.0,40.8,Former,0,Moderate,Moderate,Low
+52,Male,No,Treated,196.9,133.2,65.1,Former,0,Sedentary,High,Moderate
+63,Male,No,No,197.1,104.5,38.6,Never,0,Moderate,Moderate,Moderate
+59,Male,Prediabetes,No,199.2,106.3,51.5,Never,0,Moderate,Low,Low
+45,Female,No,No,197.9,124.1,45.4,Never,0,Sedentary,Low,Low
+68,Female,No,No,100.0,50.0,52.3,Never,0,Sedentary,Moderate,Moderate
+68,Female,Type 2,Treated,187.2,92.7,53.1,Never,0,Moderate,Moderate,High
+54,Male,Type 2,Untreated,137.7,82.5,82.1,Never,0,Sedentary,Moderate,Moderate
+67,Female,No,No,263.3,110.9,32.3,Former,0,Vigorous,Low,High
+56,Male,No,Untreated,261.6,148.7,41.2,Never,1,Sedentary,Low,Moderate
+43,Male,Prediabetes,Treated,230.8,110.3,31.6,Never,0,Sedentary,High,High
+63,Female,No,Treated,185.0,120.6,36.7,Never,0,Sedentary,Moderate,High
+53,Female,No,No,152.7,96.0,49.6,Never,0,Moderate,Low,Low
+52,Female,No,No,167.4,101.2,51.5,Current,1,Moderate,Low,Low
+75,Female,No,No,276.6,116.8,35.6,Never,1,Moderate,Low,High
+18,Female,No,Untreated,165.9,89.0,54.4,Never,0,Vigorous,High,Low
+29,Female,No,Treated,100.0,50.0,47.2,Never,0,Moderate,Moderate,Low
+33,Male,No,No,238.3,130.3,38.7,Current,0,Sedentary,Moderate,Low
+46,Male,No,No,258.0,91.0,49.3,Former,1,Sedentary,Moderate,Moderate
+47,Male,Type 2,No,264.7,111.7,26.0,Never,0,Moderate,High,High
+27,Male,No,No,238.6,157.4,41.9,Never,1,Sedentary,Low,Low
+36,Male,No,Treated,245.5,143.1,48.7,Former,0,Moderate,Low,Low
+38,Male,No,No,197.2,100.7,43.0,Current,0,Moderate,Moderate,Low
+85,Female,No,Treated,107.8,50.0,69.9,Never,0,Moderate,High,High
+80,Female,Type 2,Treated,196.2,84.1,34.3,Never,0,Moderate,Moderate,High
+45,Female,Type 2,Treated,221.1,126.0,59.5,Never,0,Vigorous,Moderate,Moderate
+46,Male,No,Treated,189.3,96.6,58.0,Never,0,Moderate,High,Moderate
+33,Female,No,No,187.4,137.1,54.6,Former,0,Moderate,Low,Low
+21,Male,No,Treated,154.5,80.9,72.3,Current,0,Light,Moderate,Moderate
+50,Male,No,Treated,152.9,85.4,55.1,Current,0,Light,Moderate,Moderate
+36,Male,No,No,272.2,119.2,33.8,Former,1,Light,High,Moderate
+50,Male,No,No,273.7,142.6,57.4,Never,1,Vigorous,Low,Moderate
+26,Male,No,No,194.9,111.1,74.9,Current,0,Moderate,Moderate,Low
+39,Female,No,No,206.8,105.5,42.7,Never,0,Moderate,High,Low
+54,Female,No,No,153.8,73.9,57.6,Never,1,Sedentary,Moderate,Low
+57,Female,No,No,222.0,129.3,61.2,Former,0,Moderate,Moderate,Low
+58,Male,No,Treated,268.9,181.2,40.7,Never,1,Light,Low,High
+30,Female,No,No,130.8,75.1,69.5,Current,1,Moderate,Low,Low
+65,Female,No,No,214.5,143.1,59.2,Current,0,Sedentary,Moderate,High
+39,Male,No,No,217.6,133.4,42.6,Former,0,Moderate,Low,Low
+62,Female,No,No,217.2,143.3,54.5,Former,0,Moderate,High,Moderate
+51,Male,No,Untreated,264.0,131.8,42.3,Never,0,Light,Moderate,Moderate
+29,Male,Prediabetes,No,280.5,149.7,25.3,Never,0,Light,High,Moderate
+46,Male,Type 2,No,185.2,97.4,42.3,Former,1,Light,Low,Moderate
+57,Female,No,No,223.3,134.8,40.7,Former,0,Light,Low,Low
+61,Male,No,No,198.5,126.6,63.4,Current,0,Sedentary,Moderate,Moderate
+49,Male,Prediabetes,Treated,168.5,95.4,68.3,Never,0,Light,Low,Moderate
+76,Male,No,Treated,206.4,132.8,60.0,Never,0,Light,Low,Moderate
+68,Female,No,No,223.2,110.4,53.8,Never,0,Light,Moderate,Moderate
+47,Male,No,Treated,204.1,131.7,56.3,Former,1,Moderate,Low,Low
+64,Male,No,No,158.0,109.2,61.6,Former,0,Light,Low,Low
+82,Male,No,Treated,175.5,111.4,60.6,Current,1,Sedentary,Low,High
+83,Female,No,No,175.9,99.7,61.3,Never,1,Moderate,High,Moderate
+32,Female,No,No,159.6,103.5,41.2,Never,0,Light,Low,Low
+37,Female,No,Treated,208.2,94.8,41.3,Never,1,Moderate,Moderate,Low
+75,Male,No,Treated,212.6,121.3,37.8,Never,1,Vigorous,Moderate,High
+35,Male,No,No,236.1,136.5,59.9,Never,0,Moderate,Moderate,Low
+30,Female,No,Untreated,159.0,58.2,78.0,Former,0,Light,Moderate,Low
+44,Male,No,Untreated,170.7,104.3,30.4,Never,0,Light,Low,Low
+58,Female,No,No,260.3,115.7,61.7,Never,0,Moderate,Low,Low
+50,Female,No,Treated,188.1,94.0,54.8,Former,0,Moderate,Moderate,Low
+41,Male,Prediabetes,Treated,196.3,108.8,64.7,Current,0,Sedentary,High,High
+41,Female,No,No,187.6,87.1,59.9,Never,1,Moderate,Moderate,Low
+40,Female,No,No,242.6,135.2,62.9,Never,0,Moderate,Moderate,Low
+37,Male,No,Untreated,244.2,135.8,47.9,Former,0,Moderate,High,Moderate
+85,Male,Prediabetes,Treated,241.8,114.9,29.4,Former,1,Sedentary,Moderate,High
+56,Male,Prediabetes,No,196.1,120.4,51.3,Current,0,Light,Moderate,Moderate
+66,Female,Type 1,No,158.4,70.3,64.4,Never,0,Light,Moderate,Moderate
+44,Male,No,No,275.9,202.1,38.0,Never,0,Light,High,Moderate
+49,Male,No,Untreated,231.0,124.6,55.2,Current,0,Moderate,Moderate,Moderate
+40,Female,No,Treated,175.8,70.9,54.8,Never,0,Light,Moderate,Low
+18,Male,No,No,254.8,118.5,36.6,Never,1,Light,Moderate,Moderate
+29,Male,No,Untreated,172.5,120.1,43.1,Current,0,Light,Moderate,Moderate
+23,Female,No,Treated,254.2,130.8,39.2,Never,0,Moderate,High,High
+18,Male,No,No,257.1,111.4,45.9,Former,0,Moderate,High,Low
+32,Male,Type 2,No,156.3,104.7,35.0,Current,0,Moderate,Moderate,Moderate
+73,Male,No,No,219.4,111.5,39.7,Never,0,Vigorous,Low,Moderate
+51,Male,No,No,227.9,139.7,23.9,Former,0,Vigorous,Moderate,Low
+72,Male,No,No,304.8,188.2,28.9,Never,1,Light,Low,High
+58,Female,Type 1,Treated,163.8,96.1,71.8,Current,1,Sedentary,Moderate,High
+64,Female,Type 2,Untreated,255.2,193.1,29.5,Current,0,Moderate,Low,High
+37,Male,No,No,195.7,69.7,61.1,Current,0,Moderate,High,Low
+60,Female,Type 2,Untreated,142.9,60.6,94.8,Never,0,Light,High,Moderate
+63,Female,Type 1,Untreated,190.0,98.9,70.9,Former,0,Vigorous,Low,High
+42,Female,Prediabetes,No,195.1,157.1,54.3,Current,0,Light,Moderate,Low
+60,Female,Type 1,No,150.5,122.3,69.7,Former,0,Vigorous,High,Moderate
+61,Female,No,Treated,208.1,142.8,34.3,Former,0,Moderate,Low,High
+43,Female,Prediabetes,Treated,235.2,111.9,27.8,Never,0,Sedentary,Low,Moderate
+34,Male,No,No,205.0,97.8,51.6,Current,0,Moderate,Moderate,Low
+33,Female,Prediabetes,Treated,172.2,76.5,61.0,Never,1,Moderate,High,Moderate
+53,Male,No,Treated,188.8,86.6,66.8,Never,0,Moderate,Moderate,Moderate
+57,Male,Prediabetes,Treated,194.8,140.0,46.0,Current,0,Moderate,Low,High
+39,Female,Type 2,Treated,204.1,106.9,53.7,Current,0,Sedentary,Low,High
+52,Male,No,No,241.6,130.4,47.7,Current,1,Sedentary,Moderate,Moderate
+61,Male,Type 2,No,206.4,130.6,49.5,Never,0,Sedentary,Low,High
+61,Male,No,No,136.1,50.0,60.7,Never,0,Sedentary,Moderate,Moderate
+76,Male,No,Untreated,171.4,95.4,46.0,Never,0,Light,Low,Moderate
+72,Female,No,Untreated,202.0,87.0,55.1,Never,0,Light,Moderate,High
+35,Female,Prediabetes,Treated,242.2,126.7,48.0,Current,1,Sedentary,Moderate,High
+78,Male,No,No,249.5,124.3,39.3,Former,0,Moderate,High,High
+43,Male,No,No,269.5,134.2,49.6,Never,0,Light,Low,Low
+68,Male,No,No,200.5,115.2,64.3,Never,0,Light,Moderate,Low
+53,Male,No,No,227.1,129.8,56.1,Never,0,Vigorous,Moderate,Low
+45,Female,No,No,133.9,68.8,49.4,Current,0,Vigorous,Moderate,Low
+23,Female,Type 1,Treated,213.1,125.4,51.2,Former,0,Moderate,Low,Low
+49,Male,No,No,149.8,63.3,48.6,Never,0,Sedentary,Low,Low
+27,Male,Prediabetes,Treated,192.4,120.8,54.3,Never,1,Moderate,Moderate,Moderate
+67,Female,No,Untreated,322.3,172.7,22.8,Never,0,Sedentary,Moderate,High
+76,Female,Type 2,Treated,207.7,103.6,66.2,Never,0,Moderate,High,High
+39,Male,No,No,158.7,69.8,67.6,Current,1,Moderate,High,Low
+56,Male,No,Untreated,212.1,111.3,64.0,Former,0,Light,Moderate,Moderate
+40,Male,No,Treated,173.3,136.5,68.6,Never,0,Vigorous,High,Low
+41,Female,No,No,154.6,83.6,55.6,Former,0,Moderate,Moderate,Low
+64,Male,No,Treated,283.3,130.6,34.4,Never,0,Light,Low,High
+51,Male,Prediabetes,Untreated,239.8,152.1,66.9,Never,1,Sedentary,Low,High
+79,Female,No,No,209.5,104.8,48.6,Former,0,Moderate,High,Moderate
+44,Female,No,No,178.5,104.4,39.0,Never,1,Light,Moderate,Low
+67,Male,No,No,181.9,86.7,66.8,Never,0,Sedentary,High,Moderate
+53,Male,Type 2,No,259.8,171.1,44.8,Current,0,Sedentary,Low,High
+64,Male,No,Treated,207.9,101.3,68.9,Current,0,Vigorous,Low,High
+44,Female,No,No,100.0,85.8,69.9,Never,0,Sedentary,Moderate,Low
+51,Male,No,No,296.7,140.1,37.3,Former,0,Vigorous,High,Moderate
+50,Female,No,No,202.7,105.0,69.9,Never,1,Moderate,High,Low
+38,Female,No,No,209.4,146.0,32.1,Former,0,Light,Low,Low
+62,Female,No,No,240.6,136.0,38.9,Never,1,Light,Moderate,High
+62,Female,No,Treated,214.5,167.9,39.2,Former,0,Moderate,Moderate,High
+61,Male,No,No,226.4,118.6,21.7,Never,0,Light,High,High
+76,Male,No,No,177.2,103.1,65.9,Current,0,Sedentary,Low,High
+75,Female,No,Untreated,143.3,120.7,53.8,Current,0,Sedentary,Moderate,High
+46,Male,Type 2,Untreated,206.8,80.4,61.8,Never,0,Moderate,Low,Moderate
+57,Male,No,No,255.1,104.3,48.4,Former,0,Moderate,Moderate,Moderate
+42,Male,No,No,167.8,74.8,64.1,Never,0,Light,Low,Low
+52,Male,No,No,164.4,108.3,51.9,Former,0,Sedentary,High,Low
+42,Male,No,No,246.3,100.0,35.9,Never,0,Light,Low,Low
+77,Female,Type 1,No,175.8,109.8,56.7,Never,0,Moderate,Moderate,Moderate
+57,Female,No,Untreated,177.8,109.4,66.4,Former,0,Sedentary,Moderate,Moderate
+48,Female,No,Treated,179.3,142.9,54.5,Never,0,Vigorous,Low,Low
+71,Female,No,No,192.3,128.8,44.7,Never,0,Moderate,Low,Moderate
+18,Male,No,Untreated,128.9,78.9,48.3,Never,1,Light,Moderate,Moderate
+19,Female,Type 2,No,172.3,124.7,58.6,Never,0,Moderate,Moderate,Low
+64,Female,No,No,204.7,124.4,44.6,Never,0,Moderate,Moderate,Low
+52,Male,No,No,204.4,102.3,50.5,Former,0,Moderate,Moderate,Low
+56,Female,Prediabetes,No,243.6,108.8,42.6,Former,0,Sedentary,Low,High
+30,Male,Prediabetes,Untreated,272.3,137.2,35.8,Never,0,Vigorous,High,High
+51,Male,No,No,258.5,141.3,46.8,Never,0,Light,Low,Low
+84,Male,No,Treated,233.4,132.2,53.6,Former,0,Moderate,Moderate,Moderate
+65,Male,No,No,188.8,56.9,77.3,Former,1,Light,High,Moderate
+54,Male,Prediabetes,Untreated,168.8,88.0,65.8,Current,0,Light,High,High
+44,Female,Prediabetes,Treated,195.8,108.3,71.8,Never,0,Vigorous,Low,Low
+45,Female,No,No,219.6,132.8,39.2,Never,0,Light,Low,Low
+18,Male,Prediabetes,No,229.5,162.0,28.4,Former,1,Sedentary,Moderate,Moderate
+56,Female,No,Untreated,221.2,125.7,48.6,Never,1,Moderate,Low,Moderate
+65,Male,No,No,189.9,84.4,63.8,Never,0,Sedentary,Moderate,Moderate
+26,Female,No,No,228.0,85.4,56.2,Never,0,Moderate,Moderate,Low
+41,Male,Type 1,Untreated,248.0,151.5,59.3,Current,0,Vigorous,Low,High
+33,Male,No,No,232.0,108.5,20.0,Never,1,Sedentary,Moderate,Low
+36,Female,No,No,193.7,125.6,68.0,Former,0,Moderate,Moderate,Low
+52,Female,No,No,160.0,118.7,62.0,Former,0,Vigorous,Moderate,Low
+18,Female,Prediabetes,No,159.0,53.5,39.6,Never,0,Vigorous,Moderate,Low
+61,Female,Prediabetes,No,166.4,103.7,65.7,Current,0,Light,Low,High
+64,Female,No,No,205.8,141.6,53.2,Former,0,Moderate,Moderate,Low
+47,Male,No,No,216.8,141.7,54.1,Never,0,Moderate,Moderate,Low
+18,Male,Type 2,No,135.6,50.0,73.6,Former,1,Sedentary,Moderate,Moderate
+36,Male,Prediabetes,No,173.8,76.8,61.1,Never,0,Moderate,High,Low
+71,Male,No,Untreated,205.2,84.7,33.5,Never,1,Light,High,High
+18,Male,No,No,157.2,98.0,56.7,Former,0,Light,Moderate,Low
+46,Male,Type 2,No,213.2,126.4,30.6,Former,0,Light,High,Moderate
+33,Male,Type 2,No,182.1,50.0,62.5,Never,0,Moderate,Low,Low
+64,Female,No,Treated,164.6,83.9,74.1,Current,0,Sedentary,Moderate,High
+41,Male,No,No,197.2,126.1,37.5,Former,0,Light,Moderate,Low
+58,Female,No,No,211.5,119.6,42.2,Former,0,Sedentary,Moderate,Low
+61,Female,Prediabetes,Treated,159.4,90.9,47.5,Never,0,Sedentary,Moderate,High
+81,Male,No,No,184.8,93.6,48.8,Never,0,Vigorous,Low,Moderate
+48,Male,No,Treated,214.6,94.7,54.8,Never,1,Light,High,Moderate
+58,Female,No,Untreated,163.0,89.3,52.2,Former,0,Sedentary,High,Moderate
+28,Female,Type 2,Treated,125.4,70.1,71.0,Never,0,Vigorous,High,Moderate
+71,Male,Type 2,No,130.5,85.3,75.2,Former,0,Sedentary,Moderate,High
+39,Male,Type 2,No,177.4,112.9,68.6,Never,0,Light,High,Low
+43,Female,No,No,139.6,78.7,47.6,Former,1,Moderate,Moderate,Low
+51,Female,Prediabetes,Treated,180.4,123.3,71.6,Current,0,Moderate,Moderate,High
+26,Male,Prediabetes,Untreated,264.9,137.4,59.9,Former,1,Sedentary,Moderate,High
+55,Male,No,Untreated,137.1,50.0,80.1,Former,1,Moderate,High,Moderate
+67,Female,No,No,183.1,111.2,52.6,Current,0,Moderate,Moderate,Moderate
+56,Male,Type 2,Treated,284.6,159.3,30.3,Never,0,Moderate,Moderate,High
+26,Female,No,No,212.1,127.6,38.4,Former,0,Light,High,Low
+50,Male,No,Treated,179.6,71.0,41.8,Current,1,Moderate,Low,Moderate
+63,Female,No,No,188.4,143.0,53.9,Former,0,Moderate,Moderate,Low
+21,Male,Prediabetes,No,213.0,132.8,60.2,Never,0,Moderate,Low,Low
+34,Male,No,No,266.2,140.1,57.7,Current,0,Vigorous,Moderate,Moderate
+66,Female,Prediabetes,Untreated,172.7,74.4,50.3,Never,1,Moderate,Low,High
+56,Male,No,No,163.2,113.5,57.1,Never,0,Moderate,Low,Low
+58,Female,Prediabetes,No,137.1,51.2,60.2,Never,0,Light,Moderate,Moderate
+81,Male,No,No,199.3,159.4,44.5,Never,0,Sedentary,Low,Moderate
+59,Female,Prediabetes,No,136.0,61.3,70.4,Never,1,Moderate,Low,Moderate
+62,Female,Prediabetes,Untreated,175.5,134.4,60.0,Never,1,Sedentary,Moderate,High
+85,Female,No,No,156.8,82.2,60.2,Current,0,Moderate,Low,Moderate
+48,Male,No,No,240.1,166.8,50.3,Never,0,Moderate,Low,Low
+39,Female,Prediabetes,Treated,173.6,79.3,63.3,Never,0,Moderate,Low,Moderate
+58,Female,No,No,211.7,116.8,57.5,Current,0,Sedentary,Low,Low
+59,Female,No,No,127.6,87.9,52.8,Current,0,Moderate,Low,Low
+43,Male,No,No,200.5,124.8,62.7,Never,0,Moderate,High,Low
+35,Male,Type 2,No,144.5,103.7,63.4,Never,1,Light,Moderate,Low
+85,Male,No,No,177.1,86.7,50.2,Former,0,Moderate,Moderate,Moderate
+57,Female,No,No,287.9,160.2,41.6,Current,0,Sedentary,Moderate,High
+40,Female,Type 2,No,234.2,156.3,51.0,Former,0,Moderate,Low,Low
+66,Male,No,Treated,189.6,88.8,66.5,Never,0,Sedentary,Moderate,High
+50,Female,No,Untreated,329.4,193.8,20.0,Former,0,Moderate,High,High
+47,Female,No,Untreated,156.6,81.3,74.4,Former,0,Sedentary,Low,Moderate
+60,Male,No,No,243.9,138.7,45.7,Former,0,Sedentary,Low,Low
+31,Male,No,No,130.6,73.7,56.3,Current,0,Sedentary,Moderate,Low
+57,Female,Prediabetes,Untreated,184.8,84.3,47.8,Former,1,Sedentary,Low,High
+82,Female,No,Treated,138.4,70.4,49.2,Former,1,Moderate,Low,High
+59,Male,Prediabetes,No,205.8,116.4,30.2,Former,0,Moderate,Moderate,Moderate
+45,Female,No,No,197.4,106.3,60.5,Former,0,Sedentary,Moderate,Low
+43,Female,No,No,182.1,134.8,78.5,Never,0,Sedentary,Low,Low
+45,Female,No,No,240.9,154.7,26.5,Never,1,Moderate,High,Moderate
+47,Female,No,No,171.2,100.5,44.9,Former,1,Sedentary,Low,Low
+45,Female,Prediabetes,No,208.7,98.0,59.7,Former,0,Light,Low,Low
+66,Female,No,Untreated,229.5,108.1,47.0,Never,0,Sedentary,Moderate,Moderate
+24,Male,No,No,132.7,116.4,72.1,Never,0,Moderate,Moderate,Low
+65,Female,No,No,163.6,67.8,56.2,Former,0,Vigorous,Moderate,Moderate
+45,Male,Prediabetes,No,197.3,111.0,45.4,Former,0,Sedentary,Moderate,Low
+58,Female,No,Treated,221.5,129.8,46.1,Never,0,Vigorous,Moderate,Low
+33,Male,Prediabetes,Treated,254.7,133.2,20.0,Never,0,Moderate,High,High
+73,Female,No,No,185.9,80.2,40.4,Never,0,Vigorous,Moderate,Low
+71,Male,No,No,181.7,82.7,66.1,Current,0,Moderate,Moderate,Moderate
+67,Male,Prediabetes,Treated,158.4,75.1,72.5,Current,0,Moderate,Moderate,High
+27,Male,No,Treated,208.9,99.3,67.5,Former,1,Moderate,Low,Low
+65,Female,No,No,182.5,129.6,59.9,Never,0,Moderate,Moderate,Low
+58,Female,Type 2,Untreated,183.5,100.7,27.4,Former,0,Sedentary,Low,High
+26,Male,No,No,191.1,93.6,45.7,Never,1,Moderate,Moderate,Low
+51,Female,No,No,218.2,122.4,65.2,Current,0,Moderate,Moderate,Low
+57,Female,No,No,171.3,108.9,75.8,Never,0,Sedentary,Moderate,Low
+60,Male,No,No,162.6,81.8,74.0,Never,0,Light,Low,Low
+54,Female,Prediabetes,No,213.1,137.0,47.2,Former,0,Sedentary,Moderate,Moderate
+56,Male,No,No,100.0,50.0,51.3,Never,1,Light,High,Low
+75,Male,Type 2,Treated,169.6,119.0,56.1,Former,0,Sedentary,High,High
+71,Female,No,No,146.6,80.4,60.2,Former,0,Light,Moderate,Moderate
+18,Male,Type 2,Untreated,245.5,134.0,64.0,Never,0,Light,Low,High
+46,Female,Prediabetes,No,176.5,81.8,58.3,Never,1,Moderate,Moderate,Moderate
+49,Female,Type 2,No,171.4,67.3,56.5,Former,1,Sedentary,Moderate,Moderate
+23,Female,No,Untreated,193.0,69.5,53.9,Current,0,Sedentary,Low,Moderate
+53,Female,No,Treated,170.0,76.7,61.3,Never,0,Light,High,Moderate
+71,Female,No,Treated,178.1,110.9,62.8,Never,0,Light,Moderate,Moderate
+34,Female,No,Treated,199.1,88.4,43.4,Former,0,Sedentary,Moderate,Low
+57,Male,No,No,177.3,63.4,42.7,Never,0,Vigorous,Moderate,Low
+37,Male,Prediabetes,No,177.0,77.4,71.9,Former,0,Light,Low,Low
+41,Female,No,No,152.6,75.5,39.4,Former,0,Light,Moderate,Low
+75,Male,Prediabetes,No,146.5,73.0,79.7,Never,1,Moderate,Moderate,High
+43,Male,No,No,197.5,105.8,29.4,Former,0,Moderate,Low,Low
+59,Male,Type 2,No,207.9,137.1,43.8,Never,0,Light,Moderate,Low
+22,Female,No,Untreated,135.0,101.7,73.4,Never,1,Sedentary,Moderate,Low
+81,Male,No,Untreated,226.9,168.9,48.0,Former,0,Moderate,Moderate,High
+61,Male,Prediabetes,Treated,227.1,89.2,32.1,Current,0,Light,High,High
+49,Male,Prediabetes,Treated,235.9,110.9,51.7,Former,0,Light,Moderate,Moderate
+61,Male,Prediabetes,No,207.6,129.5,51.7,Never,0,Vigorous,Moderate,Moderate
+29,Female,Type 2,No,221.8,112.0,46.1,Former,0,Vigorous,High,Low
+70,Male,No,Treated,286.8,176.7,31.5,Never,0,Moderate,Moderate,High
+46,Female,Prediabetes,Treated,182.3,104.8,54.2,Never,0,Sedentary,Moderate,High
+48,Female,No,No,151.1,117.8,52.4,Never,0,Moderate,High,Low
+44,Male,No,No,130.6,94.8,91.6,Never,1,Vigorous,Moderate,Low
+42,Female,No,No,268.7,171.1,38.8,Never,0,Vigorous,High,Moderate
+63,Female,No,No,269.3,139.1,37.1,Current,0,Sedentary,Moderate,High
+56,Female,No,No,156.2,83.8,52.1,Never,0,Sedentary,Moderate,Low
+62,Male,Prediabetes,No,164.5,83.8,78.6,Current,0,Sedentary,Low,High
+51,Male,No,Treated,181.4,66.6,35.1,Former,0,Moderate,Low,Moderate
+60,Female,Type 2,Untreated,246.4,167.9,49.4,Never,0,Light,Moderate,High
+45,Female,No,No,140.9,93.9,58.0,Never,0,Light,Low,Low
+85,Female,No,Treated,112.4,54.2,48.1,Never,0,Light,Moderate,Moderate
+26,Female,No,Treated,286.0,186.0,29.3,Never,0,Light,Low,High
+72,Male,No,No,208.1,100.6,54.6,Former,1,Moderate,Low,Moderate
+73,Female,No,Treated,214.1,77.3,39.5,Current,0,Light,Moderate,High
+38,Male,Prediabetes,No,186.4,124.7,57.2,Current,1,Sedentary,Moderate,Moderate
+85,Female,No,No,214.6,89.9,70.6,Never,0,Moderate,Low,Moderate
+67,Male,No,No,131.4,68.0,64.3,Never,0,Moderate,Moderate,Low
+67,Male,Prediabetes,Untreated,159.7,92.4,40.6,Never,0,Moderate,Low,High
+52,Female,No,Untreated,199.4,118.2,41.9,Current,1,Moderate,Low,High
+48,Female,Prediabetes,No,100.0,73.7,63.6,Never,0,Sedentary,High,Moderate
+48,Female,Prediabetes,No,182.3,113.0,50.4,Never,1,Sedentary,High,High
+58,Male,No,No,179.7,110.9,56.9,Former,0,Sedentary,Moderate,Low
+74,Male,No,Treated,182.3,82.9,58.4,Former,0,Moderate,Moderate,High
+54,Female,No,No,171.9,101.0,77.0,Never,1,Vigorous,High,Low
+37,Male,No,No,153.2,51.1,59.0,Former,1,Light,Moderate,Low
+65,Male,No,Treated,118.5,99.5,50.4,Never,1,Moderate,Low,High
+66,Female,Type 2,No,201.1,79.7,65.7,Never,0,Moderate,Low,Moderate
+62,Male,No,No,182.4,92.7,69.8,Never,1,Vigorous,Low,Moderate
+63,Female,Prediabetes,No,137.2,50.0,64.2,Never,0,Light,Moderate,Moderate
+47,Male,No,No,197.6,92.6,49.4,Current,1,Sedentary,Moderate,Moderate
+37,Female,No,No,182.6,100.7,62.1,Never,1,Moderate,Low,Low
+38,Female,No,No,175.6,84.9,53.1,Former,0,Moderate,Low,Low
+25,Female,No,No,104.4,82.6,41.7,Never,0,Moderate,Low,Low
+55,Female,Type 2,Untreated,223.7,128.0,55.2,Former,0,Moderate,Moderate,Moderate
+50,Male,No,No,143.2,68.6,71.2,Current,1,Light,High,Moderate
+44,Female,No,Untreated,197.7,105.8,69.6,Never,1,Moderate,Moderate,Moderate
+18,Female,No,No,161.1,115.4,49.1,Current,0,Light,Moderate,Low
+32,Female,No,Treated,178.7,118.3,57.9,Former,1,Light,Low,Low
+69,Female,Type 2,No,243.4,108.8,48.5,Former,0,Sedentary,Moderate,High
+41,Female,Type 2,Treated,217.3,104.5,50.4,Never,1,Sedentary,Moderate,High
+57,Female,Type 2,No,242.5,143.8,47.0,Former,0,Sedentary,Low,Moderate
+29,Female,No,No,208.9,122.7,51.1,Never,0,Moderate,Moderate,Low
+75,Male,No,No,211.6,93.3,52.8,Current,0,Moderate,High,High
+49,Male,Prediabetes,No,120.2,82.6,72.9,Current,0,Light,Low,Moderate
+56,Female,No,Untreated,181.7,80.3,69.4,Never,0,Light,Moderate,Low
+85,Male,No,Untreated,185.6,130.8,45.1,Current,1,Sedentary,High,High
+76,Female,No,Treated,246.4,147.2,43.0,Current,0,Light,Moderate,High
+47,Female,No,No,173.7,70.6,50.9,Former,0,Light,Moderate,Low
+42,Male,Type 1,Untreated,206.1,101.7,44.3,Never,0,Moderate,Low,Moderate
+46,Female,No,Treated,204.5,100.5,31.9,Never,1,Vigorous,High,High
+60,Female,Type 2,No,243.6,137.5,45.8,Never,0,Light,Low,Moderate
+50,Female,No,No,189.4,99.7,59.3,Never,0,Moderate,Low,Low
+45,Male,No,Treated,229.8,101.2,45.7,Current,0,Moderate,Low,Moderate
+75,Female,No,No,123.4,50.0,63.4,Never,0,Sedentary,Moderate,Moderate
+50,Male,No,No,127.2,82.0,67.9,Former,0,Light,Moderate,Low
+85,Female,No,Treated,100.0,61.3,83.9,Former,0,Sedentary,High,High
+53,Male,No,No,228.0,127.7,42.8,Former,0,Light,Moderate,Low
+80,Female,No,No,223.3,128.8,34.4,Never,0,Moderate,High,High
+57,Female,Type 1,No,232.7,114.4,46.0,Former,0,Light,Moderate,Low
+67,Female,No,Treated,166.6,95.7,79.6,Former,0,Light,Moderate,Moderate
+40,Male,No,Untreated,171.3,150.1,42.4,Former,0,Sedentary,Low,Low
+38,Female,No,Treated,189.9,130.3,61.3,Never,0,Light,Low,Low
+59,Female,Prediabetes,Treated,255.6,134.2,57.6,Former,0,Vigorous,Moderate,High
+67,Male,No,No,266.1,134.8,20.0,Never,0,Light,Moderate,Moderate
+52,Female,No,Treated,228.3,62.6,52.7,Former,0,Moderate,Low,Low
+31,Female,No,No,208.9,138.4,57.9,Never,0,Sedentary,Moderate,Low
+30,Female,No,No,251.1,155.4,41.1,Never,0,Sedentary,Moderate,Low
+29,Female,No,Treated,184.3,89.4,46.6,Current,0,Light,Moderate,Low
+23,Female,No,Treated,178.6,66.7,48.1,Never,0,Vigorous,Low,Low
+53,Female,Type 2,No,189.6,78.9,49.6,Current,0,Sedentary,Low,Moderate
+70,Female,No,Untreated,153.9,94.4,55.3,Current,0,Moderate,Low,High
+51,Male,No,Treated,187.6,101.2,48.0,Never,0,Sedentary,High,Moderate
+18,Female,No,No,148.1,96.7,55.7,Never,1,Moderate,High,Low
+48,Female,No,No,238.1,132.9,60.6,Never,0,Moderate,Low,Low
+49,Female,No,No,217.8,141.1,34.8,Current,0,Moderate,Low,Low
+85,Female,No,No,255.0,148.4,22.8,Former,0,Light,Moderate,High
+28,Male,No,No,126.6,87.9,77.5,Never,1,Sedentary,Low,Low
+45,Male,No,No,274.9,105.2,38.5,Never,0,Moderate,High,Moderate
+79,Female,No,No,129.0,50.0,58.0,Never,0,Moderate,Moderate,Moderate
+59,Male,Type 2,No,144.7,71.6,59.0,Former,1,Sedentary,High,Moderate
+61,Male,No,Treated,168.9,116.6,59.2,Never,0,Light,Low,Moderate
+53,Male,No,Treated,249.9,178.8,38.2,Never,0,Sedentary,High,High
+57,Female,Type 2,No,204.5,108.9,57.4,Current,0,Light,Moderate,Moderate
+64,Male,Prediabetes,No,184.8,88.2,42.7,Never,0,Light,Moderate,Moderate
+39,Male,No,No,161.7,50.0,54.1,Never,1,Sedentary,High,Moderate
+66,Male,Type 1,No,137.2,94.5,34.8,Former,0,Light,Moderate,High
+30,Male,No,No,242.6,121.3,59.7,Current,0,Moderate,Low,Low
+57,Male,No,No,228.5,190.8,45.6,Never,0,Vigorous,Moderate,Low
+54,Female,Type 1,No,251.8,122.2,52.3,Current,1,Moderate,High,High
+42,Female,Prediabetes,Untreated,211.7,162.8,56.0,Never,0,Light,High,High
+51,Male,No,No,100.0,71.5,73.6,Current,0,Moderate,Moderate,Low
+42,Female,No,Treated,142.7,55.9,60.5,Never,1,Light,Moderate,Low
+34,Male,No,No,214.5,123.1,54.5,Former,0,Moderate,Low,Low
+46,Male,No,No,179.5,115.7,43.5,Never,1,Sedentary,Low,Low
+34,Female,Type 2,Untreated,171.5,89.4,42.2,Current,0,Sedentary,Moderate,High
+57,Female,No,No,148.7,100.2,58.5,Current,0,Moderate,Moderate,Low
+33,Female,No,Treated,234.8,147.1,38.6,Never,1,Sedentary,Low,Moderate
+63,Male,No,Untreated,214.2,130.9,67.0,Never,1,Moderate,Moderate,High
+33,Male,No,No,216.1,118.5,54.1,Former,0,Moderate,Moderate,Low
+42,Male,No,No,168.4,66.8,48.1,Never,0,Sedentary,Moderate,Low
+42,Male,Type 2,No,202.4,109.6,48.4,Former,1,Light,Low,Low
+73,Female,No,No,138.8,80.2,62.8,Former,0,Moderate,Low,Moderate
+57,Male,No,No,189.5,63.0,52.8,Never,0,Moderate,Moderate,Low
+48,Female,No,No,100.0,58.7,70.3,Never,0,Moderate,High,Low
+59,Female,No,Untreated,129.1,68.9,63.5,Current,1,Light,Low,Moderate
+18,Female,No,Treated,181.5,71.3,38.1,Never,0,Moderate,High,Moderate
+51,Male,No,No,294.8,154.8,20.0,Former,1,Light,Moderate,Moderate
+83,Female,No,No,119.4,58.8,59.6,Never,0,Sedentary,High,Moderate
+54,Male,No,Treated,142.8,121.0,67.3,Never,1,Moderate,Moderate,Moderate
+53,Female,Type 1,Untreated,204.1,117.1,47.0,Never,0,Sedentary,Moderate,Moderate
+60,Male,No,No,269.3,170.9,56.4,Never,0,Sedentary,Moderate,Moderate
+66,Female,No,No,203.5,109.3,50.9,Former,0,Light,Moderate,Low
+20,Female,No,Untreated,224.5,82.2,64.6,Never,0,Moderate,Low,Low
+25,Female,No,Untreated,180.8,114.2,68.7,Former,0,Vigorous,Moderate,Low
+55,Female,Type 2,Untreated,173.6,81.0,68.6,Former,0,Vigorous,Moderate,Moderate
+40,Female,No,No,198.5,101.8,37.8,Never,0,Light,Moderate,Low
+72,Female,No,No,167.4,68.9,57.1,Never,0,Light,High,Moderate
+46,Male,No,No,225.4,125.6,62.9,Former,0,Moderate,Moderate,Low
+21,Female,Type 2,No,127.5,93.6,66.1,Former,0,Light,Low,Low
+31,Female,No,Untreated,232.4,148.3,53.8,Former,0,Light,High,Low
+18,Female,No,No,196.7,143.1,35.8,Never,0,Sedentary,Low,Low
+48,Male,No,Treated,186.0,140.3,77.1,Current,0,Moderate,Low,Moderate
+48,Female,No,Untreated,126.0,50.0,53.6,Never,0,Moderate,High,Moderate
+45,Male,Type 1,Untreated,153.8,58.3,35.0,Former,1,Light,High,High
+69,Female,No,Treated,245.3,95.1,41.0,Never,1,Sedentary,Moderate,High
+71,Male,No,Untreated,186.2,116.3,24.7,Former,0,Moderate,Moderate,High
+49,Male,No,No,206.7,98.4,38.0,Never,0,Moderate,Moderate,Low
+18,Male,Type 1,No,158.1,76.2,89.0,Former,0,Sedentary,High,Moderate
+61,Male,No,No,193.8,101.8,48.4,Never,1,Light,High,Moderate
+60,Male,No,Untreated,137.4,84.0,44.3,Former,0,Vigorous,Low,Low
+56,Female,Type 2,Untreated,199.2,76.9,52.4,Never,1,Moderate,High,Moderate
+67,Male,No,No,210.6,88.1,39.6,Former,1,Moderate,Moderate,Moderate
+33,Female,Type 1,No,208.5,114.7,61.1,Never,0,Moderate,Low,Low
+84,Male,Prediabetes,No,157.0,112.7,47.8,Never,0,Vigorous,Low,Moderate
+36,Female,Prediabetes,No,180.6,98.8,58.2,Former,0,Light,Low,Low
+63,Female,No,Treated,217.6,102.3,35.6,Never,0,Light,High,High
+25,Male,No,No,186.1,55.1,85.3,Never,0,Light,Moderate,Low
+37,Female,Prediabetes,Treated,182.9,121.6,60.6,Current,0,Moderate,Moderate,Moderate
+76,Female,Prediabetes,No,274.9,135.0,39.0,Current,0,Sedentary,Low,High
+47,Female,Type 2,No,155.1,60.1,55.2,Current,1,Sedentary,Moderate,High
+65,Male,No,No,240.4,94.5,39.3,Never,0,Sedentary,Moderate,High
+55,Male,No,Untreated,146.5,50.0,50.9,Never,0,Moderate,High,Moderate
+50,Female,No,Treated,222.5,101.2,39.2,Former,1,Moderate,Moderate,Moderate
+73,Male,No,No,224.7,118.3,68.4,Never,0,Light,Moderate,Low
+48,Female,No,No,173.6,68.9,49.3,Former,0,Light,Moderate,Low
+23,Male,Prediabetes,Untreated,143.9,83.2,34.9,Never,0,Moderate,Moderate,High
+39,Female,No,Treated,112.2,56.3,51.2,Current,0,Sedentary,High,Moderate
+60,Male,No,Treated,169.2,141.9,67.8,Former,0,Moderate,Moderate,Low
+58,Male,No,Treated,217.1,81.9,46.4,Never,1,Sedentary,High,Moderate
+26,Female,No,Untreated,149.7,85.9,57.9,Never,0,Vigorous,Low,Low
+40,Female,Type 2,No,199.1,113.3,66.2,Never,0,Light,Moderate,Low
+42,Female,No,Treated,133.0,50.5,52.7,Never,1,Moderate,High,Moderate
+46,Female,No,No,185.2,104.0,61.8,Former,0,Sedentary,High,Low
+29,Male,No,No,146.8,97.7,52.0,Never,1,Light,Moderate,Low
+41,Male,No,Untreated,191.7,107.6,60.2,Never,0,Moderate,Moderate,Low
+40,Male,No,Untreated,174.0,126.2,51.2,Never,0,Moderate,High,Low
+64,Female,Type 2,No,145.0,50.0,57.4,Former,0,Moderate,Low,Moderate
+64,Male,Type 2,No,167.3,73.5,66.7,Never,0,Moderate,High,High
+49,Female,No,Untreated,155.8,118.1,67.6,Never,1,Moderate,Low,Moderate
+45,Male,No,Untreated,139.8,97.0,59.0,Current,0,Moderate,Low,Moderate
+54,Male,No,Treated,240.5,144.2,40.3,Never,0,Light,Moderate,Moderate
+38,Male,No,No,179.9,126.1,74.2,Never,0,Moderate,Moderate,Low
+33,Male,No,No,102.5,50.0,73.7,Current,0,Light,Moderate,Low
+36,Male,Prediabetes,Untreated,168.8,110.3,52.0,Never,0,Light,Low,Moderate
+41,Female,No,Treated,233.4,151.8,39.2,Current,0,Moderate,High,Moderate
+33,Male,Prediabetes,Treated,163.0,75.2,69.8,Former,0,Sedentary,Moderate,Moderate
+54,Female,No,Treated,257.9,199.7,44.7,Former,1,Sedentary,High,High
+63,Female,No,No,159.0,91.8,56.2,Never,0,Sedentary,Low,Moderate
+26,Female,No,No,216.1,70.6,51.0,Never,0,Light,Moderate,Low
+52,Female,No,Treated,238.5,139.6,50.3,Never,0,Moderate,Low,Low
+48,Male,No,No,213.9,101.8,49.2,Never,1,Sedentary,Moderate,Low
+57,Male,Type 1,Treated,137.3,101.1,75.8,Never,0,Sedentary,Low,High
+51,Male,No,Treated,155.4,97.5,73.8,Former,0,Light,Low,Low
+28,Female,No,Treated,244.1,121.1,51.8,Former,0,Light,Moderate,Low
+31,Female,No,No,161.2,121.7,74.3,Never,0,Sedentary,Moderate,Low
+52,Male,No,Treated,236.0,150.5,46.7,Former,0,Sedentary,Moderate,Moderate
+68,Male,No,No,176.9,79.1,63.7,Current,0,Moderate,Moderate,Moderate
+18,Female,No,No,200.9,107.2,63.9,Former,1,Moderate,Moderate,Low
+57,Female,No,No,136.8,86.6,73.7,Former,0,Light,Moderate,Low
+71,Female,No,No,169.5,85.2,67.6,Former,1,Light,Moderate,Moderate
+49,Female,Prediabetes,Untreated,158.2,79.7,65.8,Never,0,Sedentary,High,High
+60,Female,Prediabetes,Untreated,204.5,113.3,74.8,Never,0,Light,High,Moderate
+40,Female,No,No,198.9,85.9,45.7,Current,0,Light,Low,Low
+50,Male,No,Treated,214.4,68.8,48.0,Former,0,Vigorous,Moderate,Low
+26,Male,No,No,174.4,101.2,53.3,Former,1,Moderate,High,Low
+18,Female,No,Treated,155.9,50.0,54.2,Current,0,Light,High,Moderate
+67,Female,No,Untreated,202.7,89.6,27.7,Never,1,Sedentary,Moderate,High
+36,Male,No,No,151.8,50.0,75.7,Never,0,Moderate,Moderate,Low
+44,Female,No,No,240.3,95.9,33.6,Former,0,Vigorous,Moderate,Low
+29,Male,No,No,190.2,114.0,55.5,Never,0,Sedentary,High,Low
+29,Female,No,No,181.3,94.8,37.7,Former,0,Moderate,Moderate,Low
+49,Male,Prediabetes,Untreated,214.4,112.2,57.3,Current,0,Sedentary,Low,High
+40,Female,No,No,191.8,76.5,43.8,Former,1,Moderate,High,Low
+58,Female,No,No,125.4,54.5,49.6,Never,0,Sedentary,Moderate,Low
+59,Male,No,No,150.4,91.0,61.8,Former,0,Moderate,Low,Low
+57,Male,Prediabetes,Untreated,239.4,130.5,37.7,Never,1,Sedentary,Low,High
+55,Female,Prediabetes,No,198.5,127.3,45.3,Current,0,Light,Moderate,Moderate
+77,Male,No,Treated,124.4,89.7,65.4,Never,1,Moderate,Moderate,High
+34,Male,No,Treated,209.8,109.8,60.1,Current,0,Moderate,Moderate,Moderate
+51,Female,No,No,171.5,53.6,46.5,Never,0,Moderate,Low,Low
+70,Male,No,No,158.3,70.4,46.4,Never,0,Sedentary,Low,Moderate
+72,Male,No,No,146.9,78.6,60.2,Never,1,Moderate,Moderate,Moderate
+29,Male,No,No,237.0,113.3,52.9,Never,0,Sedentary,Low,Low
+47,Female,No,Treated,112.4,50.0,82.7,Never,1,Moderate,Moderate,Moderate
+73,Male,Type 2,Treated,159.8,89.4,45.2,Current,0,Sedentary,Moderate,High
+60,Male,No,No,200.0,163.5,48.2,Current,1,Light,Low,Moderate
+55,Male,No,No,261.3,133.0,56.9,Never,1,Light,Moderate,Moderate
+48,Male,No,No,218.3,120.0,72.9,Former,1,Vigorous,Low,Low
+45,Male,No,No,159.5,58.9,46.2,Current,0,Moderate,Moderate,Low
+56,Male,No,Treated,259.2,169.9,34.3,Current,0,Sedentary,Moderate,High
+47,Male,Type 2,Treated,138.1,95.2,65.9,Never,1,Moderate,Moderate,Moderate
+51,Male,Prediabetes,Treated,206.1,131.1,44.2,Never,0,Sedentary,High,High
+53,Female,No,No,215.5,148.4,40.6,Current,0,Light,Low,Low
+41,Male,Prediabetes,No,158.0,77.5,61.2,Never,0,Light,High,Moderate
+60,Male,No,No,224.3,116.7,66.9,Never,0,Moderate,Low,Low
+85,Female,No,Untreated,173.4,133.0,40.3,Former,0,Vigorous,High,High
+23,Female,No,Treated,224.2,137.2,66.4,Never,0,Vigorous,Low,Low
+57,Female,No,Untreated,117.7,50.0,57.4,Current,0,Sedentary,Moderate,Moderate
+39,Male,No,No,209.1,125.0,54.8,Never,0,Sedentary,Low,Low
+61,Male,Prediabetes,No,177.7,84.9,74.4,Former,1,Moderate,Moderate,High
+52,Male,No,Treated,243.3,153.6,49.4,Current,0,Light,Low,High
+64,Male,Type 2,No,193.2,115.2,49.5,Current,1,Moderate,Low,High
+70,Male,No,Treated,247.5,97.8,53.5,Current,0,Vigorous,Low,High
+55,Female,Type 1,No,216.3,124.9,47.5,Current,0,Sedentary,Low,Moderate
+70,Male,No,Untreated,189.6,108.9,59.8,Never,0,Light,Moderate,Moderate
+18,Female,Type 1,No,228.1,133.5,45.3,Current,0,Moderate,Moderate,Low
+77,Male,No,Untreated,228.4,138.3,58.1,Current,0,Moderate,Low,High
+58,Male,No,No,214.8,151.1,33.0,Never,0,Vigorous,High,Low
+69,Female,No,No,100.0,64.1,54.8,Never,0,Moderate,Moderate,Moderate
+32,Female,Type 2,No,153.7,85.0,42.0,Never,0,Light,Low,Low
+38,Male,No,No,253.1,164.5,43.4,Former,0,Moderate,Moderate,Low
+54,Female,No,Untreated,142.3,127.6,42.3,Former,1,Moderate,Moderate,Moderate
+51,Male,Prediabetes,Untreated,232.1,147.8,38.9,Never,0,Vigorous,Moderate,High
+56,Male,No,Untreated,224.7,128.1,35.0,Never,0,Light,High,Moderate
+69,Female,Type 1,Untreated,164.5,100.0,75.1,Former,0,Light,Moderate,High
+23,Male,No,Treated,111.2,66.8,53.4,Never,0,Light,High,Moderate
+67,Male,No,No,171.1,94.5,40.9,Current,0,Light,Moderate,Moderate
+52,Male,No,Untreated,282.3,202.9,42.6,Never,0,Vigorous,High,High
+48,Male,No,No,158.7,70.8,78.4,Never,1,Vigorous,Moderate,Low
+28,Male,No,Treated,161.6,114.3,56.4,Never,0,Light,Moderate,Low
+60,Male,No,No,153.1,81.4,58.6,Current,0,Vigorous,Moderate,Low
+18,Female,No,Treated,246.0,102.7,60.6,Current,0,Light,Moderate,Moderate
+62,Female,Prediabetes,No,184.8,97.5,64.8,Never,1,Moderate,Low,Moderate
+28,Male,Type 2,No,168.7,80.8,61.8,Never,0,Moderate,Low,Low
+52,Male,No,No,254.4,152.6,36.9,Never,0,Moderate,Low,Moderate
+50,Female,No,No,219.3,122.6,54.6,Never,0,Moderate,Low,Low
+70,Male,No,No,156.4,63.5,42.2,Former,0,Moderate,High,Moderate
+49,Female,Type 1,No,143.6,111.3,53.0,Never,0,Moderate,Moderate,Moderate
+40,Female,Prediabetes,No,243.6,158.0,62.6,Never,0,Light,Low,Low
+43,Male,No,No,195.7,142.5,68.3,Never,0,Moderate,Moderate,Low
+72,Male,No,No,129.9,76.7,67.8,Never,0,Sedentary,Low,Moderate
+60,Male,Type 2,Treated,120.1,65.3,40.8,Never,0,Sedentary,High,High
+45,Male,Type 1,No,148.1,96.9,45.3,Never,0,Moderate,High,Low
+48,Male,No,No,142.9,65.9,52.4,Never,0,Moderate,Low,Low
+26,Female,Prediabetes,No,109.1,62.9,63.6,Never,0,Vigorous,Moderate,Low
+58,Male,No,No,148.8,78.0,44.7,Never,0,Light,High,Low
+23,Female,No,No,156.4,53.9,55.6,Current,1,Sedentary,Moderate,Moderate
+64,Female,Prediabetes,Treated,175.6,99.4,76.9,Never,1,Light,High,High
+54,Male,No,No,266.1,136.7,46.9,Never,0,Moderate,Moderate,Low
+85,Male,No,No,183.8,95.8,57.1,Never,0,Vigorous,Low,Moderate
+34,Male,Type 2,No,188.0,111.4,41.6,Former,1,Moderate,Moderate,Low
+50,Female,Type 1,No,216.4,147.0,29.9,Current,0,Light,Low,Moderate
+80,Male,No,No,185.0,83.1,39.5,Former,0,Moderate,High,Moderate
+71,Female,No,Treated,211.8,109.1,30.1,Former,0,Sedentary,Moderate,High
+40,Female,Prediabetes,No,206.8,96.9,51.9,Current,0,Vigorous,Low,Moderate
+55,Female,No,Treated,200.1,91.8,56.6,Never,1,Moderate,Moderate,Moderate
+52,Female,Type 2,No,311.2,158.1,23.7,Current,1,Light,Moderate,High
+56,Female,Prediabetes,No,233.3,124.0,48.8,Former,1,Moderate,High,Moderate
+40,Female,No,No,149.6,95.2,77.2,Never,0,Moderate,Moderate,Low
+50,Female,No,No,210.5,122.8,73.9,Never,0,Sedentary,Moderate,Low
+26,Female,Prediabetes,No,161.7,65.7,67.0,Never,0,Sedentary,Low,Low
+54,Female,Type 2,Treated,213.7,146.0,47.8,Never,0,Moderate,High,High
+59,Female,No,Treated,137.2,96.2,70.3,Current,0,Vigorous,Moderate,Moderate
+48,Male,No,No,148.5,61.8,75.9,Never,1,Moderate,Low,Low
+26,Female,Prediabetes,No,209.4,142.1,26.5,Former,0,Sedentary,Moderate,Moderate
+67,Female,No,Untreated,236.9,137.5,64.2,Current,0,Moderate,Moderate,High
+57,Female,No,No,216.1,115.4,43.0,Never,0,Sedentary,Moderate,Low
+40,Male,Type 2,No,230.9,134.9,40.9,Never,0,Light,Low,Low
+47,Female,Prediabetes,Untreated,210.7,115.3,46.1,Former,0,Sedentary,Moderate,High
+27,Female,Type 2,No,202.2,123.2,55.5,Current,0,Light,High,Moderate
+35,Female,No,No,173.8,99.7,42.6,Never,0,Light,Low,Low
+43,Male,No,No,229.1,118.6,44.2,Never,0,Sedentary,Low,Low
+71,Female,Type 2,Treated,238.0,86.3,52.6,Former,1,Light,High,High
+41,Female,No,No,192.3,117.4,55.8,Current,0,Moderate,Moderate,Low
+62,Female,No,Treated,190.1,96.3,58.1,Never,1,Light,Moderate,Moderate
+43,Female,Type 2,No,261.8,161.1,38.8,Never,0,Sedentary,High,High
+55,Female,Prediabetes,No,194.1,117.4,61.2,Current,0,Light,Low,Moderate
+49,Female,Type 2,No,198.2,101.4,64.9,Never,0,Moderate,High,Moderate
+65,Male,No,Treated,215.3,140.9,61.7,Never,1,Moderate,Moderate,High
+43,Female,Type 2,No,190.9,109.5,58.5,Former,0,Light,Low,Low
+26,Male,No,Treated,160.5,91.9,69.2,Never,0,Moderate,High,Low
+29,Female,No,No,210.9,113.0,60.8,Never,1,Moderate,Moderate,Low
+43,Female,Type 2,No,193.4,143.4,85.1,Former,1,Moderate,Low,Low
+32,Male,No,No,272.4,134.1,55.8,Former,0,Light,High,Low
+58,Male,Prediabetes,No,228.1,118.4,46.7,Never,1,Sedentary,High,Moderate
+44,Male,No,No,170.0,66.3,45.6,Never,0,Light,High,Low
+85,Female,Prediabetes,Treated,225.6,140.1,45.0,Former,0,Light,Low,High
+24,Female,Type 2,Untreated,207.9,101.5,46.8,Former,0,Light,Low,Moderate
+55,Male,Prediabetes,Treated,250.0,127.2,50.6,Current,1,Vigorous,Moderate,High
+33,Female,No,No,173.0,83.8,47.6,Former,0,Sedentary,High,Low
+44,Male,No,No,202.9,113.0,65.9,Former,1,Light,Low,Low
+54,Female,Type 2,Treated,190.8,77.4,36.7,Current,0,Vigorous,Moderate,High
+18,Male,Type 2,No,197.5,59.3,32.8,Current,0,Moderate,Low,Moderate
+55,Male,Type 2,Treated,157.8,96.9,56.7,Never,0,Sedentary,Moderate,High
+82,Male,No,Untreated,219.2,74.1,39.0,Current,1,Vigorous,Moderate,High
+44,Female,No,No,212.6,135.7,35.0,Current,1,Light,Low,Moderate
+56,Male,Prediabetes,Untreated,249.0,171.2,37.0,Never,1,Sedentary,Moderate,High
+68,Female,Prediabetes,Treated,194.6,103.4,43.7,Never,0,Light,Moderate,High
+49,Male,No,No,177.7,126.3,55.5,Former,0,Sedentary,Moderate,Low
+42,Male,No,Untreated,228.2,125.0,40.3,Never,1,Moderate,High,Moderate
+18,Male,No,No,161.6,124.1,51.3,Former,0,Sedentary,Low,Low
+62,Male,No,No,240.6,122.3,45.9,Never,0,Moderate,Low,Moderate
+50,Female,No,No,240.5,80.2,58.1,Never,0,Sedentary,Moderate,Moderate
+35,Male,No,No,247.8,134.5,62.5,Never,0,Vigorous,Moderate,Low
+54,Female,No,No,210.8,153.5,52.2,Current,0,Sedentary,Low,Low
+42,Male,Type 2,Untreated,174.6,107.8,58.5,Never,0,Vigorous,High,Moderate
+43,Male,Prediabetes,No,199.6,98.4,49.9,Former,0,Sedentary,Low,Low
+61,Male,Type 2,No,211.0,123.3,56.1,Never,1,Moderate,Low,Moderate
+30,Male,No,Treated,171.5,115.7,61.0,Never,1,Moderate,High,Moderate
+68,Female,No,No,251.0,136.2,60.3,Never,0,Moderate,High,High
+29,Female,No,Treated,219.4,178.5,26.4,Never,1,Sedentary,Moderate,Moderate
+41,Male,No,No,157.5,75.2,55.6,Former,0,Moderate,Low,Low
+82,Female,No,Untreated,274.1,172.8,45.0,Former,0,Moderate,Moderate,High
+70,Female,Prediabetes,Treated,199.1,126.3,51.8,Never,1,Moderate,Low,High
+53,Female,Prediabetes,No,149.0,66.6,48.4,Never,0,Moderate,Moderate,Low
+36,Female,Type 1,No,160.1,78.7,42.4,Former,1,Vigorous,Moderate,Moderate
+43,Female,No,No,257.5,164.0,53.1,Former,0,Vigorous,Moderate,Low
+53,Female,No,Untreated,271.6,152.6,32.2,Never,0,Light,Moderate,Moderate
+52,Female,No,Treated,237.4,138.0,25.3,Former,0,Sedentary,Moderate,Moderate
+50,Male,No,No,250.4,101.7,54.7,Never,1,Sedentary,Low,Moderate
+51,Female,Prediabetes,No,246.1,149.8,50.6,Never,0,Moderate,Low,Moderate
+48,Male,No,Untreated,218.4,126.4,47.8,Former,0,Vigorous,High,Moderate
+28,Female,Prediabetes,No,208.8,113.4,39.7,Former,0,Light,Low,Low
+43,Female,No,Treated,217.7,127.7,48.0,Current,0,Sedentary,Low,Moderate
+66,Male,Type 2,Treated,225.9,115.2,62.7,Never,0,Light,Low,High
+30,Female,Type 2,No,163.9,77.1,38.0,Never,1,Light,Moderate,Moderate
+48,Female,No,No,225.7,118.8,29.4,Former,0,Vigorous,Moderate,Low
+38,Male,Type 1,No,256.3,130.8,36.0,Never,0,Moderate,Moderate,Moderate
+53,Female,No,No,186.3,150.4,53.7,Never,0,Sedentary,Moderate,Low
+45,Female,Prediabetes,Untreated,181.8,120.1,48.8,Former,0,Light,Moderate,Moderate
+75,Female,Type 1,Treated,215.0,96.9,57.5,Never,0,Sedentary,Low,High
+60,Male,Prediabetes,Treated,167.7,137.0,69.9,Never,1,Moderate,High,High
+31,Male,Prediabetes,No,139.7,67.3,64.4,Never,0,Moderate,High,Low
+62,Female,No,No,243.2,134.4,52.2,Current,0,Sedentary,Moderate,High
+39,Male,Prediabetes,Treated,176.1,116.6,58.9,Never,0,Light,Moderate,Moderate
+42,Male,Prediabetes,No,195.8,64.4,52.7,Never,1,Vigorous,Moderate,Low
+57,Male,No,No,169.4,88.0,41.1,Never,1,Moderate,Low,Low
+44,Male,No,No,248.6,124.1,32.4,Never,1,Moderate,Low,Low
+66,Female,Prediabetes,Treated,230.8,131.5,31.2,Never,0,Light,High,High
+39,Female,No,Treated,184.9,109.8,52.5,Former,0,Vigorous,Low,Low
+42,Female,No,No,145.4,78.3,63.0,Never,1,Moderate,Low,Low
+41,Female,Type 2,Untreated,180.4,96.5,37.5,Never,0,Vigorous,Moderate,Moderate
+42,Male,No,No,218.9,143.8,50.0,Never,0,Sedentary,Moderate,Low
+69,Male,No,No,202.9,118.2,41.1,Never,1,Sedentary,Moderate,Moderate
+62,Male,No,No,199.6,110.7,39.2,Never,1,Sedentary,Low,High
+79,Male,No,Treated,203.9,115.4,43.9,Former,0,Moderate,Moderate,Moderate
+85,Male,Prediabetes,No,226.9,165.2,34.5,Former,0,Moderate,Low,High
+35,Male,No,No,193.2,110.1,60.3,Former,1,Sedentary,High,Low
+53,Male,No,No,213.9,106.3,47.9,Never,0,Vigorous,Low,Low
+33,Male,Prediabetes,Treated,153.5,50.0,68.8,Current,1,Vigorous,Low,High
+39,Female,Prediabetes,Treated,302.3,134.7,31.3,Former,0,Sedentary,Moderate,High
+41,Female,Type 1,No,183.1,90.4,49.7,Never,1,Moderate,Low,Moderate
+35,Female,No,Untreated,203.6,109.6,73.9,Never,1,Moderate,Moderate,Low
+35,Female,Prediabetes,No,218.8,108.1,29.7,Former,0,Sedentary,Low,Moderate
+49,Female,No,No,177.7,105.5,70.8,Never,0,Moderate,Moderate,Low
+32,Male,No,No,195.3,94.9,72.6,Never,0,Sedentary,Low,Low
+65,Female,No,Treated,194.8,87.0,62.0,Former,1,Vigorous,Moderate,Moderate
+37,Male,Prediabetes,No,156.6,99.6,54.5,Never,0,Moderate,Low,Low
+85,Male,No,No,213.4,147.5,67.1,Current,0,Vigorous,Low,Moderate
+44,Male,Prediabetes,No,125.7,50.0,59.3,Never,1,Moderate,Low,Moderate
+53,Male,No,No,268.6,153.1,33.2,Never,1,Sedentary,High,Moderate
+31,Male,No,Treated,228.3,83.7,43.1,Never,1,Light,Moderate,Moderate
+79,Female,No,Untreated,221.8,89.6,41.9,Never,0,Moderate,Low,Moderate
+69,Female,No,No,122.1,54.2,52.3,Current,1,Light,Low,High
+56,Female,Prediabetes,Treated,161.7,113.9,71.1,Current,1,Moderate,Low,High
+30,Female,Type 1,No,253.4,122.2,34.7,Current,0,Light,Low,High
+55,Female,Prediabetes,No,369.4,185.2,26.2,Never,1,Sedentary,Moderate,High
+34,Male,No,No,245.2,135.7,27.9,Never,0,Light,Moderate,Low
+75,Female,No,Untreated,238.6,132.0,46.6,Never,1,Moderate,High,High
+64,Female,No,No,217.0,102.1,35.6,Never,1,Light,Moderate,Moderate
+53,Male,Prediabetes,Treated,159.4,131.4,43.9,Current,0,Moderate,Low,High
+18,Male,No,No,236.8,124.4,45.2,Never,0,Light,Low,Low
+36,Female,No,Treated,148.7,84.3,72.4,Never,0,Moderate,Low,Low
+63,Female,Prediabetes,No,144.2,70.5,65.7,Never,0,Moderate,Low,High
+71,Male,No,Untreated,141.5,87.5,66.9,Former,0,Moderate,Moderate,Moderate
+69,Female,No,Treated,236.0,157.0,45.0,Never,1,Light,Low,High
+26,Male,No,No,192.6,142.5,49.1,Former,0,Light,Low,Low
+56,Male,No,Treated,199.2,92.8,61.6,Former,0,Sedentary,Low,Moderate
+68,Male,No,Treated,194.4,131.1,46.1,Current,0,Moderate,Moderate,High
+25,Male,No,No,147.7,93.3,69.9,Never,0,Sedentary,Low,Low
+51,Female,Type 1,No,166.8,113.2,71.8,Never,0,Moderate,High,Moderate
+56,Male,No,Treated,168.9,90.9,46.6,Never,0,Moderate,Moderate,Low
+47,Female,No,Treated,136.0,70.7,53.3,Current,0,Light,Low,Moderate
+22,Male,No,No,173.8,116.2,49.4,Current,0,Moderate,Moderate,Low
+46,Female,No,Untreated,149.6,103.3,42.0,Former,1,Moderate,Moderate,Moderate
+46,Female,No,No,219.3,155.1,43.5,Never,0,Sedentary,Moderate,Low
+49,Female,No,No,222.8,126.9,64.2,Never,0,Moderate,Moderate,Low
+42,Female,No,No,140.7,75.0,48.3,Former,1,Vigorous,Low,Low
+44,Female,No,No,182.5,50.0,70.5,Never,1,Sedentary,Low,Low
+51,Female,Type 2,No,273.0,114.7,35.8,Former,0,Sedentary,Low,High
+59,Female,Type 2,No,153.8,75.9,84.3,Current,1,Moderate,Moderate,High
+47,Female,No,No,212.9,92.9,41.9,Never,1,Light,Moderate,Low
+45,Male,No,No,199.4,127.6,50.4,Never,1,Moderate,Moderate,Low
+53,Male,Prediabetes,Treated,240.9,103.7,34.9,Never,0,Moderate,High,High
+21,Male,Type 2,No,207.4,103.0,42.6,Never,0,Moderate,Moderate,Low
+59,Male,Type 1,Treated,176.9,87.1,71.5,Former,0,Sedentary,High,High
+51,Male,No,No,197.8,135.3,58.0,Never,1,Light,Moderate,Low
+52,Male,No,No,198.4,95.7,64.6,Never,1,Moderate,Moderate,Low
+67,Female,No,No,191.1,115.1,37.5,Never,0,Light,Moderate,Moderate
+20,Male,Prediabetes,Treated,139.6,81.1,68.9,Never,0,Light,Low,Moderate
+20,Female,No,No,247.2,155.8,33.3,Former,0,Sedentary,Low,Moderate
+56,Male,No,No,239.8,150.6,30.0,Former,0,Sedentary,Moderate,Low
+51,Female,No,Treated,151.1,82.4,62.2,Never,1,Light,Low,Moderate
+54,Male,No,Treated,182.4,63.0,57.4,Never,0,Light,Low,Low
+44,Male,No,Treated,185.5,96.9,54.8,Never,0,Moderate,Moderate,Low
+62,Male,No,No,146.4,80.1,68.7,Never,0,Moderate,Moderate,Moderate
+66,Female,No,No,116.6,70.4,75.0,Never,1,Moderate,Low,Moderate
+59,Male,Prediabetes,No,166.8,75.5,74.6,Current,1,Moderate,Low,Moderate
+47,Female,No,Treated,180.0,124.1,40.7,Never,0,Sedentary,High,Moderate
+18,Male,No,No,134.5,74.3,79.8,Never,0,Sedentary,High,Low
+64,Female,Prediabetes,No,202.4,91.1,74.2,Never,1,Moderate,Moderate,High
+71,Male,Prediabetes,No,243.8,124.0,41.0,Former,1,Light,Low,High
+62,Female,No,No,230.4,169.1,27.4,Never,0,Light,Moderate,High
+37,Male,No,Treated,189.7,119.0,36.9,Current,0,Sedentary,Low,High
+62,Male,No,No,117.7,87.8,58.8,Never,0,Moderate,Moderate,Moderate
+65,Male,No,No,225.1,100.9,72.4,Current,0,Light,Moderate,Moderate
+76,Male,No,No,201.1,95.5,52.0,Former,0,Sedentary,Moderate,Moderate
+37,Male,No,No,212.8,102.0,42.7,Never,1,Light,Moderate,Low
+48,Female,No,No,276.3,156.0,32.3,Never,0,Moderate,High,Moderate
+63,Male,No,No,160.4,84.4,42.1,Never,1,Light,Moderate,Moderate
+52,Male,No,Treated,100.0,50.0,77.5,Current,0,Moderate,Moderate,Moderate
+34,Female,No,Treated,150.8,74.9,58.3,Current,0,Light,Moderate,Low
+58,Male,Prediabetes,Untreated,215.4,101.0,74.9,Never,0,Light,Moderate,Moderate
+61,Male,No,Untreated,196.1,103.9,60.1,Never,0,Light,High,High
+53,Female,No,No,143.9,103.6,70.4,Never,1,Sedentary,Moderate,Low
+55,Female,No,No,135.4,50.0,58.8,Never,0,Light,High,Low
+47,Female,Prediabetes,No,180.1,106.7,41.9,Former,0,Moderate,Moderate,Low
+75,Male,Type 2,Treated,142.7,108.8,50.1,Never,1,Sedentary,Low,High
+37,Female,No,No,216.9,115.3,33.0,Never,0,Vigorous,Low,Low
+42,Male,No,No,177.7,86.1,66.3,Current,0,Sedentary,Low,Low
+52,Female,No,No,168.7,113.1,52.1,Former,1,Light,High,Low
+66,Female,No,No,163.2,68.1,69.0,Former,0,Moderate,Low,Moderate
+28,Female,Type 1,Treated,206.1,112.9,52.7,Never,0,Moderate,Low,Moderate
+31,Male,No,Treated,196.8,85.4,49.0,Current,0,Sedentary,Low,Moderate
+19,Male,Type 2,No,203.5,70.8,37.4,Former,0,Sedentary,Moderate,Moderate
+52,Female,No,Untreated,202.6,108.1,55.2,Never,0,Moderate,High,Moderate
+34,Female,No,No,192.0,77.8,50.6,Never,1,Light,High,Low
+45,Female,Type 1,No,151.6,83.1,70.1,Current,0,Moderate,Low,Moderate
+62,Female,No,No,164.3,114.9,48.8,Never,1,Moderate,Moderate,Moderate
+41,Female,Prediabetes,Treated,178.4,138.9,62.6,Current,0,Sedentary,Low,High
+55,Male,No,No,281.7,157.0,59.4,Former,0,Moderate,High,Moderate
+47,Male,Type 1,No,138.3,98.5,64.5,Former,0,Sedentary,Low,Moderate
+62,Male,No,Untreated,177.4,106.3,64.8,Former,0,Moderate,High,High
+59,Male,No,No,199.1,101.1,59.0,Current,0,Vigorous,High,Moderate
+40,Male,Type 1,No,182.3,57.9,77.4,Never,1,Moderate,Moderate,Low
+49,Female,No,Treated,240.1,167.8,50.4,Never,1,Vigorous,Moderate,High
+68,Female,No,Untreated,182.0,77.0,63.1,Former,0,Moderate,Low,Moderate
+58,Female,Prediabetes,Treated,185.1,132.2,53.8,Never,0,Sedentary,Low,Moderate
+29,Male,No,Untreated,229.2,137.9,38.3,Former,1,Sedentary,Moderate,Moderate
+62,Female,Type 2,No,271.0,127.6,26.9,Former,0,Sedentary,Low,High
+34,Female,No,Treated,254.1,146.6,59.1,Never,0,Light,Moderate,Moderate
+74,Female,No,Treated,189.3,151.0,41.5,Former,0,Moderate,Moderate,High
+68,Female,No,No,192.9,139.9,62.0,Never,0,Light,High,Moderate
+56,Female,No,No,197.0,97.1,57.4,Current,0,Moderate,High,Moderate
+54,Female,Type 2,Untreated,201.2,95.0,62.8,Never,1,Light,Low,High
+48,Male,No,No,159.4,89.9,51.9,Former,0,Sedentary,Low,Low
+62,Female,No,No,234.3,125.2,37.4,Current,0,Sedentary,Moderate,High
+46,Male,No,Untreated,203.7,138.4,56.0,Never,1,Vigorous,Low,Moderate
+55,Male,No,Untreated,193.1,122.5,49.5,Never,0,Light,Moderate,Low
+65,Male,No,Untreated,141.6,50.0,46.0,Never,0,Light,Moderate,Moderate
+43,Female,Prediabetes,Untreated,197.6,118.8,75.6,Former,0,Sedentary,Moderate,Moderate
+42,Female,Prediabetes,No,115.5,59.6,55.2,Never,1,Vigorous,Moderate,Low
+32,Female,Type 1,Untreated,170.6,94.6,44.5,Never,0,Sedentary,High,Moderate
+34,Male,No,No,171.3,99.7,53.4,Current,0,Moderate,Moderate,Low
+22,Male,No,Treated,207.1,140.3,66.0,Never,0,Sedentary,High,Low
+63,Female,No,No,274.0,172.2,20.0,Never,1,Sedentary,High,High
+80,Male,Prediabetes,Treated,219.0,104.0,63.2,Former,1,Moderate,Moderate,High
+74,Female,No,No,255.8,139.4,32.7,Never,0,Moderate,Low,High
+25,Male,No,Treated,222.1,112.3,51.9,Never,1,Moderate,High,Moderate
+63,Female,No,No,242.3,96.3,37.5,Current,0,Sedentary,Low,High
+74,Female,Prediabetes,No,273.0,147.7,65.0,Former,1,Vigorous,Moderate,High
+44,Female,Prediabetes,No,164.3,130.9,58.9,Never,0,Moderate,Moderate,Low
+53,Male,Type 1,No,161.5,51.2,49.3,Former,0,Vigorous,Low,Moderate
+19,Female,No,Treated,223.1,122.2,44.9,Never,1,Sedentary,Low,Moderate
+56,Female,Type 2,No,194.8,105.9,53.9,Never,0,Light,Low,Low
+34,Female,No,No,204.3,118.7,53.5,Former,0,Light,High,Low
+55,Female,No,No,184.6,80.4,59.6,Never,1,Moderate,Moderate,Low
+27,Male,No,No,170.0,62.1,56.5,Never,0,Moderate,High,Low
+60,Male,No,Treated,263.1,114.4,26.0,Current,0,Light,High,High
+68,Male,No,No,148.8,111.1,55.6,Never,0,Sedentary,Moderate,Moderate
+39,Male,No,No,223.8,101.5,55.7,Never,0,Sedentary,Moderate,Low
+33,Female,No,No,217.0,108.4,41.4,Never,0,Sedentary,Moderate,Low
+18,Male,No,No,128.7,117.1,70.8,Former,0,Moderate,Low,Low
+47,Male,Type 1,Treated,160.1,71.9,58.4,Former,0,Light,High,High
+42,Male,Prediabetes,No,167.2,99.5,54.3,Current,1,Sedentary,High,High
+27,Male,No,No,218.7,143.7,63.5,Never,0,Light,Low,Low
+59,Male,No,Treated,179.6,121.1,34.2,Former,0,Sedentary,High,High
+44,Female,Prediabetes,No,191.4,76.0,45.2,Former,0,Vigorous,Low,Low
+34,Male,No,No,133.8,57.9,76.7,Never,0,Light,High,Low
+43,Female,No,No,292.7,167.6,60.1,Never,0,Vigorous,Moderate,Low
+69,Male,No,Untreated,198.0,151.3,79.7,Current,0,Moderate,Low,High
+61,Male,No,No,216.0,102.0,50.2,Never,0,Moderate,High,Moderate
+49,Female,No,No,172.3,83.9,61.6,Former,0,Light,Moderate,Low
+61,Male,No,Untreated,167.6,101.4,66.7,Never,0,Moderate,Low,Moderate
+33,Male,No,Treated,275.3,165.0,56.0,Never,0,Moderate,Moderate,Moderate
+52,Female,No,Treated,114.5,77.9,68.6,Current,1,Sedentary,Moderate,High
+54,Female,No,Untreated,206.7,95.1,62.1,Current,0,Vigorous,Moderate,Moderate
+44,Female,No,No,144.1,67.5,65.9,Never,1,Light,Moderate,Low
+58,Male,No,Treated,178.0,102.6,61.6,Former,0,Light,Low,Low
+39,Female,No,Treated,168.2,120.3,45.7,Never,0,Light,Low,Low
+60,Female,No,No,153.6,79.2,55.0,Former,0,Moderate,Moderate,Low
+60,Female,No,No,196.5,107.6,46.3,Never,0,Light,Low,Low
+18,Male,No,No,100.0,50.0,52.7,Never,0,Light,Moderate,Low
+71,Male,No,Untreated,181.7,140.9,34.9,Never,0,Sedentary,High,High
+18,Male,No,No,191.2,108.6,48.2,Never,0,Light,High,Low
+42,Male,No,No,137.9,99.6,58.1,Never,0,Sedentary,Moderate,Low
+68,Female,No,Treated,258.6,142.9,44.5,Never,0,Moderate,Moderate,High
+46,Male,No,Treated,170.0,95.4,63.2,Current,0,Light,High,High
+28,Male,Prediabetes,No,185.0,68.7,56.5,Never,0,Vigorous,High,Low
+34,Male,No,Treated,170.1,50.0,53.4,Never,0,Moderate,Low,Low
+68,Male,Prediabetes,No,191.6,132.9,42.3,Never,0,Moderate,Moderate,Moderate
+21,Male,No,Treated,249.9,139.2,55.0,Former,0,Vigorous,Low,Moderate
+70,Male,No,No,298.9,168.9,35.9,Never,0,Sedentary,Low,High
+51,Male,Prediabetes,No,226.3,97.0,42.8,Never,0,Moderate,Low,Low
+32,Female,No,Treated,240.7,112.5,43.7,Former,1,Sedentary,Moderate,Moderate
+42,Male,No,No,267.1,170.3,33.1,Never,0,Sedentary,Moderate,Moderate
+35,Female,No,No,205.5,151.3,44.8,Current,0,Light,High,Low
+65,Male,Type 2,No,261.0,129.9,36.1,Never,0,Moderate,Moderate,High
+63,Male,Type 2,Treated,228.3,140.3,44.3,Former,0,Moderate,Moderate,High
+24,Male,No,Untreated,201.0,114.7,59.7,Never,0,Light,Low,Low
+45,Male,Prediabetes,Treated,209.7,112.7,55.4,Former,1,Moderate,Low,Moderate
+38,Male,No,Untreated,118.5,105.9,82.8,Current,0,Sedentary,Low,Moderate
+72,Male,No,Untreated,207.3,104.0,65.4,Never,0,Sedentary,High,High
+30,Female,No,No,130.2,98.9,85.9,Never,1,Sedentary,Low,Low
+77,Male,No,No,126.7,78.1,69.7,Never,0,Moderate,Moderate,Moderate
+51,Male,No,Untreated,203.1,111.3,58.1,Never,0,Light,Low,Low
+33,Female,Prediabetes,Untreated,148.2,111.7,53.9,Current,0,Light,Moderate,Moderate
+41,Male,No,Untreated,194.7,113.5,62.7,Former,0,Sedentary,High,Moderate
+39,Male,No,Treated,200.8,108.3,44.0,Former,1,Moderate,High,Moderate
+31,Male,No,No,202.7,141.8,33.9,Current,0,Moderate,Low,Low
+53,Male,No,Untreated,157.0,113.8,76.8,Current,1,Sedentary,High,High
+32,Male,No,Untreated,232.7,154.4,32.1,Current,0,Moderate,Low,Moderate
+18,Female,Type 2,Treated,191.3,50.0,58.6,Never,1,Moderate,High,Moderate
+45,Female,No,Untreated,213.5,127.1,39.4,Never,1,Light,Low,Moderate
+23,Female,No,No,144.7,84.3,73.8,Never,1,Sedentary,Moderate,Low
+39,Male,Prediabetes,Untreated,187.5,102.4,69.0,Never,1,Vigorous,Moderate,Moderate
+37,Male,Type 2,No,241.1,146.0,52.2,Never,0,Light,High,Moderate
+38,Male,Type 2,Untreated,235.7,135.4,61.6,Never,0,Light,High,Moderate
+84,Male,No,No,161.5,103.7,57.9,Never,0,Moderate,Low,Moderate
+52,Male,No,No,172.1,88.8,83.0,Never,0,Moderate,High,Low
+55,Male,No,No,153.5,117.4,67.9,Never,0,Moderate,Low,Low
+23,Male,Prediabetes,No,167.4,109.2,46.1,Never,0,Moderate,Low,Low
+41,Male,Type 1,No,136.2,86.8,62.4,Never,0,Sedentary,Low,Low
+55,Male,Prediabetes,Untreated,189.2,114.9,51.8,Never,0,Moderate,Low,Moderate
+35,Female,No,No,221.6,147.3,45.8,Former,1,Light,Low,Low
+66,Male,No,Untreated,162.0,111.6,37.8,Former,0,Moderate,Moderate,High
+32,Female,No,No,191.2,102.7,58.0,Never,1,Light,Low,Low
+47,Male,No,No,185.7,123.9,37.5,Never,0,Sedentary,Moderate,Low
+42,Female,No,Treated,239.3,135.4,20.0,Never,1,Light,Low,Moderate
+54,Male,No,Treated,169.3,135.3,52.5,Never,1,Moderate,Moderate,Moderate
+41,Male,No,No,170.8,118.1,47.3,Never,0,Light,Low,Low
+47,Male,Type 1,Treated,159.5,74.0,47.7,Current,0,Moderate,Low,High
+48,Male,Prediabetes,Treated,147.2,132.2,22.7,Never,1,Sedentary,Moderate,High
+40,Female,Type 1,No,217.2,73.2,39.2,Never,0,Sedentary,High,Moderate
+59,Male,Prediabetes,Untreated,189.3,118.1,51.5,Former,1,Moderate,High,High
+55,Male,Prediabetes,Treated,197.3,93.2,44.8,Never,1,Light,Moderate,High
+50,Female,No,Treated,248.5,178.1,49.4,Never,0,Moderate,High,Moderate
+45,Male,No,No,250.9,143.6,61.1,Never,1,Vigorous,Moderate,Low
+64,Female,No,No,125.9,51.8,69.3,Current,1,Moderate,High,High
+48,Female,No,No,222.2,116.3,61.0,Never,1,Light,Low,Low
+47,Male,No,Treated,204.5,96.8,64.6,Former,0,Light,Low,Low
+53,Male,Prediabetes,Treated,175.6,89.9,43.4,Former,0,Vigorous,Low,Moderate
+79,Male,Prediabetes,No,208.8,107.6,55.9,Never,0,Moderate,High,High
+30,Female,Type 2,Treated,122.5,50.8,75.6,Former,0,Moderate,Low,Moderate
+64,Male,Type 2,No,256.4,147.0,38.3,Never,1,Light,Low,High
+21,Male,Type 2,No,216.6,127.7,40.0,Never,1,Moderate,Moderate,Moderate
+55,Male,No,Untreated,158.7,65.4,64.6,Never,0,Sedentary,High,Moderate
+77,Female,Type 1,No,170.4,57.2,38.7,Current,0,Moderate,Moderate,High
+59,Female,Type 1,No,123.5,74.8,50.4,Never,0,Moderate,Moderate,Moderate
+54,Female,Type 1,No,181.8,111.7,46.7,Never,1,Vigorous,Low,Moderate
+43,Female,No,No,174.7,112.1,61.2,Current,0,Sedentary,High,Low
+52,Female,No,Treated,139.3,88.7,63.7,Never,0,Moderate,Low,Low
+47,Male,Type 2,Untreated,227.6,159.8,60.2,Current,0,Sedentary,Low,High
+39,Female,No,No,248.6,158.7,33.6,Former,0,Light,Moderate,Low
+47,Female,No,No,193.9,165.6,41.2,Former,0,Moderate,Low,Low
+55,Male,No,No,182.2,168.4,61.0,Former,1,Light,Moderate,Moderate
+39,Female,No,No,213.3,78.6,40.4,Former,1,Light,Moderate,Low
+39,Female,No,No,194.2,58.5,45.6,Never,0,Moderate,Low,Low
+30,Male,Type 2,No,149.5,82.1,37.3,Current,0,Moderate,Low,Moderate
+58,Male,Type 1,Untreated,167.6,103.3,60.4,Current,0,Moderate,Low,Moderate
+60,Male,Type 2,No,182.5,98.7,73.1,Current,0,Light,Low,Moderate
+55,Female,No,No,205.4,128.4,38.8,Former,0,Moderate,High,Low
+67,Male,No,No,195.4,101.5,65.0,Never,0,Light,Moderate,Moderate
+53,Female,No,Treated,203.8,96.8,50.7,Never,0,Sedentary,Low,Moderate
+58,Male,No,No,131.0,60.1,41.2,Never,1,Light,Low,Low
+56,Female,No,No,222.9,118.2,37.8,Never,0,Moderate,High,Low
+50,Male,Prediabetes,Treated,195.1,125.9,41.3,Former,1,Light,High,High
+43,Female,Type 2,No,302.2,155.5,32.9,Former,0,Sedentary,High,Moderate
+85,Male,No,Untreated,178.7,91.9,60.2,Never,0,Vigorous,Low,Moderate

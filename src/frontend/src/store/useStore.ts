@@ -1,0 +1,166 @@
+/**
+ * useStore.ts — Re-exports appStore with the simplified interface expected by new components.
+ * New components should import from here; existing components continue using appStore.ts.
+ */
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { DEFAULT_PATIENT_ID, mockPatients } from "../data/mockPatients";
+import type {
+  Dataset,
+  ModelStatus,
+  Patient,
+  ScanSession,
+  SensorStatus,
+  VitalSigns,
+} from "../types";
+
+interface StoreState {
+  currentPatientId: string;
+  patients: Patient[];
+  vitals: VitalSigns;
+  scanActive: boolean;
+  scanSeconds: number;
+  sensorStatus: SensorStatus;
+  waveformResolution: "5s" | "10s";
+  modelStatus: ModelStatus & { accuracy: number };
+  datasets: Dataset[];
+
+  // actions
+  addPatient: (patient: Patient) => void;
+  updateVitals: (updates: Partial<VitalSigns>) => void;
+  toggleScan: () => void;
+  incrementScanSeconds: () => void;
+  setWaveformResolution: (res: "5s" | "10s") => void;
+  setCurrentPatientId: (id: string) => void;
+  adjustVital: (key: keyof VitalSigns, delta: number) => void;
+  addScanSession: (patientId: string, session: ScanSession) => void;
+  addDataset: (dataset: Dataset) => void;
+  removeDataset: (id: string) => void;
+  setSensorStatus: (status: Partial<SensorStatus>) => void;
+  deletePatient: (id: string) => void;
+  deleteScanSession: (patientId: string, sessionId: string) => void;
+}
+
+const defaultVitals: VitalSigns = {
+  heartRate: 78,
+  spo2: 96,
+  systolic: 138,
+  diastolic: 88,
+  ptt: 245,
+  perfusionIndex: 3.2,
+};
+
+const CLAMPS: Partial<Record<keyof VitalSigns, [number, number]>> = {
+  heartRate: [30, 220],
+  spo2: [70, 100],
+  systolic: [80, 220],
+  diastolic: [50, 140],
+  ptt: [80, 1200],
+  perfusionIndex: [0.1, 30],
+};
+
+export const useStore = create<StoreState>()(
+  persist(
+    (set, get) => ({
+      currentPatientId: DEFAULT_PATIENT_ID,
+      patients: mockPatients,
+      vitals: { ...defaultVitals },
+      scanActive: true,
+      scanSeconds: 0,
+      datasets: [],
+      sensorStatus: {
+        ppg: "CONNECTED",
+        ecg: "CONNECTED",
+        fingerDetected: "SIGNAL GOOD",
+      },
+      waveformResolution: "5s",
+      modelStatus: {
+        cnn: "ACTIVE",
+        lstm: "ACTIVE",
+        sensor: "ONLINE",
+        database: "CONNECTED",
+        accuracy: 94.2,
+      },
+
+      addPatient: (patient) =>
+        set((s) => ({ patients: [...s.patients, patient] })),
+
+      updateVitals: (updates) =>
+        set((s) => ({ vitals: { ...s.vitals, ...updates } })),
+
+      toggleScan: () =>
+        set((s) => ({
+          scanActive: !s.scanActive,
+          scanSeconds: s.scanActive ? s.scanSeconds : 0,
+        })),
+
+      incrementScanSeconds: () =>
+        set((s) => ({ scanSeconds: s.scanSeconds + 1 })),
+
+      setWaveformResolution: (res) => set({ waveformResolution: res }),
+
+      setCurrentPatientId: (id) => {
+        const patient = get().patients.find((p) => p.id === id);
+        set({
+          currentPatientId: id,
+          vitals: patient ? { ...patient.vitals } : defaultVitals,
+        });
+      },
+
+      adjustVital: (key, delta) =>
+        set((s) => {
+          const cur = s.vitals[key] as number;
+          const [lo, hi] = CLAMPS[key] ?? [0, Number.POSITIVE_INFINITY];
+          const next = Number.parseFloat(
+            Math.min(Math.max(cur + delta, lo), hi).toFixed(1),
+          );
+          return { vitals: { ...s.vitals, [key]: next } };
+        }),
+
+      addScanSession: (patientId, session) =>
+        set((s) => ({
+          patients: s.patients.map((p) =>
+            p.id === patientId
+              ? { ...p, scanSessions: [...(p.scanSessions ?? []), session] }
+              : p,
+          ),
+        })),
+
+      addDataset: (dataset) =>
+        set((s) => ({ datasets: [...s.datasets, dataset] })),
+
+      removeDataset: (id) =>
+        set((s) => ({ datasets: s.datasets.filter((d) => d.id !== id) })),
+
+      setSensorStatus: (status) =>
+        set((s) => ({ sensorStatus: { ...s.sensorStatus, ...status } })),
+
+      deletePatient: (id) =>
+        set((s) => ({
+          patients: s.patients.filter((p) => p.id !== id),
+          currentPatientId: s.currentPatientId === id && s.patients.length > 0 ? s.patients[0].id : s.currentPatientId,
+        })),
+
+      deleteScanSession: (patientId, sessionId) =>
+        set((s) => ({
+          patients: s.patients.map((p) =>
+            p.id === patientId
+              ? { ...p, scanSessions: p.scanSessions?.filter((ss) => ss.id !== sessionId) }
+              : p
+          ),
+        })),
+    }),
+    {
+      name: "vascuscan-store-v1",
+      partialize: (s) => ({
+        currentPatientId: s.currentPatientId,
+        patients: s.patients,
+        waveformResolution: s.waveformResolution,
+        datasets: s.datasets,
+      }),
+    },
+  ),
+);
+
+export const selectCurrentPatient = (s: StoreState): Patient | undefined =>
+  s.patients.find((p) => p.id === s.currentPatientId);

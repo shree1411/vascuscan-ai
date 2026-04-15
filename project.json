@@ -1,0 +1,28 @@
+{
+  "overview": "VASCUSCAN AI is a dark-themed medical monitoring dashboard for real-time cardiovascular analysis. It displays animated PPG and ECG waveforms, patient risk assessments, live vitals, AI feature analysis, and supports 7-step patient registration with full form validation.",
+  "features": [
+    "Animated Canvas PPG waveform (cyan) and ECG waveform (green) with 60fps scrolling animation",
+    "Dark medical dashboard with 3-column layout: patient sidebar, waveform center, live vitals panel",
+    "Patient sidebar with medical history badges, risk score, blockage probability, AI confidence, and feature flags",
+    "Live vitals panel with 5 cards (Heart Rate, SpO2, BP, PTT, Perfusion Index) and +/- adjustment buttons",
+    "AI feature analysis grid showing 6 metrics with NORMAL/WARNING status badges",
+    "AI model status panel (CNN, LSTM, Sensor, Database) with accuracy percentage",
+    "Scan timer that counts up automatically with STOP SCAN toggle",
+    "7-step new patient registration wizard with full validation (blocking cholesterol check, age validation, BMI auto-calc)",
+    "Patient history page with scan timeline and PDF/CSV/JSON export",
+    "Zustand state management with localStorage persistence"
+  ],
+  "category": "healthcare",
+  "tags": [
+    "medical",
+    "dashboard",
+    "waveform",
+    "canvas",
+    "real-time",
+    "cardiovascular",
+    "dark-theme",
+    "zustand",
+    "react"
+  ],
+  "last_updated": "2026-04-13T14:20:58.759Z"
+}

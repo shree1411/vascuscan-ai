@@ -1,0 +1,35 @@
+# Node
+node_modules/
+dist/
+dist-ssr
+*.local
+package-lock.json
+pnpm-lock.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+venv/
+ENV/
+env/
+.env
+.pytest_cache/
+
+# OS/System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Misc
+.cache/
+.config/
+.mops/
+artifacts/
+*.log
+Library/
