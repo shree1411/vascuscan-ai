@@ -10,6 +10,7 @@ import type {
   ScanSession,
   VitalSigns,
 } from "../types";
+import { useStore } from "../store/useStore";
 import Step1Demographics from "./wizard/Step1Demographics";
 import Step2Vitals from "./wizard/Step2Vitals";
 import Step3Medical from "./wizard/Step3Medical";
@@ -23,9 +24,10 @@ import type { FormData } from "./wizard/types";
 
 export default function NewPatient() {
   const navigate = useNavigate();
-  const addPatient = useAppStore((s) => s.addPatient);
-  const addScanSession = useAppStore((s) => s.addScanSession);
-  const setCurrentPatient = useAppStore((s) => s.setCurrentPatient);
+  const addPatient = useStore((s) => s.addPatient);
+  const addScanSession = useStore((s) => s.addScanSession);
+  const setCurrentPatientId = useStore((s) => s.setCurrentPatientId);
+  const addNotification = useStore((s) => s.addNotification);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -170,9 +172,10 @@ export default function NewPatient() {
           modelUsed: "model1_form",
           probabilities: json.probabilities ?? {},
         };
+        addNotification("Clinical AI assessment complete.", "success");
       }
     } catch (_e) {
-      // Backend offline — keep default placeholder
+      addNotification("Model 1 offline. Using clinical baseline.", "warning");
     }
 
     const featureFlags: FeatureFlag[] = [];
@@ -238,7 +241,7 @@ export default function NewPatient() {
     };
     addScanSession(id, registrationSession);
 
-    setCurrentPatient(id);
+    setCurrentPatientId(id);
     setIsSubmitting(false);
     navigate({ to: "/" });
   };

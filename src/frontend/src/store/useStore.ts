@@ -13,6 +13,14 @@ import type {
   SensorStatus,
   VitalSigns,
 } from "../types";
+import { toast } from "sonner";
+
+export interface Notification {
+  id: string;
+  message: string;
+  type: "info" | "success" | "warning";
+  timestamp: string;
+}
 
 interface StoreState {
   currentPatientId: string;
@@ -24,9 +32,11 @@ interface StoreState {
   waveformResolution: "5s" | "10s";
   modelStatus: ModelStatus & { accuracy: number };
   datasets: Dataset[];
+  notifications: Notification[];
 
   // actions
   addPatient: (patient: Patient) => void;
+  updatePatient: (id: string, updates: Partial<Patient>) => void;
   updateVitals: (updates: Partial<VitalSigns>) => void;
   toggleScan: () => void;
   incrementScanSeconds: () => void;
@@ -39,6 +49,8 @@ interface StoreState {
   setSensorStatus: (status: Partial<SensorStatus>) => void;
   deletePatient: (id: string) => void;
   deleteScanSession: (patientId: string, sessionId: string) => void;
+  addNotification: (msg: string, type?: Notification["type"]) => void;
+  clearNotifications: () => void;
 }
 
 const defaultVitals: VitalSigns = {
@@ -69,21 +81,29 @@ export const useStore = create<StoreState>()(
       scanSeconds: 0,
       datasets: [],
       sensorStatus: {
-        ppg: "CONNECTED",
-        ecg: "CONNECTED",
-        fingerDetected: "SIGNAL GOOD",
+        ppg: "OFFLINE",
+        ecg: "OFFLINE",
+        fingerDetected: "NO SIGNAL",
       },
       waveformResolution: "5s",
       modelStatus: {
         cnn: "ACTIVE",
         lstm: "ACTIVE",
-        sensor: "ONLINE",
+        sensor: "SIMULATING",
         database: "CONNECTED",
         accuracy: 94.2,
       },
+      notifications: [],
 
       addPatient: (patient) =>
         set((s) => ({ patients: [...s.patients, patient] })),
+
+      updatePatient: (id, updates) =>
+        set((s) => ({
+          patients: s.patients.map((p) =>
+            p.id === id ? { ...p, ...updates } : p,
+          ),
+        })),
 
       updateVitals: (updates) =>
         set((s) => ({ vitals: { ...s.vitals, ...updates } })),
@@ -149,6 +169,20 @@ export const useStore = create<StoreState>()(
               : p
           ),
         })),
+
+      addNotification: (message, type = "info") => {
+        const id = Math.random().toString(36).substring(7);
+        const timestamp = new Date().toLocaleTimeString();
+        set((s) => ({
+          notifications: [{ id, message, type, timestamp }, ...s.notifications].slice(0, 50),
+        }));
+        // Also trigger a real UI toast
+        if (type === "success") toast.success(message);
+        else if (type === "warning") toast.warning(message);
+        else toast(message);
+      },
+
+      clearNotifications: () => set({ notifications: [] }),
     }),
     {
       name: "vascuscan-store-v1",

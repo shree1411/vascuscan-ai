@@ -7,11 +7,14 @@ import { useStore } from "../store/useStore";
 
 interface SensorCardProps {
   label: string;
-  isGood: boolean;
+  status: string;
   icon: React.ReactNode;
 }
 
-function SensorCard({ label, isGood, icon }: SensorCardProps) {
+function SensorCard({ label, status, icon }: SensorCardProps) {
+  const isGood = status === "CONNECTED";
+  const isSim = status === "SIMULATING" || status === "SIMULATED";
+  
   return (
     <div
       className="flex items-center gap-2 px-4 py-2 rounded w-fit"
@@ -23,17 +26,17 @@ function SensorCard({ label, isGood, icon }: SensorCardProps) {
       {/* Status dot */}
       <span
         className="w-2 h-2 rounded-full shrink-0"
-        style={{ background: isGood ? "#22c55e" : "#f97316" }}
+        style={{ background: isGood ? "#22c55e" : isSim ? "#00d4ff" : "#f97316" }}
       />
       {/* Icon — neutral color, not colored */}
       <span style={{ color: "#94a3b8" }}>{icon}</span>
       <div className="flex flex-col leading-tight">
         <span className="text-xs font-semibold text-white">{label}</span>
         <span
-          className="text-xs font-medium"
-          style={{ color: isGood ? "#4ade80" : "#fb923c" }}
+          className="text-[10px] font-medium uppercase tracking-tight"
+          style={{ color: isGood ? "#4ade80" : isSim ? "#00d4ff" : "#fb923c" }}
         >
-          {isGood ? "Connected" : "Disconnected"}
+          {isGood ? "Connected" : isSim ? "Simulated" : "Offline"}
         </span>
       </div>
     </div>
@@ -56,17 +59,17 @@ export function SensorStatusBar() {
     >
       <SensorCard
         label="PPG SENSOR"
-        isGood={sensorStatus.ppg === "CONNECTED"}
+        status={sensorStatus.ppg}
         icon={<Wifi size={12} />}
       />
       <SensorCard
         label="ECG SENSOR"
-        isGood={sensorStatus.ecg === "CONNECTED"}
+        status={sensorStatus.ecg}
         icon={<Activity size={12} />}
       />
       <SensorCard
         label="FINGER DETECTED"
-        isGood={sensorStatus.fingerDetected === "SIGNAL GOOD"}
+        status={sensorStatus.fingerDetected === "SIGNAL GOOD" ? "CONNECTED" : "OFFLINE"}
         icon={<Fingerprint size={12} />}
       />
 

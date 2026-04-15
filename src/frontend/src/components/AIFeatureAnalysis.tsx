@@ -9,7 +9,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { usePrediction } from "../hooks/usePrediction";
-import { selectCurrentPatient, useAppStore } from "../store/appStore";
+import { useStore, selectCurrentPatient } from "../store/useStore";
 
 // ── Live waveform feature helpers ──────────────────────────────────────────
 
@@ -25,13 +25,14 @@ interface WaveFeature {
   rangeText: string;
 }
 
-const liveState = {
+const defaultLiveState = {
   pulseAmp: 0.72,
   riseTime: 165,
   dicrotic: 0.85,
   hrv: 42,
   skew: 0.34,
 };
+let liveState = { ...defaultLiveState };
 
 function clamp(v: number, lo: number, hi: number) {
   return Math.max(lo, Math.min(hi, v));
@@ -178,7 +179,7 @@ function ProbBar({
 // ── Main component ─────────────────────────────────────────────────────────
 
 export function AIFeatureAnalysis() {
-  const currentPatient = useAppStore(selectCurrentPatient);
+  const currentPatient = useStore(selectCurrentPatient);
   const { loading, error, refetchCurrentPatient } = usePrediction();
   const [waveFeatures, setWaveFeatures] = useState<WaveFeature[]>(() => buildWaveFeatures());
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -230,7 +231,11 @@ export function AIFeatureAnalysis() {
         <p className="text-white text-sm font-semibold">AI FEATURE ANALYSIS</p>
         <button
           type="button"
-          onClick={refetchCurrentPatient}
+          onClick={() => {
+            liveState = { ...defaultLiveState };
+            setWaveFeatures(buildWaveFeatures());
+            refetchCurrentPatient();
+          }}
           disabled={loading}
           className="text-xs px-2 py-1 rounded border transition-colors"
           style={{

@@ -117,15 +117,15 @@ export interface Patient {
 }
 
 export interface SensorStatus {
-  ppg: "CONNECTED" | "DISCONNECTED";
-  ecg: "CONNECTED" | "DISCONNECTED";
+  ppg: "CONNECTED" | "DISCONNECTED" | "OFFLINE" | "SIMULATING";
+  ecg: "CONNECTED" | "DISCONNECTED" | "OFFLINE" | "SIMULATING";
   fingerDetected: "SIGNAL GOOD" | "SIGNAL POOR" | "NO SIGNAL";
 }
 
 export interface ModelStatus {
-  cnn: "ACTIVE" | "INACTIVE" | "ERROR";
-  lstm: "ACTIVE" | "INACTIVE" | "ERROR";
-  sensor: "ONLINE" | "OFFLINE";
+  cnn: "ACTIVE" | "INACTIVE" | "ERROR" | "OFFLINE";
+  lstm: "ACTIVE" | "INACTIVE" | "ERROR" | "OFFLINE";
+  sensor: "ONLINE" | "OFFLINE" | "SIMULATING";
   database: "CONNECTED" | "DISCONNECTED";
 }
 

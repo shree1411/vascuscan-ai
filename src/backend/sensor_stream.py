@@ -40,10 +40,23 @@ class SensorStreamer:
         try:
             if len(data) <= 15:
                 return data
-            # Map 0-100slider to a cutoff freq (100% slider = 2Hz strict cutoff, 1% slider = 25Hz mild cutoff)
-            cutoff = max(2.0, 25.0 - (self.filter_cutoff / 100.0 * 23.0))
+            
+            # Map 0-100 slider:
+            # 100% -> cutoff = 0.5Hz (very aggresive smoothing/flattening)
+            # 0%   -> cutoff = 25Hz (no filtering essentially)
+            if self.filter_cutoff >= 100.0:
+                # Force near-flat signal by using extremely low cutoff
+                cutoff = 0.2 
+            else:
+                # Mapping 0-100slider to a cutoff freq (100% slider = 2Hz strict cutoff, 1% slider = 25Hz mild cutoff)
+                # Improved: Using a steeper curve for better noise rejection
+                cutoff = max(1.0, 30.0 - (self.filter_cutoff / 100.0 * 29.0))
+            
             b, a = butter(2, cutoff / (0.5 * self.fs), btype='low')
-            return filtfilt(b, a, data).tolist()
+            filtered = filtfilt(b, a, data)
+            # Second stage: high-frequency rejection
+            b2, a2 = butter(2, 45.0 / (0.5 * self.fs), btype='low')
+            return filtfilt(b2, a2, filtered).tolist()
         except Exception:
             return data
 
@@ -57,13 +70,18 @@ class SensorStreamer:
             ptt = abs(ppg_peaks[0] - ecg_peaks[0]) / 100 if (len(ecg_peaks) > 0 and len(ppg_peaks) > 0) else 0
             
             hr = 0
-            if len(ecg_peaks) > 1:
-                # mean rr interval in seconds
-                mean_rr = np.mean(np.diff(ecg_peaks)) / self.fs
-                hr = int(60.0 / mean_rr) if mean_rr > 0 else 0
-            elif len(ppg_peaks) > 1:
-                mean_rr = np.mean(np.diff(ppg_peaks)) / self.fs
-                hr = int(60.0 / mean_rr) if mean_rr > 0 else 0
+            if len(ecg_peaks) > 3:
+                # mean rr interval in seconds over last few peaks
+                rr_intervals = np.diff(ecg_peaks) / self.fs
+                # Filter outliers
+                valid_rr = rr_intervals[(rr_intervals > 0.4) & (rr_intervals < 1.5)]
+                if len(valid_rr) > 0:
+                    hr = int(60.0 / np.mean(valid_rr))
+            elif len(ppg_peaks) > 3:
+                rr_intervals = np.diff(ppg_peaks) / self.fs
+                valid_rr = rr_intervals[(rr_intervals > 0.4) & (rr_intervals < 1.5)]
+                if len(valid_rr) > 0:
+                    hr = int(60.0 / np.mean(valid_rr))
             
             return {"ecg_hrv": float(hrv), "ptt": float(ptt), "hr": hr}
         except Exception:
@@ -78,6 +96,10 @@ class SensorStreamer:
         self.running = False
         if self.thread:
             self.thread.join(timeout=2.0)
+
+    @property
+    def is_simulated(self):
+        return self._is_simulated
 
     def _run_loop(self):
         print(f"Attempting to connect to ESP32 on {self.port}...")
@@ -121,24 +143,38 @@ class SensorStreamer:
                                 self.ppg_connected = True
                                 ppg_val = float(raw_p)
                 except Exception as e:
-                    print("Serial connection lost. Switching to simulation mode.")
+                    print(f"Serial connection lost: {e}. Switching to simulation mode.")
                     self._is_simulated = True
                     ser = None
                     time.sleep(1)
                     continue
             else:
-                self.ecg_connected = True
-                self.ppg_connected = True
+                # SIMULATION MODE - Sensors are OFFLINE for hardware status
+                self.ecg_connected = False
+                self.ppg_connected = False
+                
+                # Base frequency: ~1.20Hz (72 BPM)
+                # Phase 3: Higher medical-grade pulse variation (±8% jitter)
+                base_freq = 1.20
+                jitter = 0.10 * np.sin(2 * np.pi * 0.25 * t) + np.random.normal(0, 0.02)
+                freq = base_freq + jitter
+                
                 # Smooth rounded medical morphology (200Hz)
                 t += dt
-                # Heart rate slightly adjusted for ICU density (approx 80-82 BPM)
-                freq = 1.35 
                 
                 # Primary Oscillation
                 primary = np.sin(2 * np.pi * freq * t)
                 
                 # Baseline Drift (Slow)
                 wander = 0.03 * np.sin(2 * np.pi * 0.12 * t)
+                
+                # ── Pulse Transit Time Variation ─────────────────────────────
+                # Base PTT ~0.22s, fluctuates with respiratory rate (freq * 0.2)
+                ptt_jitter = 0.015 * np.sin(2 * np.pi * freq * 0.2 * t)
+                ptt_val = 0.22 + ptt_jitter
+                
+                # PPG simulation (offset by PTT)
+                ppg_t = t - ptt_val
                 
                 # PPG-like rounded shape using tanh for saturation
                 # ECG in this style is often just a sharper pulsatile wave or 
@@ -150,7 +186,7 @@ class SensorStreamer:
                 ecg_val += np.random.normal(0, 0.03) # Subtle realism noise
 
                 # PPG simulation
-                ppg_h = 0.25 * np.sin(2 * np.pi * freq * t * 2 - 0.6)
+                ppg_h = 0.25 * np.sin(2 * np.pi * freq * ppg_t * 2 - 0.6)
                 ppg_val = np.tanh(primary + ppg_h) + wander * 0.5
                 ppg_val += np.random.normal(0, 0.015)
                 
@@ -172,12 +208,16 @@ class SensorStreamer:
             if self.on_waveform:
                 # We emit chunks of 5 points at a time to not overwhelm websocket
                 if len(self.ecg_buffer) % 5 == 0:
+                    status = {
+                        'ecg': 'CONNECTED' if self.ecg_connected else 'OFFLINE',
+                        'ppg': 'CONNECTED' if self.ppg_connected else 'OFFLINE',
+                        'simulated': self._is_simulated
+                    }
                     self.on_waveform(
                         self.ecg_buffer[-5:],
                         self.ppg_buffer[-5:],
                         self._is_simulated,
-                        self.ecg_connected,
-                        self.ppg_connected
+                        status
                     )
 
             # Analyze for features every 100 samples (1 second)
@@ -192,7 +232,12 @@ class SensorStreamer:
                 
                 # 3. Callback
                 if self.on_features:
-                    self.on_features(feats)
+                    # Cast to float for JSON serializability
+                    self.on_features({
+                        "ecg_hrv": float(feats.get("ecg_hrv", 0)),
+                        "ptt": float(feats.get("ptt", 0)),
+                        "hr": int(feats.get("hr", 0))
+                    })
                     
                 feature_counter = 0
 

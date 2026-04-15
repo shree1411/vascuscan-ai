@@ -1,8 +1,8 @@
 import { Cpu } from "lucide-react";
-import { useAppStore } from "../../store/appStore";
+import { useStore } from "../../store/useStore";
 
 export function ModelStatusBar() {
-  const { modelStatus } = useAppStore();
+  const { modelStatus, sensorStatus } = useStore();
 
   const items = [
     {
@@ -16,9 +16,14 @@ export function ModelStatusBar() {
       active: modelStatus.lstm === "ACTIVE",
     },
     {
-      label: "Sensor",
-      value: modelStatus.sensor,
-      active: modelStatus.sensor === "ONLINE",
+      label: "Sensor Status",
+      value: (sensorStatus.ppg === "CONNECTED" || sensorStatus.ecg === "CONNECTED") 
+               ? "ONLINE" 
+               : (sensorStatus.ppg === "SIMULATING" || sensorStatus.ecg === "SIMULATED") 
+                 ? "SIMULATED" 
+                 : "OFF",
+      active: sensorStatus.ppg === "CONNECTED" || sensorStatus.ecg === "CONNECTED",
+      isSim: sensorStatus.ppg === "SIMULATING" || sensorStatus.ecg === "SIMULATED",
     },
     {
       label: "Database",
@@ -35,14 +40,14 @@ export function ModelStatusBar() {
           <span
             className="w-1.5 h-1.5 rounded-full"
             style={{
-              background: item.active ? "#22c55e" : "#ef4444",
-              boxShadow: item.active ? "0 0 6px #22c55e" : "none",
+              background: item.active ? "#22c55e" : item.isSim ? "#00d4ff" : "#ef4444",
+              boxShadow: item.active ? "0 0 6px #22c55e" : item.isSim ? "0 0 6px #00d4ff" : "none",
             }}
           />
           <span style={{ color: "#475569" }}>{item.label}:</span>
           <span
             className="font-semibold"
-            style={{ color: item.active ? "#22c55e" : "#ef4444" }}
+            style={{ color: item.active ? "#22c55e" : item.isSim ? "#00d4ff" : "#ef4444" }}
           >
             {item.value}
           </span>

@@ -13,10 +13,24 @@ import {
   Share2,
   Square,
   UserPlus,
+  Bell,
   X,
+  Clipboard,
+  FileJson,
+  Mail,
+  FileBarChart,
+  CircleCheck,
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { selectCurrentPatient, useStore } from "../store/useStore";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { useStore, selectCurrentPatient } from "../store/useStore";
 import type { ScanSession } from "../types";
 
 function fmtSeconds(s: number): string {
@@ -83,6 +97,9 @@ export function Header() {
   const vitals = useStore((s) => s.vitals);
   const addScanSession = useStore((s) => s.addScanSession);
   const patient = useStore(selectCurrentPatient);
+  const notifications = useStore((s) => s.notifications);
+  const addNotification = useStore((s) => s.addNotification);
+  const clearNotifications = useStore((s) => s.clearNotifications);
 
   const [toasts, setToasts] = useState<Toast[]>([]);
   const timerRef = useRef<Map<number, ReturnType<typeof setTimeout>>>(
@@ -152,10 +169,15 @@ export function Header() {
         riskAssessment: { ...patient.riskAssessment },
       };
       addScanSession(patient.id, session);
-      showToast("Scan session auto-saved to history", "success");
+      addNotification("Scan session auto-saved to history", "success");
     }
     toggleScan();
-  }, [patient, scanSeconds, vitals, addScanSession, toggleScan, showToast]);
+  }, [patient, scanSeconds, vitals, addScanSession, toggleScan, addNotification]);
+
+  const handleStartScan = useCallback(() => {
+    toggleScan();
+    addNotification("Signals are preprocessing...", "info");
+  }, [toggleScan, addNotification]);
 
   /* ── Save handler ── */
   const handleSave = useCallback(() => {
@@ -389,7 +411,7 @@ export function Header() {
               </span>
               <button
                 type="button"
-                onClick={toggleScan}
+                onClick={handleStartScan}
                 className="flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold border"
                 style={{
                   background: "rgba(0,212,255,0.1)",
@@ -409,17 +431,98 @@ export function Header() {
 
         {/* ── Action icon buttons ── */}
         <div className="flex items-center gap-1">
-          <button
-            type="button"
-            onClick={handleSave}
-            className="p-1.5 rounded transition-smooth hover:bg-white/10"
-            style={{ color: "#64748b" }}
-            aria-label="Save"
-            title="Save scan session"
-            data-ocid="header.save_button"
-          >
-            <Save size={15} />
-          </button>
+          {/* Notifications Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="p-1.5 rounded transition-smooth hover:bg-white/10 relative"
+                style={{ color: "#64748b" }}
+                aria-label="Notifications"
+                title="System Notifications"
+              >
+                <Bell size={15} />
+                {notifications.length > 0 && (
+                  <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-red-500 rounded-full border border-[#0d1220]" />
+                )}
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-64 bg-[#0d1220] border-[#1a2744] text-[#e2e8f0]">
+              <div className="flex items-center justify-between px-2 py-1.5">
+                <DropdownMenuLabel className="text-xs font-bold uppercase tracking-wider text-[#64748b]">System Notifications</DropdownMenuLabel>
+                <button onClick={clearNotifications} className="text-[10px] text-[#00d4ff] hover:underline">Clear</button>
+              </div>
+              <DropdownMenuSeparator className="bg-[#1a2744]" />
+              <div className="max-h-60 overflow-y-auto scrollbar-thin">
+                {notifications.length === 0 ? (
+                  <div className="py-8 text-center text-[#475569] text-xs">No new notifications</div>
+                ) : (
+                  notifications.map((n) => (
+                    <DropdownMenuItem key={n.id} className="flex flex-col items-start gap-1 p-3 focus:bg-white/5 cursor-default border-b border-white/5 last:border-0">
+                      <div className="flex items-center gap-2 w-full">
+                        <span className={`w-1.5 h-1.5 rounded-full ${n.type === 'warning' ? 'bg-orange-500' : n.type === 'success' ? 'bg-green-500' : 'bg-[#00d4ff]'}`} />
+                        <span className="text-xs font-medium flex-1">{n.message}</span>
+                        <span className="text-[9px] text-[#475569]">{n.timestamp}</span>
+                      </div>
+                    </DropdownMenuItem>
+                  ))
+                )}
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Save Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="p-1.5 rounded transition-smooth hover:bg-white/10"
+                style={{ color: "#64748b" }}
+                aria-label="Save Settings"
+              >
+                <Save size={15} />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48 bg-[#0d1220] border-[#1a2744] text-[#e2e8f0]">
+              <DropdownMenuItem onClick={handleSave} className="flex items-center gap-2 focus:bg-white/5">
+                <CircleCheck size={14} className="text-green-500" /> <span>Quick Save</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => addNotification("Save with Note opening...", "info")} className="flex items-center gap-2 focus:bg-white/5">
+                <FileText size={14} className="text-[#00d4ff]" /> <span>Save with Note</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handleDownload} className="flex items-center gap-2 focus:bg-white/5">
+                <FileBarChart size={14} className="text-[#f97316]" /> <span>Export PDF</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Share Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="p-1.5 rounded transition-smooth hover:bg-white/10"
+                style={{ color: "#64748b" }}
+                aria-label="Share"
+              >
+                <Share2 size={15} />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48 bg-[#0d1220] border-[#1a2744] text-[#e2e8f0]">
+              <DropdownMenuItem onClick={handleShare} className="flex items-center gap-2 focus:bg-white/5">
+                <Clipboard size={14} className="text-[#00d4ff]" /> <span>Copy Report</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => {
+                navigator.clipboard.writeText(JSON.stringify(patient, null, 2));
+                addNotification("JSON copied to clipboard", "success");
+              }} className="flex items-center gap-2 focus:bg-white/5">
+                <FileJson size={14} className="text-[#f97316]" /> <span>Copy JSON</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => addNotification("Mock email sent", "success")} className="flex items-center gap-2 focus:bg-white/5">
+                <Mail size={14} className="text-purple-400" /> <span>Email Link</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <button
             type="button"
@@ -428,33 +531,8 @@ export function Header() {
             style={{ color: "#64748b" }}
             aria-label="Settings"
             title="Settings"
-            data-ocid="header.settings_button"
           >
             <Settings size={15} />
-          </button>
-
-          <button
-            type="button"
-            onClick={handleShare}
-            className="p-1.5 rounded transition-smooth hover:bg-white/10"
-            style={{ color: "#64748b" }}
-            aria-label="Share"
-            title="Copy report to clipboard"
-            data-ocid="header.share_button"
-          >
-            <Share2 size={15} />
-          </button>
-
-          <button
-            type="button"
-            onClick={handleDownload}
-            className="p-1.5 rounded transition-smooth hover:bg-white/10"
-            style={{ color: "#64748b" }}
-            aria-label="Download"
-            title="Download CSV report"
-            data-ocid="header.download_button"
-          >
-            <Download size={15} />
           </button>
 
           <button
@@ -464,21 +542,8 @@ export function Header() {
             style={{ color: "#64748b" }}
             aria-label="History"
             title="View patient history"
-            data-ocid="header.history_link"
           >
             <History size={15} />
-          </button>
-
-          <button
-            type="button"
-            onClick={() => navigate({ to: "/dataset" })}
-            className="p-1.5 rounded transition-smooth hover:bg-white/10"
-            style={{ color: "#64748b" }}
-            aria-label="Datasets"
-            title="Manage datasets"
-            data-ocid="header.dataset_link"
-          >
-            <Database size={15} />
           </button>
 
           <button
@@ -486,7 +551,6 @@ export function Header() {
             onClick={() => navigate({ to: "/new-patient" })}
             className="flex items-center gap-1.5 px-4 py-2 rounded text-sm font-semibold ml-2 transition-smooth hover:brightness-110"
             style={{ background: "#00d4ff", color: "#000" }}
-            data-ocid="new-patient-btn"
           >
             <UserPlus size={13} />
             New Patient

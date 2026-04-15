@@ -16,7 +16,7 @@
  * Returns: { loading, lastPrediction, error, refetchCurrentPatient }
  */
 import { useCallback, useEffect, useRef, useState } from "react";
-import { selectCurrentPatient, useAppStore } from "../store/appStore";
+import { selectCurrentPatient, useStore } from "../store/useStore";
 import type { RiskAssessment } from "../types";
 
 const API = "http://127.0.0.1:5000";
@@ -73,9 +73,9 @@ function toRiskAssessment(r: PredictionResult): RiskAssessment {
 }
 
 export function usePrediction() {
-  const patients = useAppStore((s) => s.patients);
-  const updatePatient = useAppStore((s) => s.updatePatient);
-  const currentPatient = useAppStore(selectCurrentPatient);
+  const patients = useStore((s) => s.patients);
+  const updatePatient = useStore((s) => s.updatePatient);
+  const currentPatient = useStore(selectCurrentPatient);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastPrediction, setLastPrediction] = useState<PredictionResult | null>(null);

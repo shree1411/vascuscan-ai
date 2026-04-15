@@ -2,7 +2,7 @@
  * PatientInfoPanel.tsx — Left sidebar showing patient demographics, medical history,
  * risk scores, and feature flags.
  */
-import { selectCurrentPatient, useAppStore } from "../../store/appStore";
+import { useStore, selectCurrentPatient } from "../../store/useStore";
 import type { RiskLevel } from "../../types";
 
 function getAge(dob: string): number {
@@ -34,7 +34,7 @@ function riskBg(level: RiskLevel) {
 }
 
 export function PatientInfoPanel() {
-  const currentPatient = useAppStore(selectCurrentPatient);
+  const currentPatient = useStore(selectCurrentPatient);
 
   if (!currentPatient) {
     return (

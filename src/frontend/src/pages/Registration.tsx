@@ -7,7 +7,7 @@ import {
   UserPlus,
 } from "lucide-react";
 import { useCallback, useState } from "react";
-import { useAppStore } from "../store/appStore";
+import { useStore } from "../store/useStore";
 import type {
   BloodType,
   FeatureFlag,
@@ -815,8 +815,10 @@ export default function Registration() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
     {},
   );
-  const addPatient = useAppStore((s) => s.addPatient);
-  const setCurrentPatient = useAppStore((s) => s.setCurrentPatient);
+  const addPatient = useStore((s) => s.addPatient);
+  const addScanSession = useStore((s) => s.addScanSession);
+  const setCurrentPatientId = useStore((s) => s.setCurrentPatientId);
+  const addNotification = useStore((s) => s.addNotification);
   const navigate = useNavigate();
 
   const set = useCallback(
@@ -868,8 +870,9 @@ export default function Registration() {
   };
   const prev = () => setPage((p) => Math.max(p - 1, 0));
 
-  const submit = () => {
+  const submit = async () => {
     const id = `VS-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 8999)}`;
+    const age = form.dob ? Math.floor((Date.now() - new Date(form.dob).getTime()) / (365.25 * 24 * 3600 * 1000)) : 0;
 
     const medicalBadges: MedicalHistoryBadge[] = [];
     if (form.diabetes !== "No" && form.diabetes) {
@@ -917,12 +920,53 @@ export default function Registration() {
       ptt: 220,
       perfusionIndex: 2.5,
     };
-    const ra: RiskAssessment = {
+
+    // ── Call Model 1 (form-only) for instant AI prediction ────────────────
+    let ra: RiskAssessment = {
       riskScore: 30,
       riskLevel: "Low",
       blockageProbability: 20,
       aiConfidence: 85,
+      modelUsed: "none",
     };
+
+    try {
+      const payload = {
+        age,
+        gender: form.gender,
+        diabetes_status: form.diabetes,
+        hypertension_status: form.hypertension,
+        cholesterol_level: Number.parseFloat(form.cholesterol) || 180,
+        ldl: Number.parseFloat(form.ldl) || 110,
+        hdl: Number.parseFloat(form.hdl) || 50,
+        smoking_status: form.smoking,
+        family_history: form.familyHeartDisease ? 1 : 0,
+        activity_level: form.activityLevel || "Moderate",
+        stress_level: form.stressLevel || "Low",
+      };
+      const res = await fetch("http://127.0.0.1:5000/api/predict-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        const json = await res.json();
+        const lvl = (json.risk_level as string) ?? "Low";
+        const riskLevel = lvl === "High" ? "High" : lvl === "Moderate" ? "Moderate" : "Low";
+        const score = json.risk_score ?? 0.3;
+        ra = {
+          riskScore: Math.round(score * 100),
+          riskLevel,
+          blockageProbability: Math.round(score * 80),
+          aiConfidence: Math.round(json.probabilities?.[lvl] ?? 75),
+          modelUsed: "model1_form",
+          probabilities: json.probabilities ?? {},
+        };
+        addNotification("Clinical AI assessment complete.", "success");
+      }
+    } catch (_e) {
+      addNotification("Model 1 offline. Using clinical baseline.", "warning");
+    }
     const patient: Patient = {
       id,
       fullName: form.fullName,
@@ -972,7 +1016,21 @@ export default function Registration() {
       allergies: form.allergies,
     };
     addPatient(patient);
-    setCurrentPatient(id);
+
+    const registrationSession: ScanSession = {
+      id: `session-${Date.now()}`,
+      patientId: id,
+      startTime: new Date().toISOString(),
+      endTime: new Date().toISOString(),
+      duration: 0,
+      vitals,
+      ppgParams: patient.ppgParams,
+      ecgParams: patient.ecgParams,
+      riskAssessment: ra,
+    };
+    addScanSession(id, registrationSession);
+
+    setCurrentPatientId(id);
     navigate({ to: "/" });
   };
 

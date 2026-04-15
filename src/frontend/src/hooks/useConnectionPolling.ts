@@ -1,71 +1,101 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { io } from "socket.io-client";
-import { useAppStore } from "../store/appStore";
+import { useStore } from "../store/useStore";
+import type { VitalSigns } from "../types/index";
 
 export function useConnectionPolling() {
-  const setModelStatus = useAppStore((s) => s.setModelStatus);
-  const setSensorStatus = useAppStore((s) => s.setSensorStatus);
-  const updatePatientPrediction = useAppStore((s) => s.updatePatientPrediction);
-  const currentPatientId = useAppStore((s) => s.currentPatientId);
+  const setModelStatus = useStore((s) => s.setModelStatus);
+  const setSensorStatus = useStore((s) => s.setSensorStatus);
+  const addNotification = useStore((s) => s.addNotification);
+  
+  const lastStatus = useRef({ ecg: "", ppg: "" });
 
   useEffect(() => {
-    // We use a relative path so the Vite proxy can handle the WebSocket upgrade.
-    const socket = io("/", {
-        reconnectionDelayMax: 5000,
+    const socket = io("/", { 
+        transports: ["websocket"],
+        reconnectionDelayMax: 5000 
     });
 
+    // Phase 4: Initial Hardware Sync (Fetch once on mount)
+    fetch("/api/status")
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "Success") {
+            const isSim = data.is_simulated;
+            setSensorStatus({
+                ppg: isSim ? "SIMULATING" : data.ppg_connected ? "CONNECTED" : "OFFLINE",
+                ecg: isSim ? "SIMULATING" : data.ecg_connected ? "CONNECTED" : "OFFLINE",
+                fingerDetected: (data.ppg_connected || isSim) ? "SIGNAL GOOD" : "NO SIGNAL"
+            });
+            setModelStatus({
+                sensor: isSim ? "SIMULATING" : (data.ppg_connected || data.ecg_connected) ? "ONLINE" : "OFFLINE",
+                cnn: (data.any_ready) ? "ACTIVE" : "OFFLINE",
+                lstm: (data.any_ready) ? "ACTIVE" : "OFFLINE",
+            } as any);
+        }
+      })
+      .catch(() => {
+          setSensorStatus({ ppg: "OFFLINE", ecg: "OFFLINE", fingerDetected: "NO SIGNAL" });
+      });
+
     socket.on("connect", () => {
-      setModelStatus({
-        database: "CONNECTED",
-        accuracy: 94.2
-      } as any);
+      addNotification("System backend connected", "success");
     });
 
     socket.on("disconnect", () => {
-      setModelStatus({
-        cnn: "OFFLINE",
-        lstm: "OFFLINE",
-        sensor: "DISCONNECTED",
-        database: "DISCONNECTED",
-        accuracy: 0.0
-      } as any);
-      setSensorStatus({
-        ppg: "DISCONNECTED",
-        ecg: "DISCONNECTED",
-        fingerDetected: "NO SIGNAL"
-      });
+      addNotification("System backend disconnected", "warning");
+      setSensorStatus({ ppg: "OFFLINE", ecg: "OFFLINE", fingerDetected: "NO SIGNAL" });
     });
 
     socket.on("waveform_update", (data) => {
-       // Independent sensor evaluation based on connection state
-       const ecgStat = data.ecg_connected ? "CONNECTED" : "OFFLINE";
-       const ppgStat = data.ppg_connected ? "CONNECTED" : "OFFLINE";
+       const status = data.sensor_status || {};
+       const ecgStat = status.ecg || "OFFLINE";
+       const ppgStat = status.ppg || "OFFLINE";
        
+       // Handle notifications for status changes
+       if (ecgStat !== lastStatus.current.ecg) {
+         if (ecgStat === "CONNECTED") addNotification("ECG sensor connected", "success");
+         else addNotification("ECG sensor offline", "warning");
+       }
+       if (ppgStat !== lastStatus.current.ppg) {
+         if (ppgStat === "CONNECTED") addNotification("PPG sensor connected", "success");
+         else addNotification("PPG sensor offline", "warning");
+       }
+       lastStatus.current = { ecg: ecgStat, ppg: ppgStat };
+
+       const isSim = status.simulated === true;
+       const finalEcgStat = isSim ? "SIMULATING" : ecgStat;
+       const finalPpgStat = isSim ? "SIMULATING" : ppgStat;
+
        setSensorStatus({
-         ecg: ecgStat,
-         ppg: ppgStat,
-         fingerDetected: data.ppg_connected ? "SIGNAL GOOD" : "NO SIGNAL"
+         ecg: finalEcgStat as any,
+         ppg: finalPpgStat as any,
+         fingerDetected: (ppgStat === "CONNECTED" || isSim) ? "SIGNAL GOOD" : "NO SIGNAL"
        });
        
-       // Update AI Status to OFF if both are disconnected, ACTIVE if either is connected
-       const anyConnected = data.ecg_connected || data.ppg_connected;
+       const active = ecgStat === "CONNECTED" || ppgStat === "CONNECTED";
        setModelStatus({
-           sensor: anyConnected ? "ONLINE" : "OFFLINE",
-           cnn: anyConnected ? "ACTIVE" : "OFFLINE",
-           lstm: anyConnected ? "ACTIVE" : "OFFLINE",
+           sensor: active ? "ONLINE" : isSim ? "SIMULATING" : "OFFLINE",
+           cnn: (active || isSim) ? "ACTIVE" : "OFFLINE",
+           lstm: (active || isSim) ? "ACTIVE" : "OFFLINE",
        } as any);
 
        window.dispatchEvent(new CustomEvent('sensor_waveform', { detail: data }));
     });
 
     socket.on("prediction_update", (data) => {
-       const store = useAppStore.getState();
+       const store = useStore.getState();
        if (data.model_used === "model2_sensor") {
          // Update Live Vitals coming straight from the feature extractor
-         if (data.hr > 0) {
-             store.updateVitals({ heartRate: data.hr });
+         const vitalsUpdate: Partial<VitalSigns> = {};
+         if (data.hr > 0) vitalsUpdate.heartRate = data.hr;
+         if (data.ptt > 0) vitalsUpdate.ptt = data.ptt;
+         
+         if (Object.keys(vitalsUpdate).length > 0) {
+             store.updateVitals(vitalsUpdate);
          }
-         // Predict risk based on features
+
+         // Update risk based on features
          store.updatePatient(store.currentPatientId, {
             riskAssessment: {
                  riskScore: Math.round(data.risk_score * 100),

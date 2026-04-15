@@ -150,13 +150,12 @@ def _decode_prediction(probas: np.ndarray, encoders: dict) -> dict:
 
 # ── WebSocket helpers ─────────────────────────────────────────────────────────
 
-def handle_waveform(ecg_chunk, ppg_chunk, is_simulated, ecg_connected, ppg_connected):
+def handle_waveform(ecg_chunk, ppg_chunk, is_simulated, status_dict):
     socketio.emit('waveform_update', {
         'ecg': ecg_chunk,
         'ppg': ppg_chunk,
         'is_simulated': is_simulated,
-        'ecg_connected': ecg_connected,
-        'ppg_connected': ppg_connected
+        'sensor_status': status_dict
     })
 
 
@@ -220,6 +219,20 @@ def set_port():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+
+
+@app.route('/api/status', methods=['GET'])
+def get_sensor_status():
+    try:
+        return jsonify({
+            "status": "Success",
+            "ecg_connected": bool(streamer.ecg_connected),
+            "ppg_connected": bool(streamer.ppg_connected),
+            "is_simulated": bool(streamer.is_simulated),
+            "any_ready": bool(streamer.ecg_connected or streamer.ppg_connected or streamer.is_simulated)
+        })
+    except Exception as e:
+        return jsonify({"status": "Error", "message": str(e)}), 500
 
 
 # ── API endpoints ─────────────────────────────────────────────────────────────
