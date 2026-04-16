@@ -7,7 +7,7 @@ import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import { useWaveformData } from "../../hooks/useWaveformData";
-import { useAppStore } from "../../store/appStore";
+import { useStore } from "../../store/useStore";
 import type { WaveformResolution } from "../../types";
 
 type WaveformType = "ppg" | "ecg";
@@ -130,6 +130,7 @@ function SliderRow({
 }
 
 export function WaveformPanel({
+  type,
   onResolutionChange,
 }: WaveformPanelProps) {
   const { vitals, scanActive, sensorStatus, waveformResolution, setWaveformResolution } = useStore();
