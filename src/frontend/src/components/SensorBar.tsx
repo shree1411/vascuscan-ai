@@ -2,10 +2,10 @@
  * SensorBar.tsx — PPG, ECG, and Finger Detection status indicators.
  */
 import { Activity, Fingerprint, Wifi } from "lucide-react";
-import { useAppStore } from "../store/appStore";
+import { useStore } from "../store/useStore";
 
 export function SensorBar() {
-  const sensorStatus = useAppStore((s) => s.sensorStatus);
+  const sensorStatus = useStore((s) => s.sensorStatus);
 
   const sensors = [
     {

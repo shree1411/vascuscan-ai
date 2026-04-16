@@ -1,7 +1,7 @@
 /**
  * VitalsPanel.tsx — Live vitals display with increment/decrement controls.
  */
-import { useAppStore } from "../../store/appStore";
+import { useStore } from "../../store/useStore";
 import type { VitalSigns } from "../../types";
 
 interface VitalCardProps {
@@ -78,8 +78,8 @@ function VitalCard({
 }
 
 export function VitalsPanel() {
-  const vitals = useAppStore((s) => s.vitals);
-  const adjustVital = useAppStore((s) => s.adjustVital);
+  const vitals = useStore((s) => s.vitals);
+  const adjustVital = useStore((s) => s.adjustVital);
 
   const clampedAdjust = (key: keyof VitalSigns, delta: number) => {
     adjustVital(key, delta);

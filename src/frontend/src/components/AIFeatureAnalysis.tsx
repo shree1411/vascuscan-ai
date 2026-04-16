@@ -11,59 +11,24 @@ import { useEffect, useRef, useState } from "react";
 import { usePrediction } from "../hooks/usePrediction";
 import { useStore, selectCurrentPatient } from "../store/useStore";
 
-// ── Live waveform feature helpers ──────────────────────────────────────────
-
-interface WaveFeature {
-  id: string;
-  name: string;
-  value: string;
-  badge: string;
-  badgeBg: string;
-  badgeColor: string;
-  barPct: number;
-  barColor: string;
-  rangeText: string;
-}
-
-const defaultLiveState = {
-  pulseAmp: 0.72,
-  riseTime: 165,
-  dicrotic: 0.85,
-  hrv: 42,
-  skew: 0.34,
-};
-let liveState = { ...defaultLiveState };
-
-function clamp(v: number, lo: number, hi: number) {
-  return Math.max(lo, Math.min(hi, v));
-}
-function drift(v: number, d: number, lo: number, hi: number) {
-  return clamp(v + (Math.random() - 0.5) * 2 * d, lo, hi);
-}
-
-function buildWaveFeatures(): WaveFeature[] {
-  liveState.pulseAmp = drift(liveState.pulseAmp, 0.04, 0.4, 1.1);
-  liveState.riseTime = drift(liveState.riseTime, 8, 80, 240);
-  liveState.dicrotic = drift(liveState.dicrotic, 0.03, 0.6, 1.1);
-  liveState.hrv      = drift(liveState.hrv, 4, 18, 80);
-  liveState.skew     = drift(liveState.skew, 0.03, 0.1, 0.65);
-
-  const { pulseAmp, riseTime, dicrotic, hrv, skew } = liveState;
-  const pulseNormal   = pulseAmp >= 0.5 && pulseAmp <= 1.0;
+function buildWaveFeatures(signalFeatures: any): WaveFeature[] {
+  const { pulseAmplitude, riseTime, dicroticNotch, hrvIndex, skewness } = signalFeatures;
+  
+  const pulseNormal   = pulseAmplitude >= 0.5 && pulseAmplitude <= 1.0;
   const riseNormal    = riseTime >= 100 && riseTime <= 200;
-  const dicroticOk    = dicrotic >= 0.8;
-  const hrvNormal     = hrv >= 30 && hrv <= 60;
-  const skewNormal    = skew >= 0.2 && skew <= 0.5;
+  const dicroticOk    = dicroticNotch;
+  const hrvNormal     = hrvIndex >= 30 && hrvIndex <= 60;
+  const skewNormal    = skewness >= 0.2 && skewness <= 0.5;
 
   return [
     {
       id: "pulse-amp",
       name: "PULSE AMPLITUDE",
-      value: pulseAmp.toFixed(2),
+      value: pulseAmplitude.toFixed(2),
       badge: pulseNormal ? "NORMAL" : "HIGH",
       badgeBg: pulseNormal ? "rgba(34,197,94,0.15)" : "rgba(245,158,11,0.15)",
       badgeColor: pulseNormal ? "#4ade80" : "#fbbf24",
-      barPct: Math.round(clamp(((pulseAmp - 0.3) / 0.9) * 100, 0, 100)),
+      barPct: Math.round(Math.max(0, Math.min(100, ((pulseAmplitude - 0.3) / 0.9) * 100))),
       barColor: pulseNormal ? "#4ade80" : "#f59e0b",
       rangeText: "Normal: 0.5–1.0",
     },
@@ -74,40 +39,40 @@ function buildWaveFeatures(): WaveFeature[] {
       badge: riseNormal ? "NORMAL" : "ELEVATED",
       badgeBg: riseNormal ? "rgba(34,197,94,0.15)" : "rgba(245,158,11,0.15)",
       badgeColor: riseNormal ? "#4ade80" : "#fbbf24",
-      barPct: Math.round(clamp(((riseTime - 80) / 160) * 100, 0, 100)),
+      barPct: Math.round(Math.max(0, Math.min(100, ((riseTime - 80) / 160) * 100))),
       barColor: riseNormal ? "#4ade80" : "#f59e0b",
       rangeText: "Normal: 100–200ms",
     },
     {
       id: "dicrotic-notch",
       name: "DICROTIC NOTCH",
-      value: dicrotic.toFixed(2),
+      value: dicroticNotch ? "1.00" : "0.00",
       badge: dicroticOk ? "PRESENT" : "ABSENT",
       badgeBg: dicroticOk ? "rgba(34,197,94,0.15)" : "rgba(239,68,68,0.15)",
       badgeColor: dicroticOk ? "#4ade80" : "#f87171",
-      barPct: Math.round(clamp((dicrotic / 1.2) * 100, 0, 100)),
+      barPct: dicroticNotch ? 100 : 0,
       barColor: dicroticOk ? "#4ade80" : "#ef4444",
-      rangeText: "Normal: >0.8",
+      rangeText: "Normal: PRESENT",
     },
     {
       id: "hrv-index",
       name: "HRV INDEX",
-      value: `${Math.round(hrv)}ms`,
-      badge: hrvNormal ? "NORMAL" : hrv < 30 ? "LOW" : "HIGH",
+      value: `${Math.round(hrvIndex)}ms`,
+      badge: hrvNormal ? "NORMAL" : hrvIndex < 30 ? "LOW" : "HIGH",
       badgeBg: hrvNormal ? "rgba(34,197,94,0.15)" : "rgba(245,158,11,0.15)",
       badgeColor: hrvNormal ? "#4ade80" : "#fbbf24",
-      barPct: Math.round(clamp(((hrv - 10) / 70) * 100, 0, 100)),
+      barPct: Math.round(Math.max(0, Math.min(100, ((hrvIndex - 10) / 70) * 100))),
       barColor: hrvNormal ? "#4ade80" : "#f59e0b",
       rangeText: "Normal: 30–60ms",
     },
     {
       id: "waveform-skew",
       name: "WAVEFORM SKEWNESS",
-      value: skew.toFixed(2),
+      value: skewness.toFixed(2),
       badge: skewNormal ? "NORMAL" : "IRREGULAR",
       badgeBg: skewNormal ? "rgba(34,197,94,0.15)" : "rgba(245,158,11,0.15)",
       badgeColor: skewNormal ? "#4ade80" : "#fbbf24",
-      barPct: Math.round(clamp((skew / 0.7) * 100, 0, 100)),
+      barPct: Math.round(Math.max(0, Math.min(100, (skewness / 0.7) * 100))),
       barColor: skewNormal ? "#4ade80" : "#f59e0b",
       rangeText: "Normal: 0.2–0.5",
     },
@@ -181,18 +146,15 @@ function ProbBar({
 export function AIFeatureAnalysis() {
   const currentPatient = useStore(selectCurrentPatient);
   const { loading, error, refetchCurrentPatient } = usePrediction();
-  const [waveFeatures, setWaveFeatures] = useState<WaveFeature[]>(() => buildWaveFeatures());
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const signalFeatures = useStore((s) => s.signalFeatures);
+  const [waveFeatures, setWaveFeatures] = useState<WaveFeature[]>(() =>
+    buildWaveFeatures(signalFeatures)
+  );
 
-  // Animate waveform features every second
+  // Sync component state when store features change
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      setWaveFeatures(buildWaveFeatures());
-    }, 1000);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, []);
+    setWaveFeatures(buildWaveFeatures(signalFeatures));
+  }, [signalFeatures]);
 
   const ra = currentPatient?.riskAssessment;
   const probabilities = ra?.probabilities ?? {};

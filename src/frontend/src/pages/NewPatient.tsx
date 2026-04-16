@@ -1,6 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
-import { useAppStore } from "../store/appStore";
+import { useStore } from "../store/useStore";
 import type {
   BloodType,
   FeatureFlag,
@@ -10,7 +10,6 @@ import type {
   ScanSession,
   VitalSigns,
 } from "../types";
-import { useStore } from "../store/useStore";
 import Step1Demographics from "./wizard/Step1Demographics";
 import Step2Vitals from "./wizard/Step2Vitals";
 import Step3Medical from "./wizard/Step3Medical";

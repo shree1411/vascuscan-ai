@@ -1,7 +1,7 @@
 /**
  * AIFeaturesPanel.tsx — AI feature analysis grid with confidence bars.
  */
-import { selectCurrentPatient, useAppStore } from "../../store/appStore";
+import { selectCurrentPatient, useStore } from "../../store/useStore";
 
 const STATUS_STYLES: Record<string, { color: string; bg: string }> = {
   Normal: { color: "#22c55e", bg: "rgba(34,197,94,0.12)" },
@@ -13,7 +13,7 @@ const STATUS_STYLES: Record<string, { color: string; bg: string }> = {
 };
 
 export function AIFeaturesPanel() {
-  const currentPatient = useAppStore(selectCurrentPatient);
+  const currentPatient = useStore(selectCurrentPatient);
   const features = currentPatient?.aiFeatures ?? [];
 
   return (

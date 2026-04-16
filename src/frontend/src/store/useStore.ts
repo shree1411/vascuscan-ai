@@ -15,6 +15,15 @@ import type {
 } from "../types";
 import { toast } from "sonner";
 
+export interface SignalFeatures {
+  pulseAmplitude: number;
+  riseTime: number;
+  dicroticNotch: boolean;
+  skewness: number;
+  hrvIndex: number;
+  perfusion: number;
+}
+
 export interface Notification {
   id: string;
   message: string;
@@ -33,11 +42,13 @@ interface StoreState {
   modelStatus: ModelStatus & { accuracy: number };
   datasets: Dataset[];
   notifications: Notification[];
+  signalFeatures: SignalFeatures;
 
   // actions
   addPatient: (patient: Patient) => void;
   updatePatient: (id: string, updates: Partial<Patient>) => void;
   updateVitals: (updates: Partial<VitalSigns>) => void;
+  updateSignalFeatures: (updates: Partial<SignalFeatures>) => void;
   toggleScan: () => void;
   incrementScanSeconds: () => void;
   setWaveformResolution: (res: "5s" | "10s") => void;
@@ -71,6 +82,15 @@ const CLAMPS: Partial<Record<keyof VitalSigns, [number, number]>> = {
   perfusionIndex: [0.1, 30],
 };
 
+const defaultSignalFeatures: SignalFeatures = {
+  pulseAmplitude: 0.85,
+  riseTime: 165,
+  dicroticNotch: true,
+  skewness: 0.12,
+  hrvIndex: 42,
+  perfusion: 3.2,
+};
+
 export const useStore = create<StoreState>()(
   persist(
     (set, get) => ({
@@ -94,6 +114,7 @@ export const useStore = create<StoreState>()(
         accuracy: 94.2,
       },
       notifications: [],
+      signalFeatures: { ...defaultSignalFeatures },
 
       addPatient: (patient) =>
         set((s) => ({ patients: [...s.patients, patient] })),
@@ -107,6 +128,9 @@ export const useStore = create<StoreState>()(
 
       updateVitals: (updates) =>
         set((s) => ({ vitals: { ...s.vitals, ...updates } })),
+
+      updateSignalFeatures: (updates) =>
+        set((s) => ({ signalFeatures: { ...s.signalFeatures, ...updates } })),
 
       toggleScan: () =>
         set((s) => ({

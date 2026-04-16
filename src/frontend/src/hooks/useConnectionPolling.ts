@@ -85,28 +85,39 @@ export function useConnectionPolling() {
 
     socket.on("prediction_update", (data) => {
        const store = useStore.getState();
-       if (data.model_used === "model2_sensor") {
-         // Update Live Vitals coming straight from the feature extractor
-         const vitalsUpdate: Partial<VitalSigns> = {};
-         if (data.hr > 0) vitalsUpdate.heartRate = data.hr;
-         if (data.ptt > 0) vitalsUpdate.ptt = data.ptt;
-         
-         if (Object.keys(vitalsUpdate).length > 0) {
-             store.updateVitals(vitalsUpdate);
-         }
+        if (data.model_used === "model2_sensor") {
+          // Update Live Vitals coming straight from the feature extractor
+          const vitalsUpdate: Partial<VitalSigns> = {};
+          if (data.hr > 0) vitalsUpdate.heartRate = data.hr;
+          if (data.ptt > 0) vitalsUpdate.ptt = data.ptt;
+          if (data.spo2 > 0) vitalsUpdate.spo2 = data.spo2;
+          
+          if (Object.keys(vitalsUpdate).length > 0) {
+              store.updateVitals(vitalsUpdate);
+          }
 
-         // Update risk based on features
-         store.updatePatient(store.currentPatientId, {
-            riskAssessment: {
-                 riskScore: Math.round(data.risk_score * 100),
-                 riskLevel: data.risk_level,
-                 blockageProbability: Math.round(data.risk_percentage),
-                 aiConfidence: Math.round(data.probabilities[data.risk_level] ?? 85),
-                 modelUsed: "model2_sensor",
-                 probabilities: data.probabilities
-            }
-         });
-       }
+          // Update detailed signal features for analysis panel
+          store.updateSignalFeatures({
+              pulseAmplitude: data.pulse_amp ?? store.signalFeatures.pulseAmplitude,
+              riseTime: data.rise_time ?? store.signalFeatures.riseTime,
+              dicroticNotch: data.dicrotic_notch ?? store.signalFeatures.dicroticNotch,
+              skewness: data.skewness ?? store.signalFeatures.skewness,
+              hrvIndex: data.ecg_hrv ?? store.signalFeatures.hrvIndex,
+              perfusion: data.perfusion ?? store.signalFeatures.perfusion,
+          });
+
+          // Update risk based on features
+          store.updatePatient(store.currentPatientId, {
+             riskAssessment: {
+                  riskScore: Math.round(data.risk_score * 100),
+                  riskLevel: data.risk_level,
+                  blockageProbability: Math.round(data.risk_percentage),
+                  aiConfidence: Math.round(data.probabilities[data.risk_level] ?? 85),
+                  modelUsed: "model2_sensor",
+                  probabilities: data.probabilities
+             }
+          });
+        }
     });
 
     return () => {

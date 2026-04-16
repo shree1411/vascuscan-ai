@@ -1,7 +1,7 @@
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useWaveformData } from "../../hooks/useWaveformData";
-import { useAppStore } from "../../store/appStore";
+import { useStore } from "../../store/useStore";
 
 const BASE_METRICS = [
   { label: "HEART RATE", value: "78 BPM" },
@@ -114,7 +114,7 @@ export default function PPGWaveform() {
   const [noiseIntensity, setNoiseIntensity] = useState(0.3);
   const [filterStrength, setFilterStrength] = useState(0.3);
 
-  const ppgStatus = useAppStore((s) => s.sensorStatus.ppg);
+  const ppgStatus = useStore((s) => s.sensorStatus.ppg);
   const isConnected = ppgStatus === "CONNECTED";
 
   useEffect(() => {
@@ -143,7 +143,7 @@ export default function PPGWaveform() {
 
   const handleResolution = (r: "5s" | "10s") => {
     setResolution(r);
-    useAppStore.getState().setWaveformResolution(r);
+    useStore.getState().setWaveformResolution(r);
   };
 
   return (

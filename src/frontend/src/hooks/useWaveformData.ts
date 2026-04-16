@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import { useAppStore } from "../store/appStore";
+import { useStore } from "../store/useStore";
 import { type WaveformSample, drawSignal } from "../utils/waveformGenerator";
 
 const SAMPLE_RATE = 100; // Hz
@@ -36,7 +36,7 @@ export function useWaveformData({
   filterStrength = 0.3,
   frozen = false,
 }: UseWaveformOptions) {
-  const waveformResolution = useAppStore((s) => s.waveformResolution);
+  const waveformResolution = useStore((s) => s.waveformResolution);
 
   const bufferRef = useRef<WaveformSample[]>([]);
   const writeHeadRef = useRef(0);
@@ -194,12 +194,30 @@ function sampleSignal(
   _isLive: boolean,
   noise: number,
 ): number {
-  if (type === "ppg") {
-    const primary = Math.sin(2 * Math.PI * freq * t);
-    const harmonic = 0.18 * Math.sin(4 * Math.PI * freq * t - 0.4);
-    return primary + harmonic + noise;
+  const phase = (t * freq) % 1.0;
+
+  if (type === "ecg") {
+    // ── High-Fidelity ECG (Analytical QRS Model) ──────────────────────────
+    // P wave
+    const p = 0.15 * Math.exp(-Math.pow((phase - 0.1) / 0.02, 2));
+    // QRS complex
+    const q = -0.1 * Math.exp(-Math.pow((phase - 0.14) / 0.005, 2));
+    const r = 1.0 * Math.exp(-Math.pow((phase - 0.16) / 0.008, 2));
+    const s = -0.2 * Math.exp(-Math.pow((phase - 0.18) / 0.006, 2));
+    // T wave
+    const t_wave = 0.35 * Math.exp(-Math.pow((phase - 0.45) / 0.06, 2));
+    
+    return p + q + r + s + t_wave + noise;
+  } else {
+    // ── High-Fidelity PPG (Dual-Gaussian/Tanh Pulse) ─────────────────────
+    // Primary systolic peak
+    const systolic = 0.85 * Math.exp(-Math.pow((phase - 0.2) / 0.08, 2));
+    // Dicrotic notch + secondary peak (diastolic)
+    const diastolic = 0.25 * Math.exp(-Math.pow((phase - 0.45) / 0.12, 2));
+    
+    // Smooth pulsatile baseline
+    const baseline = 0.05 * Math.sin(2 * Math.PI * 0.15 * t);
+    
+    return systolic + diastolic + baseline + noise;
   }
-  const primary = Math.sin(2 * Math.PI * freq * t);
-  const harmonic = 0.08 * Math.sin(6 * Math.PI * freq * t);
-  return primary + harmonic + noise;
 }
