@@ -1,8 +1,10 @@
-Flask==3.0.3
-flask-cors==4.0.1
-werkzeug==3.0.3
-flask-socketio==5.3.6
-pyserial==3.5
-scipy
+flask
+flask-cors
+flask-socketio
+eventlet
+gunicorn
+numpy
 pandas
 scikit-learn
+pyserial
+python-socketio

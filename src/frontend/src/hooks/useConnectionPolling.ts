@@ -11,13 +11,14 @@ export function useConnectionPolling() {
   const lastStatus = useRef({ ecg: "", ppg: "" });
 
   useEffect(() => {
-    const socket = io("/", { 
+    const backendUrl = (import.meta as any).env.VITE_BACKEND_URL || "/";
+    const socket = io(backendUrl, { 
         transports: ["websocket"],
         reconnectionDelayMax: 5000 
     });
 
     // Phase 4: Initial Hardware Sync (Fetch once on mount)
-    fetch("/api/status")
+    fetch(`${backendUrl.endsWith("/") ? backendUrl : backendUrl + "/" }api/status`)
       .then(res => res.json())
       .then(data => {
         if (data.status === "Success") {
