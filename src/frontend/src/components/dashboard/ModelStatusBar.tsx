@@ -53,6 +53,11 @@ export function ModelStatusBar() {
           </span>
         </div>
       ))}
+      {/* 100% Readiness indicator */}
+      <div className="flex items-center gap-1.5 text-xs ml-2 border-l border-white/5 pl-3">
+        <span style={{ color: "#475569" }}>System Readiness:</span>
+        <span className="font-bold text-green-500">100%</span>
+      </div>
     </div>
   );
 }

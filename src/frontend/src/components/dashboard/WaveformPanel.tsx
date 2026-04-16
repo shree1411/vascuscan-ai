@@ -130,13 +130,12 @@ function SliderRow({
 }
 
 export function WaveformPanel({
-  type,
-  resolution,
   onResolutionChange,
 }: WaveformPanelProps) {
-  const { vitals, scanActive, sensorStatus } = useAppStore();
+  const { vitals, scanActive, sensorStatus, waveformResolution, setWaveformResolution } = useStore();
   const label = type === "ppg" ? "PPG WAVEFORM" : "ECG WAVEFORM";
   const accent = type === "ppg" ? "#00d4ff" : "#00e676";
+  const resolution = waveformResolution; // Use global state
 
   // Derive sensor connected state from store
   const isConnected =
@@ -288,7 +287,7 @@ export function WaveformPanel({
               <button
                 key={r}
                 type="button"
-                onClick={() => onResolutionChange(r)}
+                onClick={() => setWaveformResolution(r)}
                 className="px-2 py-0.5 rounded text-xs font-medium transition-smooth"
                 style={
                   resolution === r

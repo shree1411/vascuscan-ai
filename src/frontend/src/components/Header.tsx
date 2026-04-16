@@ -20,6 +20,10 @@ import {
   Mail,
   FileBarChart,
   CircleCheck,
+  LayoutDashboard,
+  UserCircle,
+  LogOut,
+  FileText
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -175,9 +179,19 @@ export function Header() {
   }, [patient, scanSeconds, vitals, addScanSession, toggleScan, addNotification]);
 
   const handleStartScan = useCallback(() => {
+    const sensorStatus = useStore.getState().sensorStatus;
+    const isOffline = sensorStatus.ppg === "OFFLINE" && sensorStatus.ecg === "OFFLINE";
+    
+    if (isOffline) {
+      addNotification("Cannot start scan: Sensors are OFFLINE. Please check connections.", "warning");
+      showToast("Sensors Offline", "error");
+      return;
+    }
+
     toggleScan();
-    addNotification("Signals are preprocessing...", "info");
-  }, [toggleScan, addNotification]);
+    addNotification("Scan started. Signals are preprocessing...", "info");
+    showToast("Scanning started", "success");
+  }, [toggleScan, addNotification, showToast]);
 
   /* ── Save handler ── */
   const handleSave = useCallback(() => {
@@ -538,7 +552,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => navigate({ to: "/history" })}
-            className="p-1.5 rounded transition-smooth hover:bg-white/10"
+            className={`p-1.5 rounded transition-smooth hover:bg-white/10 ${window.location.pathname === '/history' ? 'bg-white/5 text-[#00d4ff]' : ''}`}
             style={{ color: "#64748b" }}
             aria-label="History"
             title="View patient history"
@@ -548,9 +562,53 @@ export function Header() {
 
           <button
             type="button"
+            onClick={() => navigate({ to: "/" })}
+            className={`p-1.5 rounded transition-smooth hover:bg-white/10 ${window.location.pathname === '/' ? 'bg-white/5 text-[#00d4ff]' : ''}`}
+            style={{ color: "#64748b" }}
+            aria-label="Dashboard"
+            title="View dashboard"
+          >
+            <LayoutDashboard size={15} />
+          </button>
+
+          {/* Clinician Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="p-1.5 rounded transition-smooth hover:bg-white/10"
+                style={{ color: "#64748b" }}
+                aria-label="Clinician Profile"
+              >
+                <UserCircle size={15} />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48 bg-[#0d1220] border-[#1a2744] text-[#e2e8f0]">
+               <DropdownMenuLabel className="text-xs text-[#64748b]">CLINICIAN PROFILE</DropdownMenuLabel>
+               <DropdownMenuSeparator className="bg-[#1a2744]" />
+               <DropdownMenuItem className="flex items-center gap-2 focus:bg-white/5">
+                 <div className="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center text-[10px] uppercase">Dr</div>
+                 <div className="flex flex-col">
+                    <span className="text-xs font-bold">Dr. Admin</span>
+                    <span className="text-[10px] text-[#64748b]">Senior Cardiologist</span>
+                 </div>
+               </DropdownMenuItem>
+               <DropdownMenuSeparator className="bg-[#1a2744]" />
+               <DropdownMenuItem onClick={() => showToast("Profile settings coming soon", "error")} className="flex items-center gap-2 focus:bg-white/5">
+                 <Settings size={14} /> <span>Account Settings</span>
+               </DropdownMenuItem>
+               <DropdownMenuItem onClick={() => showToast("Logging out...", "error")} className="flex items-center gap-2 focus:bg-white/5 text-red-400">
+                 <LogOut size={14} /> <span>Logout</span>
+               </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <button
+            type="button"
             onClick={() => navigate({ to: "/new-patient" })}
-            className="flex items-center gap-1.5 px-4 py-2 rounded text-sm font-semibold ml-2 transition-smooth hover:brightness-110"
+            className="flex items-center gap-1.5 px-4 py-2 rounded text-sm font-semibold ml-2 transition-smooth hover:brightness-110 shadow-lg shadow-cyan-500/10"
             style={{ background: "#00d4ff", color: "#000" }}
+            data-ocid="header-new-patient-btn"
           >
             <UserPlus size={13} />
             New Patient
