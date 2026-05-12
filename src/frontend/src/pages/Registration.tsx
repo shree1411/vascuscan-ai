@@ -1,11 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import {
-  AlertCircle,
-  Check,
-  ChevronLeft,
-  ChevronRight,
-  UserPlus,
-} from "lucide-react";
+import { CircleAlert as AlertCircle, Check, ChevronLeft, ChevronRight, UserPlus } from "lucide-react";
 import { useCallback, useState } from "react";
 import { useStore } from "../store/useStore";
 import type {
