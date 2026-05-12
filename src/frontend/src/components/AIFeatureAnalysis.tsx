@@ -7,11 +7,24 @@
  * Prediction data is sourced from the current patient's riskAssessment
  * (which is populated by usePrediction hook on mount / patient switch).
  */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePrediction } from "../hooks/usePrediction";
 import { useStore, selectCurrentPatient } from "../store/useStore";
+import type { SignalFeatures } from "../store/useStore";
 
-function buildWaveFeatures(signalFeatures: any): WaveFeature[] {
+interface WaveFeature {
+  id: string;
+  name: string;
+  value: string;
+  badge: string;
+  badgeBg: string;
+  badgeColor: string;
+  barPct: number;
+  barColor: string;
+  rangeText: string;
+}
+
+function buildWaveFeatures(signalFeatures: SignalFeatures): WaveFeature[] {
   const { pulseAmplitude, riseTime, dicroticNotch, hrvIndex, skewness } = signalFeatures;
   
   const pulseNormal   = pulseAmplitude >= 0.5 && pulseAmplitude <= 1.0;
@@ -194,8 +207,7 @@ export function AIFeatureAnalysis() {
         <button
           type="button"
           onClick={() => {
-            liveState = { ...defaultLiveState };
-            setWaveFeatures(buildWaveFeatures());
+            setWaveFeatures(buildWaveFeatures(signalFeatures));
             refetchCurrentPatient();
           }}
           disabled={loading}

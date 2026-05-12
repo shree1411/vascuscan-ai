@@ -19,11 +19,11 @@ export function ModelStatusBar() {
       label: "Sensor Status",
       value: (sensorStatus.ppg === "CONNECTED" || sensorStatus.ecg === "CONNECTED") 
                ? "ONLINE" 
-               : (sensorStatus.ppg === "SIMULATING" || sensorStatus.ecg === "SIMULATED") 
-                 ? "SIMULATED" 
+               : (sensorStatus.ppg === "SIMULATING" || sensorStatus.ecg === "SIMULATING")
+                 ? "SIMULATING"
                  : "OFF",
       active: sensorStatus.ppg === "CONNECTED" || sensorStatus.ecg === "CONNECTED",
-      isSim: sensorStatus.ppg === "SIMULATING" || sensorStatus.ecg === "SIMULATED",
+      isSim: sensorStatus.ppg === "SIMULATING" || sensorStatus.ecg === "SIMULATING",
     },
     {
       label: "Database",

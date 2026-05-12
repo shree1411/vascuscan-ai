@@ -4,7 +4,6 @@ import { useStore } from "../store/useStore";
 import type { VitalSigns } from "../types/index";
 
 export function useConnectionPolling() {
-  const setModelStatus = useStore((s) => s.setModelStatus);
   const setSensorStatus = useStore((s) => s.setSensorStatus);
   const addNotification = useStore((s) => s.addNotification);
   
@@ -28,11 +27,6 @@ export function useConnectionPolling() {
                 ecg: isSim ? "SIMULATING" : data.ecg_connected ? "CONNECTED" : "OFFLINE",
                 fingerDetected: (data.ppg_connected || isSim) ? "SIGNAL GOOD" : "NO SIGNAL"
             });
-            setModelStatus({
-                sensor: isSim ? "SIMULATING" : (data.ppg_connected || data.ecg_connected) ? "ONLINE" : "OFFLINE",
-                cnn: (data.any_ready) ? "ACTIVE" : "OFFLINE",
-                lstm: (data.any_ready) ? "ACTIVE" : "OFFLINE",
-            } as any);
         }
       })
       .catch(() => {
@@ -73,13 +67,6 @@ export function useConnectionPolling() {
          ppg: finalPpgStat as any,
          fingerDetected: (ppgStat === "CONNECTED" || isSim) ? "SIGNAL GOOD" : "NO SIGNAL"
        });
-       
-       const active = ecgStat === "CONNECTED" || ppgStat === "CONNECTED";
-       setModelStatus({
-           sensor: active ? "ONLINE" : isSim ? "SIMULATING" : "OFFLINE",
-           cnn: (active || isSim) ? "ACTIVE" : "OFFLINE",
-           lstm: (active || isSim) ? "ACTIVE" : "OFFLINE",
-       } as any);
 
        window.dispatchEvent(new CustomEvent('sensor_waveform', { detail: data }));
     });

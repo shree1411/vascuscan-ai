@@ -14,6 +14,7 @@ import type {
   MedicalHistoryBadge,
   Patient,
   RiskAssessment,
+  ScanSession,
   VitalSigns,
 } from "../types";
 
