@@ -8,8 +8,8 @@ class Settings(BaseSettings):
     
     # Paths
     # Current file: src/backend/app/core/config.py
-    # Going up 5 levels to reach project root: vascuscan-ai-main/
-    BASE_DIR: str = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", ".."))
+    # Going up 4 levels to reach project root: vascuscan-ai-main/
+    BASE_DIR: str = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".."))
     ML_MODELS_DIR: str = os.path.join(BASE_DIR, "src", "backend", "python")
     
     # Model 1 (Form-Only)

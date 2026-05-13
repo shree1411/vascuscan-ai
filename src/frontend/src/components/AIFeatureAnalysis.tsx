@@ -25,7 +25,11 @@ interface WaveFeature {
 }
 
 function buildWaveFeatures(signalFeatures: SignalFeatures): WaveFeature[] {
-  const { pulseAmplitude, riseTime, dicroticNotch, hrvIndex, skewness } = signalFeatures;
+  const pulseAmplitude = Number(signalFeatures?.pulseAmplitude || 0);
+  const riseTime = Number(signalFeatures?.riseTime || 0);
+  const dicroticNotch = Boolean(signalFeatures?.dicroticNotch);
+  const hrvIndex = Number(signalFeatures?.hrvIndex || 0);
+  const skewness = Number(signalFeatures?.skewness || 0);
   
   const pulseNormal   = pulseAmplitude >= 0.5 && pulseAmplitude <= 1.0;
   const riseNormal    = riseTime >= 100 && riseTime <= 200;
