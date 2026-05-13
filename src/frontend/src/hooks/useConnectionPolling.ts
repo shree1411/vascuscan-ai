@@ -73,15 +73,11 @@ export function useConnectionPolling() {
          ppgConfidence: ppgConf,
          fingerDetected: (ppgStat === "CONNECTED" && ppgQual !== "POOR") ? "SIGNAL GOOD" : "NO SIGNAL"
        });
-<<<<<<< HEAD
-=======
-       
        setModelStatus({
            sensor: "ONLINE",
            cnn: "ACTIVE",
            lstm: "ACTIVE",
        } as any);
->>>>>>> 6e34c4d (Production-grade ICU monitor upgrade: AI risk and signal quality engine)
 
        window.dispatchEvent(new CustomEvent('sensor_waveform', { detail: data }));
     });
