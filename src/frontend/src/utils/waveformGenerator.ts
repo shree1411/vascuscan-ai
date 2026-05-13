@@ -1,109 +1,9 @@
-// ─── Simple PPG signal: gentle sine-based wave, low amplitude ─────────────────
-// Produces a smooth undulating wave — no spiky Gaussian morphology.
-// Amplitude is expressed as a fraction of canvas height (0..1 scale).
-
-function ppgSample(
-  t: number,
-  heartRate: number,
-  isLive: boolean,
-  noiseVal: number,
-  noiseIntensity = 1,
-): number {
-  const freq = heartRate / 60; // beats per second
-  // Primary sine wave
-  const primary = Math.sin(2 * Math.PI * freq * t);
-  // Subtle second harmonic for slight asymmetry (dicrotic shoulder feel)
-  const harmonic = 0.18 * Math.sin(4 * Math.PI * freq * t - 0.4);
-  const base = primary + harmonic;
-  // Live noise variation — STRICTLY gated to 0 when noiseIntensity===0
-  const ni = Math.max(0, noiseIntensity);
-  const noise =
-    isLive && ni > 0 ? noiseVal + (Math.random() - 0.5) * 0.015 * ni : 0;
-  return base + noise;
-}
-
-// ─── Simple ECG signal: sine-based gentle wave ────────────────────────────────
-// Simulates the rhythmic up-down of a simple ECG baseline. Clean, not jagged.
-
-function ecgSample(
-  t: number,
-  heartRate: number,
-  isLive: boolean,
-  noiseVal: number,
-  noiseIntensity = 1,
-): number {
-  const freq = heartRate / 60;
-  // Sharper primary sine to give a slight QRS feel without Gaussian spikes
-  const primary = Math.sin(2 * Math.PI * freq * t);
-  // Add very small third harmonic for subtle waveform texture
-  const harmonic = 0.08 * Math.sin(6 * Math.PI * freq * t);
-  const base = primary + harmonic;
-  // Live noise variation — STRICTLY gated to 0 when noiseIntensity===0
-  const ni = Math.max(0, noiseIntensity);
-  const noise =
-    isLive && ni > 0 ? noiseVal + (Math.random() - 0.5) * 0.012 * ni : 0;
-  return base + noise;
-}
-
-// ─── Public API ───────────────────────────────────────────────────────────────
-
-export interface GeneratorOptions {
-  heartRate: number;
-  sampleRate: number; // Hz
-  windowSec: number;
-  amplitude?: number;
-  isLive?: boolean;
-  /** 0 = no noise, 1 = full noise. Default 1 */
-  noiseIntensity?: number;
-}
+// ─── Canvas render ────────────────────────────────────────────────────────────
 
 export interface WaveformSample {
   t: number;
   y: number;
 }
-
-export function buildPPGBuffer(opts: GeneratorOptions): WaveformSample[] {
-  const { heartRate, sampleRate, windowSec, isLive = false } = opts;
-  const ni = Math.max(0, opts.noiseIntensity ?? 1);
-  const n = Math.round(sampleRate * windowSec);
-  let noise = 0;
-  return Array.from({ length: n }, (_, i) => {
-    const t = i / sampleRate;
-    // Smooth noise walk for live mode — STRICTLY gated when ni===0
-    if (isLive) {
-      if (ni === 0) {
-        noise = 0;
-      } else {
-        noise += (Math.random() - 0.5) * 0.04 * ni;
-        const cap = 0.12 * ni;
-        noise = Math.max(-cap, Math.min(cap, noise));
-      }
-    }
-    return { t, y: ppgSample(t, heartRate, isLive, noise, ni) };
-  });
-}
-
-export function buildECGBuffer(opts: GeneratorOptions): WaveformSample[] {
-  const { heartRate, sampleRate, windowSec, isLive = false } = opts;
-  const ni = Math.max(0, opts.noiseIntensity ?? 1);
-  const n = Math.round(sampleRate * windowSec);
-  let noise = 0;
-  return Array.from({ length: n }, (_, i) => {
-    const t = i / sampleRate;
-    if (isLive) {
-      if (ni === 0) {
-        noise = 0;
-      } else {
-        noise += (Math.random() - 0.5) * 0.03 * ni;
-        const cap = 0.1 * ni;
-        noise = Math.max(-cap, Math.min(cap, noise));
-      }
-    }
-    return { t, y: ecgSample(t, heartRate, isLive, noise, ni) };
-  });
-}
-
-// ─── Canvas render ────────────────────────────────────────────────────────────
 
 export interface DrawOpts {
   ctx: CanvasRenderingContext2D;
@@ -215,21 +115,41 @@ export function drawSignal(opts: DrawOpts): void {
 
   ctx.save();
   ctx.shadowColor = glowColor;
-  ctx.shadowBlur = 6;
+  ctx.shadowBlur = 4;
   ctx.strokeStyle = color;
-  ctx.lineWidth = lineWidth;
+  ctx.lineWidth = 1.0;
   ctx.lineJoin = "round";
   ctx.lineCap = "round";
   ctx.beginPath();
 
-  for (let i = 0; i < n; i++) {
+  // Curvey interpolation: loop through points and use midpoints as curve anchors
+  for (let i = 0; i < n - 1; i++) {
     const x = (i / (n - 1)) * width;
-    // Map y value → canvas Y: +SIGNAL_MAX → waveTopY, -SIGNAL_MAX → below baseline
-    const normalised = (samples[i].y + SIGNAL_MAX) / (2 * SIGNAL_MAX); // 0..1, 1=top
-    const cy = baselineY - normalised * signalH;
-    if (i === 0) ctx.moveTo(x, cy);
-    else ctx.lineTo(x, cy);
+    const norm = (samples[i].y + SIGNAL_MAX) / (2 * SIGNAL_MAX);
+    const cy = baselineY - norm * signalH;
+
+    const nextX = ((i + 1) / (n - 1)) * width;
+    const nextNorm = (samples[i + 1].y + SIGNAL_MAX) / (2 * SIGNAL_MAX);
+    const nextCy = baselineY - nextNorm * signalH;
+
+    const midX = (x + nextX) / 2;
+    const midY = (cy + nextCy) / 2;
+
+    if (i === 0) {
+      ctx.moveTo(x, cy);
+    } else {
+      // Curve from previous midpoint THROUGH current point TO the next midpoint
+      ctx.quadraticCurveTo(x, cy, midX, midY);
+    }
   }
+
+  // Draw the very last segment to reach the edge
+  const lastIdx = n - 1;
+  const lx = width;
+  const lnorm = (samples[lastIdx].y + SIGNAL_MAX) / (2 * SIGNAL_MAX);
+  const lcy = baselineY - lnorm * signalH;
+  ctx.lineTo(lx, lcy);
+
   ctx.stroke();
 
   // Leading-edge cursor dot

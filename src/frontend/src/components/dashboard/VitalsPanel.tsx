@@ -115,7 +115,7 @@ export function VitalsPanel() {
         ocid="vital-spo2"
       />
       <VitalCard
-        label="Blood Pressure"
+        label="Estimated Blood Pressure"
         value={`${vitals.systolic}/${vitals.diastolic}`}
         unit="mmHg"
         color="#a855f7"
@@ -129,6 +129,9 @@ export function VitalsPanel() {
         }}
         ocid="vital-blood-pressure"
       />
+      <div className="px-3 pb-2 text-[0.6rem] text-slate-500 italic text-center border-b" style={{ borderColor: "#1e2a3a" }}>
+        *Estimated using PTT-based vascular analysis
+      </div>
       <VitalCard
         label="Pulse Transit Time"
         value={String(vitals.ptt)}

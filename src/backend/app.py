@@ -1,25 +1,27 @@
-"""
-VASCUSCAN AI — Flask Backend (Dual-Model Edition)
-
-Two prediction modes:
-  POST /api/predict-form   → Model 1 (form-only, 11 features, no sensor needed)
-  POST /api/predict        → Model 2 (full, 17 features, requires ECG/PPG data)
-
-GET  /api/health  → health check + model status
-Realtime WebSocket: 'waveform_update', 'prediction_update'
-"""
-
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_socketio import SocketIO
 import os
 import pickle
 import numpy as np
+import glob
+import json
+import serial.tools.list_ports
+from collections import deque
 from sensor_stream import SensorStreamer
+from feature_extraction import extract_all_features
 
 app = Flask(__name__)
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading', logger=False, engineio_logger=False)
+
+# ── Global Real-Time Store ───────────────────────────────────────────────────
+latest_sensor_data = {}
+latest_prediction = {}
+ecg_waveform_buffer = deque(maxlen=500)
+ppg_waveform_buffer = deque(maxlen=500)
+sensor_connected = False
+active_patient_context = None 
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 _PYTHON_DIR = os.path.join(os.path.dirname(__file__), "python")
@@ -71,9 +73,6 @@ def _load_triple(model_path, scaler_path, encoders_path, label):
 print("Loading VascuScan AI Models...")
 model1, scaler1, encoders1 = _load_triple(MODEL1_PATH, SCALER1_PATH, ENCODERS1_PATH, "Model 1 (Form-Only)")
 model2, scaler2, encoders2 = _load_triple(MODEL2_PATH, SCALER2_PATH, ENCODERS2_PATH, "Model 2 (Full Sensor)")
-
-# ── Active patient context for real-time background predictions ───────────────
-global_active_patient_context = None
 
 # ── Categorical encoding helper ───────────────────────────────────────────────
 
@@ -135,65 +134,173 @@ def _decode_prediction(probas: np.ndarray, encoders: dict) -> dict:
 
     pred_idx = int(np.argmax(probas))
     risk_level = classes[pred_idx] if pred_idx < len(classes) else "Unknown"
-    risk_pct   = round(float(probas[pred_idx]) * 100, 2)
-
     proba_dict = {c: round(float(p) * 100, 2)
                   for c, p in zip(classes, probas)}
 
+    # Calculate actual severity index instead of model confidence
+    mod_p = proba_dict.get("Moderate", 0)
+    high_p = proba_dict.get("High", 0)
+    severity_pct = round((mod_p * 0.5) + (high_p * 1.0), 1)
+
     return {
         "risk_level":    risk_level,
-        "risk_score":    round(float(probas[pred_idx]), 3),
-        "risk_percentage": risk_pct,
+        "risk_score":    round(severity_pct / 100.0, 3),
+        "risk_percentage": severity_pct,
         "probabilities": proba_dict,
     }
 
 
-# ── WebSocket helpers ─────────────────────────────────────────────────────────
+def safe_get(data, key, default=0):
+    try:
+        return float(data.get(key, default))
+    except (ValueError, TypeError):
+        return float(default)
+
+# ── WebSocket & Global State Helpers ──────────────────────────────────────────
 
 def handle_waveform(ecg_chunk, ppg_chunk, is_simulated, status_dict):
+    global sensor_connected
+    # Update circular buffers for both signals
+    for val in ecg_chunk:
+        ecg_waveform_buffer.append(val)
+    for val in ppg_chunk:
+        ppg_waveform_buffer.append(val)
+    
+    sensor_connected = (status_dict.get('ecg') == 'CONNECTED' or status_dict.get('ppg') == 'CONNECTED')
+    
     socketio.emit('waveform_update', {
         'ecg': ecg_chunk,
         'ppg': ppg_chunk,
         'is_simulated': is_simulated,
         'sensor_status': status_dict
     })
+    
+    # Compatibility event for user's sample frontend
+    socketio.emit("sensor_data", {
+        "ecg": int(ecg_chunk[-1]),
+        "ir": int(ppg_chunk[-1]),
+        "red": int(ppg_chunk[-1]), # Placeholder
+        "hr": float(latest_sensor_data.get("ecg_hr", 72)),
+        "spo2": float(latest_sensor_data.get("spo2", 98))
+    })
 
 
 def handle_features(features):
-    """Called every ~1 s by SensorStreamer — runs Model 2 prediction in background."""
-    global global_active_patient_context
-    if model2 is None or global_active_patient_context is None:
-        return
+    """Updates global state using standardized extraction module every ~1s."""
+    global latest_sensor_data, latest_prediction, active_patient_context
+    
     try:
-        data = global_active_patient_context.copy()
-        data['ecg_hrv'] = features.get('ecg_hrv', data.get('ecg_hrv', 0))
-        data['ptt']     = features.get('ptt',     data.get('ptt', 0))
+        # Convert buffers to lists for analysis
+        ecg_sig = list(ecg_waveform_buffer)
+        ppg_sig = list(ppg_waveform_buffer)
+        
+        # Call the new specialized extraction module
+        advanced_feats = extract_all_features(ecg_sig, ppg_sig, fs=100)
+        
+        # 0. Emit specialized event for user logic
+        socketio.emit("features", advanced_feats)
+        
+        # 1. Filter and Map Results
+        rr = advanced_feats.get("RR", 0.82)
+        ecg_hr = 60.0 / rr if rr > 0 else 72.0
+        
+        # Range Filter (Requirement 8)
+        if ecg_hr > 180 or ecg_hr < 40:
+            ecg_hr = 0
+            
+        # 2. Update Global Store (Requirement 2 and new module mapping)
+        latest_sensor_data = {
+            "ecg_hr": round(ecg_hr, 1),
+            "ppg_hr": safe_get(features, "ppg_hr", ecg_hr),
+            "spo2":   safe_get(features, "spo2", 98.0),
+            "rr":     round(rr, 3),
+            "hrv":    round(advanced_feats.get("HRV", 0), 4),
+            "ptt":    round(advanced_feats.get("PTT", 0), 3),
+            "amp":    round(advanced_feats.get("AMP", 0), 1),
+            "rise":   round(advanced_feats.get("RISE", 0), 3)
+        }
 
-        vec = _build_feature_vector(data, SENSOR_FEATURES, encoders2)
-        X   = np.array(vec, dtype=np.float64).reshape(1, -1)
-        X_s = scaler2.transform(X)
-        probas = model2.predict_proba(X_s)[0]
-        result = _decode_prediction(probas, encoders2)
+        # 3. Model Routing (Requirement 1)
+        if active_patient_context:
+            data = {**active_patient_context, **latest_sensor_data}
+            
+            # Map for 17-feature model compatibility
+            data['ecg_heart_rate'] = ecg_hr
+            data['ecg_hrv'] = latest_sensor_data["hrv"]
+            data['ptt'] = latest_sensor_data["ptt"]
+            data['ppg_peak_amplitude'] = latest_sensor_data["amp"]
+            data['ecg_qrs_duration'] = 80 # default
+            data['ppg_perfusion_index'] = 2.0 # default
+            
+            # Model Override Preference
+            pref = active_patient_context.get("preferred_model", "auto")
+            
+            if (pref == "auto" and ecg_hr > 0 and model2 is not None) or pref == "model2":
+                model_to_use = model2
+                scaler_to_use = scaler2
+                encoder_to_use = encoders2
+                feat_list = SENSOR_FEATURES
+                model_id = "model2_sensor"
+            else:
+                model_to_use = model1
+                scaler_to_use = scaler1
+                encoder_to_use = encoders1
+                feat_list = FORM_FEATURES
+                model_id = "model1_form"
 
-        socketio.emit('prediction_update', {
-            "risk_level":      result["risk_level"],
-            "risk_percentage": result["risk_percentage"],
-            "risk_score":      result["risk_score"],
-            "probabilities":   result["probabilities"],
-            "ecg_hrv":         data.get('ecg_hrv', 0),
-            "ptt":             data.get('ptt', 0),
-            "hr":              features.get("hr", 0),
-            "model_used":      "model2_sensor",
-        })
+            # Build Vector and Predict
+            vec = _build_feature_vector(data, feat_list, encoder_to_use)
+            X = np.array(vec, dtype=np.float64).reshape(1, -1)
+            X_s = scaler_to_use.transform(X)
+            
+            probas = model_to_use.predict_proba(X_s)[0]
+            result = _decode_prediction(probas, encoder_to_use)
+            
+            latest_prediction = {
+                "risk_score": int(result["risk_percentage"]),
+                "probabilities": {
+                    "low": result["probabilities"].get("Low", 0),
+                    "moderate": result["probabilities"].get("Moderate", 0),
+                    "high": result["probabilities"].get("High", 0)
+                },
+                "risk_level": result["risk_level"],
+                "model_used": model_id
+            }
+
+            socketio.emit('prediction_update', {
+                **latest_prediction,
+                **latest_sensor_data
+            })
+            
     except Exception as e:
-        print(f"Background prediction error: {e}")
+        print(f"Integrated feature extraction error: {e}")
 
+
+def find_serial_port():
+    """Attempt to find a valid USB serial port on Mac, Linux or Windows."""
+    # Try common Mac/Linux patterns first
+    patterns = [
+        '/dev/tty.usbserial*', 
+        '/dev/tty.usbmodem*', 
+        '/dev/ttyUSB*', 
+        '/dev/ttyACM*',
+        '/dev/tty.SLAB_USBtoUART*'
+    ]
+    for p in patterns:
+        ports = glob.glob(p)
+        if ports:
+            print(f"[✓] Auto-detected serial port: {ports[0]}")
+            return ports[0]
+    
+    # Check for COM3 specifically as a fallback (Windows style)
+    return 'COM3'
 
 # ── Sensor streamer ───────────────────────────────────────────────────────────
 streamer = SensorStreamer(
-    port='COM3',
+    port=find_serial_port(),
     on_waveform=handle_waveform,
     on_features=handle_features,
+    force_simulate=False  # Allow actual hardware connection
 )
 streamer.start()
 
@@ -204,6 +311,47 @@ def on_set_filter_level(data):
         streamer.set_filter_level(level)
     except Exception as e:
         print(f"Error setting filter: {e}")
+
+# ── History Persistence ───────────────────────────────────────────────────────
+HISTORY_FILE = os.path.join(_PYTHON_DIR, "data", "history.json")
+
+def _load_history():
+    if not os.path.exists(HISTORY_FILE):
+        return []
+    try:
+        with open(HISTORY_FILE, "r") as f:
+            return json.load(f)
+    except:
+        return []
+
+def _save_history(history):
+    try:
+        with open(HISTORY_FILE, "w") as f:
+            json.dump(history, f, indent=2)
+    except Exception as e:
+        print(f"Error saving history: {e}")
+
+@app.route('/api/history', methods=['GET', 'POST'])
+def handle_history():
+    if request.method == 'POST':
+        try:
+            sessions = request.json or []
+            _save_history(sessions)
+            return jsonify({"status": "Success", "message": "History saved"})
+        except Exception as e:
+            return jsonify({"status": "Error", "message": str(e)}), 500
+    else:
+        return jsonify(_load_history())
+
+# ── Port Management ───────────────────────────────────────────────────────────
+
+@app.route('/api/ports', methods=['GET'])
+def list_ports():
+    try:
+        ports = serial.tools.list_ports.comports()
+        return jsonify([p.device for p in ports])
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/set-port', methods=['POST'])
 def set_port():
@@ -219,6 +367,18 @@ def set_port():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+
+@app.route('/api/realtime-data', methods=['GET'])
+def get_realtime_data():
+    """Unified polling endpoint for all live dashboard data."""
+    return jsonify({
+        "connected": sensor_connected,
+        "vitals": latest_sensor_data,
+        "ecg_waveform": list(ecg_waveform_buffer),
+        "prediction": latest_prediction,
+        "is_simulated": streamer._is_simulated,
+        "patient_info": active_patient_context if active_patient_context else {}
+    })
 
 
 @app.route('/api/status', methods=['GET'])
@@ -236,6 +396,18 @@ def get_sensor_status():
 
 
 # ── API endpoints ─────────────────────────────────────────────────────────────
+
+@app.route('/api/patient/context', methods=['POST'])
+def set_patient_context():
+    """Manually set the patient history context in the backend."""
+    global active_patient_context
+    try:
+        data = request.json or {}
+        active_patient_context = data
+        return jsonify({"status": "Success", "message": "Patient context updated", "data": active_patient_context})
+    except Exception as e:
+        return jsonify({"status": "Error", "message": str(e)}), 400
+
 
 @app.route('/api/health', methods=['GET'])
 def health_check():
@@ -284,16 +456,16 @@ def predict_form():
 def predict_sensor():
     """
     Model 2 — Full prediction (form + live ECG/PPG sensor data).
-    Accepts all 17 features. Also stores context for background streaming.
+    Accepts clinical form features and stores context for background streaming.
     """
-    global global_active_patient_context
+    global active_patient_context
 
     if model2 is None or scaler2 is None:
         return jsonify({"error": "Model 2 (Full Sensor) is not loaded."}), 500
 
     try:
         data = request.json or {}
-        global_active_patient_context = data
+        active_patient_context = data
 
         vec = _build_feature_vector(data, SENSOR_FEATURES, encoders2)
         X   = np.array(vec, dtype=np.float64).reshape(1, -1)
@@ -313,7 +485,9 @@ def predict_sensor():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
-
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    socketio.run(app, host='0.0.0.0', port=port, debug=False, allow_unsafe_werkzeug=True)
+    # Start the background data streamer (Simulation or Serial)
+    streamer = SensorStreamer(socketio)
+    
+    # Run server (Disable reloader to prevent duplicate threads on macOS)
+    socketio.run(app, host='0.0.0.0', port=5005, debug=False, use_reloader=False, allow_unsafe_werkzeug=True)

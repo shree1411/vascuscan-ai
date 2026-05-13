@@ -160,6 +160,8 @@ export function AIFeatureAnalysis() {
   const currentPatient = useStore(selectCurrentPatient);
   const { loading, error, refetchCurrentPatient } = usePrediction();
   const signalFeatures = useStore((s) => s.signalFeatures);
+  const preferredModel = useStore((s) => s.preferredPredictionModel);
+  const setPreferredModel = useStore((s) => s.setPreferredPredictionModel);
   const [waveFeatures, setWaveFeatures] = useState<WaveFeature[]>(() =>
     buildWaveFeatures(signalFeatures)
   );
@@ -203,7 +205,26 @@ export function AIFeatureAnalysis() {
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
-        <p className="text-white text-sm font-semibold">AI FEATURE ANALYSIS</p>
+        <div className="flex items-center gap-3">
+          <p className="text-white text-sm font-semibold">AI FEATURE ANALYSIS</p>
+          <select
+            value={preferredModel}
+            onChange={(e) => {
+                setPreferredModel(e.target.value as any);
+                // Immediately trigger a refetch using the new preference
+                setTimeout(() => refetchCurrentPatient(), 50);
+            }}
+            className="text-xs bg-transparent border rounded px-2 py-0.5"
+            style={{
+              borderColor: "rgba(255,255,255,0.2)",
+              color: "#94a3b8",
+              outline: "none"
+            }}
+          >
+            <option value="auto">Auto (Sensor + Form)</option>
+            <option value="model1">Module 1 (Dataset Only)</option>
+          </select>
+        </div>
         <button
           type="button"
           onClick={() => {

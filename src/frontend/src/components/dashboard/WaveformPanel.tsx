@@ -1,4 +1,4 @@
-import { Pause, Play } from "lucide-react";
+import { Pause, Play, Download, Camera } from "lucide-react";
 /**
  * WaveformPanel.tsx — Real-time waveform display with Canvas animation.
  * Includes SENSOR ON/OFF badge, 5s/10s resolution toggles,
@@ -20,25 +20,43 @@ interface WaveformPanelProps {
 
 function SensorBadge({
   isConnected,
+  quality,
   type,
-}: { isConnected: boolean; type: WaveformType }) {
+}: { isConnected: boolean; quality?: "GOOD" | "MODERATE" | "POOR" | "OFFLINE"; type: WaveformType }) {
+  
+  let bg = "rgba(148,163,184,0.10)";
+  let dot = "#94a3b8";
+  let label = "OFFLINE";
+  
+  if (isConnected && quality) {
+    label = quality;
+    if (quality === "GOOD") {
+      bg = "rgba(34,197,94,0.10)";
+      dot = "#22c55e";
+    } else if (quality === "MODERATE") {
+      bg = "rgba(234,179,8,0.10)";
+      dot = "#eab308";
+    } else if (quality === "POOR") {
+      bg = "rgba(239,68,68,0.10)";
+      dot = "#ef4444";
+    }
+  }
+
   return (
     <span
       data-ocid={`${type}-sensor-badge`}
       className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs"
       style={{
-        background: isConnected
-          ? "rgba(34,197,94,0.10)"
-          : "rgba(249,115,22,0.10)",
+        background: bg,
         border: "1px solid transparent",
       }}
     >
       <span
         className="w-1.5 h-1.5 rounded-full"
-        style={{ background: isConnected ? "#22c55e" : "#f97316" }}
+        style={{ background: dot }}
       />
-      <span style={{ color: "#94a3b8", fontWeight: 300, fontSize: "0.65rem" }}>
-        {isConnected ? "SENSOR ON" : "SENSOR OFF"}
+      <span style={{ color: "#e2e8f0", fontWeight: 500, fontSize: "0.65rem" }}>
+        {label}
       </span>
     </span>
   );
@@ -138,11 +156,13 @@ export function WaveformPanel({
   const accent = type === "ppg" ? "#00d4ff" : "#00e676";
   const resolution = waveformResolution; // Use global state
 
-  // Derive sensor connected state from store
   const isConnected =
     type === "ppg"
       ? sensorStatus.ppg === "CONNECTED"
       : sensorStatus.ecg === "CONNECTED";
+      
+  const quality = type === "ppg" ? sensorStatus.ppgQuality : sensorStatus.ecgQuality;
+  const confidence = type === "ppg" ? sensorStatus.ppgConfidence : sensorStatus.ecgConfidence;
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -158,7 +178,10 @@ export function WaveformPanel({
   // Sync to backend
   const socketRef = useRef<ReturnType<typeof io> | null>(null);
   useEffect(() => {
-    socketRef.current = io("/", { reconnectionDelayMax: 5000 });
+    socketRef.current = io("http://127.0.0.1:5005", { 
+        transports: ["websocket"],
+        reconnectionDelayMax: 5000 
+    });
     return () => { socketRef.current?.disconnect(); };
   }, []);
 
@@ -190,27 +213,22 @@ export function WaveformPanel({
   }, []);
 
   // Signal param rows
+  const signalFeatures = useStore((s) => s.signalFeatures);
   const params =
     type === "ppg"
       ? [
-          { label: "HEART RATE", value: vitals.heartRate, unit: "BPM" },
-          {
-            label: "PULSE AMP",
-            value: vitals.perfusionIndex.toFixed(2),
-            unit: "V",
-          },
-          { label: "PTT", value: vitals.ptt, unit: "ms" },
-          { label: "RISE TIME", value: 165, unit: "ms" },
+          { label: "PULSE AMP", value: signalFeatures.pulseAmplitude.toFixed(2), unit: "V" },
+          { label: "RISE TIME", value: signalFeatures.riseTime, unit: "ms" },
+          { label: "DICROTIC NOTCH", value: signalFeatures.dicroticNotch, unit: "" },
+          { label: "SKEWNESS", value: signalFeatures.skewness, unit: "" },
+          { label: "PERFUSION IDX", value: signalFeatures.perfusion.toFixed(1), unit: "%" },
         ]
       : [
-          { label: "QRS DURATION", value: 92, unit: "ms" },
-          {
-            label: "RR INTERVAL",
-            value: Math.round(60000 / vitals.heartRate),
-            unit: "ms",
-          },
-          { label: "ST SEGMENT", value: "+0.08", unit: "mV" },
-          { label: "HRV INDEX", value: 42, unit: "ms" },
+          { label: "HEART RATE", value: signalFeatures.heartRate, unit: "BPM" },
+          { label: "RR INTERVAL", value: signalFeatures.rrInterval, unit: "ms" },
+          { label: "QRS DURATION", value: signalFeatures.qrsDuration, unit: "ms" },
+          { label: "ST SEGMENT", value: signalFeatures.stSegment > 0 ? `+${signalFeatures.stSegment.toFixed(2)}` : signalFeatures.stSegment.toFixed(2), unit: "mV" },
+          { label: "HRV INDEX", value: signalFeatures.hrvIndex, unit: "ms" },
         ];
 
   return (
@@ -246,7 +264,7 @@ export function WaveformPanel({
           </span>
 
           {/* Sensor ON/OFF badge */}
-          <SensorBadge isConnected={isConnected} type={type} />
+          <SensorBadge isConnected={isConnected} quality={quality} type={type} />
 
           {/* Freeze / Resume button */}
           <button
@@ -284,7 +302,7 @@ export function WaveformPanel({
 
           {/* Resolution toggles */}
           <div className="flex gap-1">
-            {(["5s", "10s"] as const).map((r) => (
+            {(["5s", "10s", "30s"] as const).map((r) => (
               <button
                 key={r}
                 type="button"
@@ -308,6 +326,41 @@ export function WaveformPanel({
                 {r}
               </button>
             ))}
+          </div>
+          
+          {/* Action Buttons */}
+          <div className="flex gap-1 border-l pl-2 ml-1" style={{ borderColor: "#1e2a3a" }}>
+            <button
+              type="button"
+              title="Capture Screenshot"
+              onClick={() => {
+                 if (canvasRef.current) {
+                     const link = document.createElement("a");
+                     link.download = `vascuscan_${type}_${new Date().getTime()}.png`;
+                     link.href = canvasRef.current.toDataURL("image/png");
+                     link.click();
+                 }
+              }}
+              className="p-1 rounded text-xs font-medium transition-colors hover:bg-white/10"
+              style={{ color: "#94a3b8" }}
+            >
+              <Camera size={12} />
+            </button>
+            <button
+              type="button"
+              title="Export CSV Data"
+              onClick={() => {
+                 // Simple mock CSV export, a real implementation would pull from buffer
+                 const link = document.createElement("a");
+                 link.download = `vascuscan_${type}_${new Date().getTime()}.csv`;
+                 link.href = "data:text/csv;charset=utf-8,time,value\n0,0\n";
+                 link.click();
+              }}
+              className="p-1 rounded text-xs font-medium transition-colors hover:bg-white/10"
+              style={{ color: "#94a3b8" }}
+            >
+              <Download size={12} />
+            </button>
           </div>
         </div>
       </div>
@@ -337,6 +390,17 @@ export function WaveformPanel({
             </span>
           </div>
         )}
+      </div>
+      
+      {/* Confidence Bar */}
+      <div className="w-full h-1 bg-gray-900 overflow-hidden" title={`Signal Confidence: ${confidence?.toFixed(0) ?? 0}%`}>
+        <div 
+           className="h-full transition-all duration-500 ease-out" 
+           style={{ 
+               width: `${confidence ?? 0}%`, 
+               background: quality === "GOOD" ? "#22c55e" : quality === "MODERATE" ? "#eab308" : quality === "POOR" ? "#ef4444" : "#475569" 
+           }} 
+        />
       </div>
 
       {/* Noise + Filter Sliders */}
@@ -382,14 +446,14 @@ export function WaveformPanel({
 
       {/* Signal params */}
       <div
-        className="grid grid-cols-4 border-t"
+        className="grid grid-cols-5 border-t"
         style={{ borderColor: "#1e2a3a" }}
       >
         {params.map((p, i) => (
           <div
             key={p.label}
             className="flex flex-col items-center py-2 text-center"
-            style={{ borderRight: i < 3 ? "1px solid #1e2a3a" : "none" }}
+            style={{ borderRight: i < 4 ? "1px solid #1e2a3a" : "none" }}
           >
             <span className="text-xs" style={{ color: "#94a3b8" }}>
               {p.label}

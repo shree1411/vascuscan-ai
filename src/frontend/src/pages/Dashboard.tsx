@@ -7,6 +7,7 @@ import { LiveVitals } from "../components/LiveVitals";
 import { SensorStatusBar } from "../components/SensorStatusBar";
 import { PatientInfoPanel } from "../components/dashboard/PatientInfoPanel";
 import { WaveformPanel } from "../components/dashboard/WaveformPanel";
+import { MedicalAlerts } from "../components/dashboard/MedicalAlerts";
 import { useStore } from "../store/useStore";
 import { useRealTimeAlerts } from "../hooks/useRealTimeAlerts";
 
@@ -21,6 +22,7 @@ export default function Dashboard() {
       style={{ background: "#0a0e1a" }}
     >
       <SensorStatusBar />
+      <MedicalAlerts />
 
       <div className="flex flex-1 overflow-hidden">
         {/* Left sidebar — patient info */}

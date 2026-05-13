@@ -18,10 +18,19 @@ import { toast } from "sonner";
 export interface SignalFeatures {
   pulseAmplitude: number;
   riseTime: number;
-  dicroticNotch: boolean;
-  skewness: number;
+  dicroticNotch: string;
+  skewness: string;
   hrvIndex: number;
   perfusion: number;
+  qrsDuration: number;
+  stSegment: number;
+  rrInterval: number;
+  estSystolicBp: number;
+  estDiastolicBp: number;
+  ptt: number;
+  heartRate: number;
+  confidenceScore: number;
+  vascularStiffness: number;
 }
 
 export interface Notification {
@@ -43,6 +52,7 @@ interface StoreState {
   datasets: Dataset[];
   notifications: Notification[];
   signalFeatures: SignalFeatures;
+  preferredPredictionModel: "auto" | "model1" | "model2";
 
   // actions
   addPatient: (patient: Patient) => void;
@@ -62,6 +72,7 @@ interface StoreState {
   deleteScanSession: (patientId: string, sessionId: string) => void;
   addNotification: (msg: string, type?: Notification["type"]) => void;
   clearNotifications: () => void;
+  setPreferredPredictionModel: (val: "auto" | "model1" | "model2") => void;
 }
 
 const defaultVitals: VitalSigns = {
@@ -85,10 +96,19 @@ const CLAMPS: Partial<Record<keyof VitalSigns, [number, number]>> = {
 const defaultSignalFeatures: SignalFeatures = {
   pulseAmplitude: 0.85,
   riseTime: 165,
-  dicroticNotch: true,
-  skewness: 0.12,
+  dicroticNotch: "PRESENT",
+  skewness: "NORMAL",
   hrvIndex: 42,
   perfusion: 3.2,
+  qrsDuration: 90,
+  stSegment: 0.05,
+  rrInterval: 800,
+  estSystolicBp: 120,
+  estDiastolicBp: 80,
+  ptt: 250,
+  heartRate: 75,
+  confidenceScore: 100,
+  vascularStiffness: 3.5,
 };
 
 export const useStore = create<StoreState>()(
@@ -103,6 +123,10 @@ export const useStore = create<StoreState>()(
       sensorStatus: {
         ppg: "OFFLINE",
         ecg: "OFFLINE",
+        ppgQuality: "OFFLINE",
+        ecgQuality: "OFFLINE",
+        ecgConfidence: 0,
+        ppgConfidence: 0,
         fingerDetected: "NO SIGNAL",
       },
       waveformResolution: "5s",
@@ -115,6 +139,7 @@ export const useStore = create<StoreState>()(
       },
       notifications: [],
       signalFeatures: { ...defaultSignalFeatures },
+      preferredPredictionModel: "auto",
 
       addPatient: (patient) =>
         set((s) => ({ patients: [...s.patients, patient] })),
@@ -207,6 +232,8 @@ export const useStore = create<StoreState>()(
       },
 
       clearNotifications: () => set({ notifications: [] }),
+      
+      setPreferredPredictionModel: (val) => set({ preferredPredictionModel: val }),
     }),
     {
       name: "vascuscan-store-v1",

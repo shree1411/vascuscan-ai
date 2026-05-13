@@ -19,7 +19,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { selectCurrentPatient, useStore } from "../store/useStore";
 import type { RiskAssessment } from "../types";
 
-const API = "http://127.0.0.1:5000";
+const API = "http://127.0.0.1:5005";
 
 export interface PredictionResult {
   risk_level: string;
@@ -49,10 +49,21 @@ function buildPayload(patient: ReturnType<typeof selectCurrentPatient>) {
 }
 
 async function fetchPrediction(payload: object): Promise<PredictionResult> {
+  const storeState = useStore.getState();
+  const finalPayload = { ...payload, preferred_model: storeState.preferredPredictionModel };
+
+  // 1. Sync context to the backend so the real-time loop can trigger Model 2 (ECG+PPG)
+  fetch(`${API}/api/patient/context`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(finalPayload),
+  }).catch(() => console.log("Context sync skipped"));
+
+  // 2. Perform the immediate clinical prediction
   const res = await fetch(`${API}/api/predict-form`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(finalPayload),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();

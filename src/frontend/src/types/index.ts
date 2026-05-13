@@ -1,7 +1,7 @@
 export type BloodType = "O+" | "O-" | "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-";
 export type Gender = "Male" | "Female" | "Other";
 export type RiskLevel = "Low" | "Moderate" | "High";
-export type WaveformResolution = "5s" | "10s";
+export type WaveformResolution = "5s" | "10s" | "30s";
 
 export interface VitalSigns {
   heartRate: number;
@@ -119,6 +119,10 @@ export interface Patient {
 export interface SensorStatus {
   ppg: "CONNECTED" | "DISCONNECTED" | "OFFLINE" | "SIMULATING";
   ecg: "CONNECTED" | "DISCONNECTED" | "OFFLINE" | "SIMULATING";
+  ppgQuality?: "GOOD" | "MODERATE" | "POOR" | "OFFLINE";
+  ecgQuality?: "GOOD" | "MODERATE" | "POOR" | "OFFLINE";
+  ecgConfidence?: number;
+  ppgConfidence?: number;
   fingerDetected: "SIGNAL GOOD" | "SIGNAL POOR" | "NO SIGNAL";
 }
 

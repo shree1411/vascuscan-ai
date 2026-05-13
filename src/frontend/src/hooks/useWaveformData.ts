@@ -44,6 +44,7 @@ export function useWaveformData({
   const tRef = useRef(0);
   // smooth noise walk for live mode
   const noiseRef = useRef(0);
+  const lastRemoteTime = useRef(0);
   // keep latest frozen flag accessible inside rAF without re-creating callback
   const frozenRef = useRef(frozen);
   frozenRef.current = frozen;
@@ -60,21 +61,60 @@ export function useWaveformData({
 
   // Pre-fill buffer when resolution changes so there's no blank canvas flash
   useEffect(() => {
-    const windowSec = waveformResolution === "5s" ? 5 : 10;
+    const windowSec = waveformResolution === "5s" ? 5 : waveformResolution === "30s" ? 30 : 10;
     const bufSize = SAMPLE_RATE * windowSec;
-    const freq = heartRate / 60;
-    // Fill with static fake signal
+    const freq = (heartRate || 75) / 60;
+    // Fill with flatline
     bufferRef.current = Array.from({ length: bufSize }, (_, i) => {
       const t = i / SAMPLE_RATE;
-      const y = sampleSignal(type, t, freq, false, 0);
-      return { t, y };
+      return { t, y: 0 };
     });
     writeHeadRef.current = 0;
     // Sync time reference to end of pre-filled buffer
     tRef.current = bufSize / SAMPLE_RATE;
     // Reset smoothed value to midpoint on resolution change
     smoothedYRef.current = 0;
-  }, [type, heartRate, waveformResolution]);
+  }, [type, waveformResolution]); // Removed heartRate to prevent resets during jitters
+
+  useEffect(() => {
+    const handleRemoteData = (e: any) => {
+        if (frozenRef.current) return;
+        const data = e.detail;
+        const chunk = type === "ppg" ? data.ppg : data.ecg;
+        if (!chunk || chunk.length === 0) return;
+
+        const fs = filterStrengthRef.current;
+        const windowSec = waveformResolution === "5s" ? 5 : waveformResolution === "30s" ? 30 : 10;
+        const bufSize = SAMPLE_RATE * windowSec;
+
+        chunk.forEach((val: number) => {
+            // scale 0-1023 to ~ -1..1 range for drawSignal
+            let scaledY = ((val - 512) / 256); 
+            
+            // Apply smoothing filter if needed
+            if (fs >= 0.99) {
+              scaledY = 0;
+            } else {
+              smoothedYRef.current = smoothedYRef.current * fs + scaledY * (1 - fs);
+              scaledY = smoothedYRef.current;
+            }
+
+            const sample = { t: tRef.current, y: scaledY };
+            tRef.current += 1 / SAMPLE_RATE;
+
+            if (bufferRef.current.length === bufSize) {
+                bufferRef.current[writeHeadRef.current] = sample;
+                writeHeadRef.current = (writeHeadRef.current + 1) % bufSize;
+            }
+        });
+        
+        // Flag that we are receiving real data so the local generator stays quiet
+        lastRemoteTime.current = Date.now();
+    };
+
+    window.addEventListener('sensor_waveform' as any, handleRemoteData);
+    return () => window.removeEventListener('sensor_waveform' as any, handleRemoteData);
+  }, [type, waveformResolution]);
 
   const animate = useCallback(() => {
     const canvas = canvasRef.current;
@@ -90,67 +130,29 @@ export function useWaveformData({
         ctx.fillStyle = "#060d18";
         ctx.fillRect(0, 0, width, height);
 
-        const windowSec = waveformResolution === "5s" ? 5 : 10;
+        const windowSec = waveformResolution === "5s" ? 5 : waveformResolution === "30s" ? 30 : 10;
         const bufSize = SAMPLE_RATE * windowSec;
-        const freq = heartRate / 60;
         const ni = noiseIntensityRef.current;
         const fs = filterStrengthRef.current;
 
-        // Advance time by one sample
-        tRef.current += 1 / SAMPLE_RATE;
+        // If we haven't received remote data in the last 200ms, push baseline 0 to decay gracefully
+        if (Date.now() - lastRemoteTime.current > 200) {
+            tRef.current += 1 / SAMPLE_RATE;
+            const rawY = 0; // Baseline flatline
 
-        // Smooth noise walk — strictly gated to 0 when ni === 0
-        if (isSensorConnected) {
-          if (ni === 0) {
-            noiseRef.current = 0;
-          } else {
-            noiseRef.current += (Math.random() - 0.5) * 0.04 * ni;
-            const cap = 0.12 * ni;
-            noiseRef.current = Math.max(-cap, Math.min(cap, noiseRef.current));
-          }
-        } else {
-          noiseRef.current = 0;
-        }
+            let filteredY: number;
+            if (fs >= 0.99) {
+                filteredY = 0;
+            } else {
+                smoothedYRef.current = smoothedYRef.current * fs + rawY * (1 - fs);
+                filteredY = smoothedYRef.current;
+            }
 
-        // Per-sample jitter — strictly gated to 0 when ni === 0
-        const jitter =
-          isSensorConnected && ni > 0 ? (Math.random() - 0.5) * 0.015 * ni : 0;
-        const noise = noiseRef.current + jitter;
-
-        // Raw sample
-        const rawY = sampleSignal(
-          type,
-          tRef.current,
-          freq,
-          isSensorConnected,
-          noise,
-        );
-
-        // ── Apply low-pass preprocessing filter ───────────────────────────────
-        // alpha = filterStrength * 0.95 (so at fs=1.0, alpha=0.95 = very smooth)
-        // At fs=0, alpha=0 → pass-through.
-        // At fs>=0.99, force perfectly flat baseline.
-        let filteredY: number;
-        if (fs >= 0.99) {
-          // Maximum filter = perfectly flat baseline
-          filteredY = 0;
-          smoothedYRef.current = 0;
-        } else if (fs === 0) {
-          filteredY = rawY;
-          smoothedYRef.current = rawY;
-        } else {
-          const alpha = fs * 0.95;
-          smoothedYRef.current =
-            smoothedYRef.current * alpha + rawY * (1 - alpha);
-          filteredY = smoothedYRef.current;
-        }
-
-        const sample: WaveformSample = { t: tRef.current, y: filteredY };
-
-        // Write into ring buffer
-        if (bufferRef.current.length === bufSize) {
-          bufferRef.current[writeHeadRef.current] = sample;
-          writeHeadRef.current = (writeHeadRef.current + 1) % bufSize;
+            const sample = { t: tRef.current, y: filteredY };
+            if (bufferRef.current.length === bufSize) {
+                bufferRef.current[writeHeadRef.current] = sample;
+                writeHeadRef.current = (writeHeadRef.current + 1) % bufSize;
+            }
         }
 
         // Reorder ring buffer to chronological order for rendering
@@ -185,39 +187,3 @@ export function useWaveformData({
   }, [animate]);
 }
 
-// ─── Inline signal sampler ────────────────────────────────────────────────────
-
-function sampleSignal(
-  type: "ppg" | "ecg",
-  t: number,
-  freq: number,
-  _isLive: boolean,
-  noise: number,
-): number {
-  const phase = (t * freq) % 1.0;
-
-  if (type === "ecg") {
-    // ── High-Fidelity ECG (Analytical QRS Model) ──────────────────────────
-    // P wave
-    const p = 0.15 * Math.exp(-Math.pow((phase - 0.1) / 0.02, 2));
-    // QRS complex
-    const q = -0.1 * Math.exp(-Math.pow((phase - 0.14) / 0.005, 2));
-    const r = 1.0 * Math.exp(-Math.pow((phase - 0.16) / 0.008, 2));
-    const s = -0.2 * Math.exp(-Math.pow((phase - 0.18) / 0.006, 2));
-    // T wave
-    const t_wave = 0.35 * Math.exp(-Math.pow((phase - 0.45) / 0.06, 2));
-    
-    return p + q + r + s + t_wave + noise;
-  } else {
-    // ── High-Fidelity PPG (Dual-Gaussian/Tanh Pulse) ─────────────────────
-    // Primary systolic peak
-    const systolic = 0.85 * Math.exp(-Math.pow((phase - 0.2) / 0.08, 2));
-    // Dicrotic notch + secondary peak (diastolic)
-    const diastolic = 0.25 * Math.exp(-Math.pow((phase - 0.45) / 0.12, 2));
-    
-    // Smooth pulsatile baseline
-    const baseline = 0.05 * Math.sin(2 * Math.PI * 0.15 * t);
-    
-    return systolic + diastolic + baseline + noise;
-  }
-}

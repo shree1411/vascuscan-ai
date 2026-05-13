@@ -32,11 +32,11 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:5000",
+        target: "http://127.0.0.1:5005",
         changeOrigin: true,
       },
       "/socket.io": {
-        target: "http://127.0.0.1:5000",
+        target: "http://127.0.0.1:5005",
         ws: true,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/socket.io/, '/socket.io')
